@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Design"
+  short_description: "Explore product value and specify behavior with examples"
+  default_prompt: "Use $product-design to explore this idea and produce a Think-stage Design Doc using its exact template."
