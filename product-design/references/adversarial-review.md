@@ -50,7 +50,7 @@ An attempt is one request sent to a reviewer. Every request counts, even if it f
 
    If evidence or a user decision is needed, keep the finding. Record or reopen its question through the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms). Pause further reviewer requests and work that depends on the answer. Continue independent investigation or drafting.
 3. Otherwise correct wording or structure within the agreed design. For a material change, apply the contract's [status and approval rules](document-contract.md#status-and-approval).
-4. Run structural validation again. Send the full revision and prior findings for the next review attempt. Mark a finding resolved only when the reviewer's evidence supports that conclusion.
+4. Recheck affected content under the shared [document validation method](../../technical-writing/references/validation-guide.md), including the contract's structural requirements. Send the full revision and prior findings for the next review attempt. Mark a finding resolved only when the reviewer's evidence supports that conclusion.
 
 If review fails, times out, or returns invalid output, stop the review loop. Report incomplete review coverage. Keep usable findings and concrete evidence for issues that remain unresolved.
 
@@ -58,7 +58,7 @@ After the question is resolved or the user agrees to exclude the affected scope:
 
 1. Update the affected content.
 2. Apply the contract's status rules.
-3. Run structural validation again.
+3. Recheck affected structure, meaning, domain rules, and references under the shared validation method.
 4. Resume review only if attempts remain and the issue has progressed.
 
 Keep prior findings and the total attempt count. Answering a question does not reset the three-attempt limit.

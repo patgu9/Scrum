@@ -93,7 +93,7 @@ Follow this loop as evidence and decisions change:
 
 8. **Check blockers and finish discovery.** An empty question queue does not prove that clarification is complete. Check unfinished investigations, waiting answers, unknowns, and cycles in question dependencies. Report the blocker and next action. Break a cycle by clarifying the decision that governs the dependent questions or investigating the unknown fact. Do not resolve a question without a basis.
 
-   When discovery is complete, apply the contract's [status and approval rules](document-contract.md#status-and-approval). Ask the user to approve the current version before setting `APPROVED`. Approval does not start implementation.
+   When discovery is complete, apply the contract's [status and approval rules](document-contract.md#status-and-approval), including the team or standalone approval route. Set `APPROVED` only from explicit human approval of the current version.
 
 Use concrete counterexamples to clarify ambiguous claims and terms. For example, “sharing” may mean a public link or a workspace invitation. Decide the audience and access rules before invitation expiry. Independent questions can proceed.
 
@@ -109,6 +109,17 @@ For a hypothetical research-sharing design, dependencies might look like this:
 Ask Q1 while investigating Q2. After the audience decision, reassess the remaining questions.
 
 Record conclusions using the contract's [content placement](document-contract.md#content-placement). Editing separate domain documents or architecture decision records (ADRs) requires a separate request.
+
+## Revisit a product baseline
+
+Use this path when engineering, planning, development, review, QA, or Ops returns evidence that challenges product value, scope, behavior, or acceptance criteria.
+
+1. **Check the return.** Apply the contract's input checks. Retain the feedback identity, originating function, affected baseline and rule IDs, constraint, observations, estimates and uncertainty, impact, considered alternatives and tradeoffs, and requested decision or missing fact. If no alternative is known, say so. Ask for missing evidence through the handoff route; do not silently apply feedback about an older baseline to the current version.
+2. **Reconsider the product decision.** Investigate available facts and use the clarification loop for product decisions. Compare ways to preserve the user goal within the discovered constraints. Keep proven limits separate from estimates and unknowns. Without an agreed budget or limit, report a tradeoff or clarification need rather than inventing a threshold. Send purely technical, task, code, or test-case corrections back to their owning function through Delivery Lead in team work.
+3. **Deliver a response.** Produce a revised product proposal with alternatives, tradeoffs, changed rules and examples; or a reasoned response requesting more evidence or explaining why the current product decision still applies. Identify the affected product scope and known downstream references for the coordinator's impact assessment. Use the contract's version and approval rules for changed scope, behavior, or acceptance criteria. An unchanged product decision does not by itself resolve the originating constraint.
+4. **Keep the loop explicit.** In team work, Delivery Lead tracks the affected downstream outputs, approvals, resumption, and closure; supply the product evidence it needs. Revised product approval permits renewed technical assessment, not an assumption of feasibility. Closure needs the relevant function's supported resolution or an explicit human decision to defer or stop. Record deferred or stopped scope as undelivered. If the same baseline returns without new evidence or a viable alternative, provide the attempts, options, consequences, and missing facts for a human decision rather than repeating the same proposal. In standalone work, deliver that request to the user.
+
+Preserve prior decisions and unaffected scope. Dependent work stays blocked while required evidence or approval is missing; independent work needs a supported basis for remaining valid. Return a feedback or blocker summary even when no revised product document is ready.
 
 ## Compare approaches
 

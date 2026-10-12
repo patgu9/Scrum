@@ -11,9 +11,11 @@ Help the user decide what is worth building and how the product should behave. P
 
 Read project instructions, terminology, and evidence of current behavior. A repository is optional. Reuse the user's answers and investigate available facts. Keep current behavior, user intent, and evidence of demand distinct.
 
-Find related designs in `doc/design/`, `docs/designs/`, or the user's chosen location. Separate approved decisions, superseded proposals, and unresolved drafts. Report conflicts that affect scope. Approval applies to the version the user approved.
+Find the current task and related designs under `doc/` using the [task artifact layout](references/artifact-layout.md). Separate approved decisions, superseded proposals, and unresolved drafts. Report conflicts that affect scope. Approval applies to the version the user approved.
 
 Read [discovery methods](references/discovery-methods.md) to choose a mode and guide questions and decisions.
+
+Check the contract's [inputs and invocation context](references/document-contract.md#inputs-and-invocation-context). For downstream feedback, follow [revisit a product baseline](references/discovery-methods.md#revisit-a-product-baseline) before revising the design.
 
 Read the [Technical Writing Skill](../technical-writing/SKILL.md) before drafting. Apply its writing method to explanations, document prose, tables, rules, and examples.
 
@@ -41,8 +43,8 @@ Use [Specification by Example](references/discovery-methods.md#specification-by-
 
 Save the document using the contract's [saving rules](references/document-contract.md#saving).
 
-Complete the contract's [final review](references/document-contract.md#final-review). Then run [structural validation](references/document-contract.md#structural-validation).
+Follow the shared [document validation method](../technical-writing/references/validation-guide.md). Check the contract's [structural requirements](references/document-contract.md#structural-validation) and complete its [final review](references/document-contract.md#final-review).
 
 Follow [adversarial review](references/adversarial-review.md). Then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
 
-Report the saved path, document Status, blockers, review coverage, and Next Action.
+Deliver the contract's [handoff summary](references/document-contract.md#handoff-summary) with the product document or feedback response. Use its approval route for team or standalone work.

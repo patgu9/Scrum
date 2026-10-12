@@ -2,17 +2,25 @@
 
 This contract defines the Design Doc's structure, content, saving, structural validation, and approval. Use the [template](../assets/design-doc-template.md) for the output format. Follow the [skill entrypoint](../SKILL.md) for the workflow and the [Technical Writing Skill](../../technical-writing/SKILL.md) for writing methods.
 
+## Inputs and invocation context
+
+Accept a goal, available context and constraints, user answers, and any downstream feedback with its affected product baseline. Discovery can start with an incomplete goal. Investigate available facts and record missing product decisions through the clarification protocol.
+
+For a continuation or feedback request, read the referenced artifacts and check their versions and approval evidence against the requested scope. Missing, inaccessible, conflicting, or stale required input blocks dependent work. Report what is needed, who can supply it, and the affected work. Continue only work whose inputs remain valid; do not reconstruct an approved baseline from memory.
+
+Use the caller's established workflow. In a team workflow, PM owns product discovery and artifacts; Delivery Lead routes handoffs and submits approval requests to the human owner. In standalone work, deliver directly to the user. Ask about the route only when the supplied context is ambiguous and the answer affects the next handoff. This context is separate from Startup / Builder discovery mode. Platform commands and record transport belong to the caller's platform Skill.
+
 ## Saving
 
-Keep one authoritative document per topic at `<project-root>/doc/design/{topic}.md`. Use a lowercase topic name with hyphens between words.
+Follow the shared [task artifact layout](artifact-layout.md) for directory selection, filenames, and revisions. Save the product document as `<project-root>/doc/YYYY-MM-DD-task-slug/product-design.md`.
 
 Before saving:
 
 1. Resolve the project root if it is unclear.
-2. Read and reuse the topic's existing file, if present.
+2. Select the task directory and read its existing product document, if present.
 3. Resolve conflicts with unrelated files before replacing content.
 
-Keep the glossary, decisions, and review findings in the same document.
+Keep the glossary, decisions, and review findings in the same product document. Supply its path and task directory in the handoff summary.
 
 ## Structure
 
@@ -21,6 +29,8 @@ Keep the heading order and spelling below. Repeat only the Feature block. Do not
 ```text
 ## Design Doc : <title>
 - Status: DRAFT | IN_REVIEW | APPROVED
+- Version: v1
+- Approval: Pending
 - Mode: Startup | Builder
 - Date: YYYY-MM-DD
 - Stage: Think
@@ -77,6 +87,7 @@ Use tables by default for comparable cases. If narrative examples are clearer, u
 | Goal → actor → behavioral impact → deliverable links. Trigger, handoffs between actors, outcome, how the product reaches users, and shared dependencies | How It Works, including diagrams |
 | Initial audience, smallest useful outcome, included Features, exclusions, and costs of future changes where relevant | Scope |
 | Premises, assumptions, Q records, dependencies, and unresolved review findings. Approval impact, validation plan, decisions to revisit, and follow-up | Premises and Open Questions |
+| Prior product baselines and approvals, reasons for revision, and downstream feedback dispositions | Premises and Open Questions, with links to retained evidence |
 | Outcome and verification method. For quantitative goals: baseline, target, units, population, and time window | Success Criteria |
 | Value → role → action, SC links, rules, and acceptance examples | Feature blocks |
 | One action and observable result. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome | Next Action |
@@ -107,22 +118,49 @@ For each assumption that materially affects value, scope, or the chosen approach
 
 Next Action identifies one concrete validation or trial step. It need not cover every assumption. Approval does not remove outstanding validation work.
 
+## Versions and approval evidence
+
+Use `Version: v<n>`, starting at `v1`. Increment the version when substantive changes alter a product version already handed off for review, approval, or downstream use. Work in progress may retain its version until that handoff. Typographic changes alone preserve the version.
+
+Before changing a handed-off version, retain its exact content through an accessible repository revision or an immutable snapshot at `history/product-design/v<n>.md` within the task directory. Reuse an existing matching reference; never overwrite a different snapshot at that version. Historical snapshots are evidence, not competing current documents. Record the prior version, reference, approval evidence, and reason for revision in Premises and Open Questions. The current `product-design.md` remains authoritative.
+
+Keep `Approval: Pending` for DRAFT and IN_REVIEW. For APPROVED, use `Approval: <version> | <YYYY-MM-DD> | <human approver> | <evidence reference>`. The version must equal the current Version. Cite the actual approving message or decision record; preserve its explicit scope. Approval relayed by Delivery Lead must identify the human decision, not the coordinator's own conclusion. An unavailable or ambiguous approval record blocks approved handoff.
+
+When revising an older document without version fields, identify and retain the source revision first. Add `v1` for the newly tracked document; do not invent earlier versions or approval evidence. Preserve APPROVED only when evidence covers the exact content; otherwise record the uncertainty and seek confirmation through the applicable route.
+
 ## Status and approval
 
 - **DRAFT:** Discovery is incomplete or issues still block approval. Record unknowns when the user skips questions. Proposals and silence do not establish decisions or approval.
-- **IN_REVIEW:** The document is complete, the direction is agreed, and no approval blockers remain. Present the document for confirmation.
+- **IN_REVIEW:** The document is complete, the direction is agreed, and no approval blockers remain. Deliver it for confirmation through the route below.
 - **APPROVED:** The user explicitly approved this version. Blockers are resolved or the user agreed to exclude affected scope. Approval does not validate assumptions.
 
 Questions about core users, scope, or behavior block approval unless the user agrees to exclude the affected scope.
 
 If goals, scope, rules, or outcomes change materially:
 
-1. Set the document Status to DRAFT.
-2. Obtain the user's decision unless the change is already authorized.
+1. Preserve the prior baseline, update Version as required above, set Status to DRAFT, and reset Approval to Pending.
+2. Obtain the user's product decision unless the change is already authorized. Authorization to revise is not approval of the resulting version.
 3. Check affected terms, Success Criteria, User Stories, and examples.
 4. Set IN_REVIEW when the document is complete and no approval blockers remain.
 
 Typographic edits alone preserve approval.
+
+In team work, send the approval request and exact product version to Delivery Lead for submission to the human owner. PM may clarify business decisions with the owner but does not take over cross-role approval routing. In standalone work, request approval directly from the user. Record explicit approval before handing the version to technical design. Approval neither proves feasibility nor authorizes implementation.
+
+## Handoff summary
+
+Every invocation delivers a summary plus references to its professional artifacts, including when blocked or returning feedback. Put the summary in the caller's delivery record or response, outside the product document's fixed structure. Keep it platform-independent; transport is the caller's responsibility.
+
+Include:
+
+- **Task and inputs:** Task identity and directory; input artifacts and exact versions, applicable approval references, and feedback identity. For a new goal, cite the supplied request rather than inventing an input version.
+- **Outputs:** Product document path and Version, or the feedback response and its affected baseline. Link supporting artifacts rather than copying them.
+- **Conclusion:** Discovery incomplete, awaiting approval, approved for technical design, or feedback/blocker. State the document Status and approval evidence separately; completing this invocation does not establish downstream acceptance.
+- **Evidence:** Structure and final-review results, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../technical-writing/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
+- **Open items:** Stable question/finding IDs, dispositions, affected product rules, missing information, and who can supply it. Preserve feedback identity through revisions.
+- **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. In team work, address Delivery Lead and identify the intended specialist or human decision; in standalone work, address the user. An approved forward handoff names `technical-design` and engineering lead.
+
+For a feedback response, include the content required by [revisit a product baseline](discovery-methods.md#revisit-a-product-baseline). A blocker or a request for evidence is a valid delivery; it does not require a completed product revision.
 
 ## Document language
 
@@ -142,20 +180,27 @@ Within each assigned location, answer the reader's main question first. Then giv
 
    For each important assumption, check what to observe and how to collect observations. Check which result would not support the assumption and which decisions to reopen. Examples of intended behavior alone do not validate assumptions.
 4. **Decisions and approval:** Check question records, sources for resolved answers, dependencies, unanswered questions, and content awaiting review. An empty question queue does not prove that approval blockers are resolved. Apply [Status and approval](#status-and-approval) to the current version and its unresolved questions.
-5. **Completion:** Check that Next Action is concrete and the work stays within the entrypoint's scope.
+5. **Completion:** Check that Next Action is concrete, the handoff summary identifies valid inputs and the next recipient, and the work stays within the entrypoint's scope. For revisions, check retained baselines, current approval evidence, and feedback disposition.
 
 ## Structural validation
 
-Run `python3 <skill-dir>/scripts/validate_design.py <document-path>`. If the user supplied a replacement template, add `--template <path>`.
+Use the shared [document validation method](../../technical-writing/references/validation-guide.md). Check the document directly against this contract and the applicable template:
 
-Correct structural defects without changing decisions. If Python is unavailable, check structure manually. Report that the script was not run.
+1. **Format:** Heading order, metadata values, required labels, table headers and complete rows, and populated sections. Remove template placeholders and instructional comments. Apply the user's replacement template when supplied.
+2. **Identifiers and coverage:** Unique, stable Success Criteria, Feature, Rule, and Example IDs. Each User Story links to defined Success Criteria. Each example links to valid rules and contains Given, When, and Then. Every defined rule has an example.
+3. **Questions and status:** Q IDs, question states, dependencies, TBD links, and explicit approval blockers. Check consistency with the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) and [status rules](#status-and-approval).
+4. **Versions and handoff:** Current Version and Approval fields, retained baselines and accessible approval evidence, and required handoff-summary fields. Apply [versions and approval evidence](#versions-and-approval-evidence) and [handoff summary](#handoff-summary).
 
-Report the script's result within these limits:
+Complete [final review](#final-review) to assess the content behind these fields and references. Correct structural defects without changing decisions.
 
-- **Checked:** Headings, metadata, labels, tables, placeholders, Success Criteria/Feature/Rule/Example IDs, example coverage, and explicit approval blockers.
-- **Not checked:** Q IDs, question states, dependencies, or dialogue behavior.
-- **Not verified:** English quality, factual truth, causal reasoning, user consent, or discovery completeness.
+A structurally valid DRAFT may contain pending behavior or TBDs linked to questions. If even a provisional Feature would require invented content, save an incomplete DRAFT. Report the structural requirements that remain unmet. Never invent content to pass validation.
 
-Complete the final review even after validation passes.
+### Optional script assistance
 
-A structurally valid DRAFT may contain pending behavior or TBDs linked to questions. If even a provisional Feature would require invented content, save an incomplete DRAFT. Report the structural requirements that remain unmet. Never invent content to pass structural validation.
+For mechanical assistance, use `python3 <skill-dir>/scripts/validate_design.py <document-path>`. For a compatible replacement template, add `--template <path>`. This script is optional unless the user or project requires it.
+
+- **Checks:** Headings, metadata, version and approval field format and consistency, labels, tables, placeholders, Success Criteria/Feature/Rule/Example IDs, example coverage, and explicit approval blockers.
+- **Omits:** Q IDs, question states, dependencies, baseline accessibility, external handoff summaries, and dialogue behavior.
+- **Does not establish:** English quality, factual truth, causal reasoning, user consent, or discovery completeness.
+
+Report its actual result and limits under the shared validation method. A script pass does not replace structural or final review.

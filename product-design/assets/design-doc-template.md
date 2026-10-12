@@ -1,11 +1,17 @@
 ## Design Doc : $TITLE$
 
 - Status: DRAFT
+- Version: v1
+- Approval: Pending
 - Mode: $Startup or Builder$
 - Date: $YYYY-MM-DD$
 - Stage: Think
 
 <!-- Follow the [document contract](../references/document-contract.md) for structure, content, and approval. Use the [Technical Writing Skill](../../technical-writing/SKILL.md) for wording. Replace placeholders and remove comments. Omit only optional fields. -->
+
+<!-- Save as product-design.md in the task directory defined by the [task artifact layout](../references/artifact-layout.md). -->
+
+<!-- Follow [versions and approval evidence](../references/document-contract.md#versions-and-approval-evidence) when revising. Approval stays Pending until the human approves this version. Deliver the [handoff summary](../references/document-contract.md#handoff-summary) outside this document. -->
 
 ### Glossary
 

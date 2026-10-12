@@ -90,4 +90,4 @@ Review in this order, adapted from [Self-editing](https://developers.google.com/
 3. **Meaning:** Compare source and revision. Verify the same actors, actions, conditions, exceptions, sequence, alternatives, negation, limits, units, IDs, evidence, uncertainty, and approval state. A wording change cannot settle an unresolved decision.
 4. **Reader walkthrough:** Follow a documented task or answer the document's main question using only the text and its stated prerequisites. Identify missing steps or unexplained terms. Treat this as a text review, not evidence that the product or procedure works.
 
-Report unresolved meaning and checks that were not performed. Automated structure and style checks do not establish factual truth, approval, reader comprehension, or STE compliance.
+Use the shared [document validation method](validation-guide.md) to combine these editing passes with format and domain checks, optional automated assistance, and result reporting.

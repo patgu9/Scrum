@@ -84,11 +84,30 @@ def validate(document, template):
         errors.append("The document must start with its Design Doc title, without a preface.")
 
     metadata = re.findall(r"^- ([A-Za-z]+): (.+)$", nodes[0][1], re.M)
-    if [k for k, _ in metadata] != ["Status", "Mode", "Date", "Stage"]:
-        errors.append("Metadata must be Status, Mode, Date, Stage, once each in that order.")
+    if [k for k, _ in metadata] != ["Status", "Version", "Approval", "Mode", "Date", "Stage"]:
+        errors.append("Metadata must be Status, Version, Approval, Mode, Date, Stage, once each in that order.")
     meta = dict(metadata)
     if meta.get("Status") not in {"DRAFT", "IN_REVIEW", "APPROVED"}:
         errors.append("Invalid Status.")
+    version = meta.get("Version", "")
+    if not re.fullmatch(r"v[1-9]\d*", version):
+        errors.append("Version must be v followed by a positive integer, such as v1.")
+    approval = meta.get("Approval", "")
+    if meta.get("Status") == "APPROVED":
+        parts = [part.strip() for part in approval.split("|", 3)]
+        if len(parts) != 4 or not all(parts):
+            errors.append("APPROVED requires Approval: <version> | <YYYY-MM-DD> | <human approver> | <evidence reference>.")
+        else:
+            if parts[0] != version:
+                errors.append("Approval must cover the current Version.")
+            try:
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", parts[1]):
+                    raise ValueError
+                date.fromisoformat(parts[1])
+            except ValueError:
+                errors.append("Approval must include a valid YYYY-MM-DD date.")
+    elif approval != "Pending":
+        errors.append("DRAFT and IN_REVIEW require Approval: Pending; keep prior approvals in history.")
     if meta.get("Mode") not in {"Startup", "Builder"}:
         errors.append("Invalid Mode.")
     if meta.get("Stage") != "Think":

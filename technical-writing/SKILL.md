@@ -21,6 +21,6 @@ Use the task's existing content structure and decision process. This Skill provi
 
 ## 3. Review and deliver
 
-Complete the guide's [editing passes](references/writing-guide.md#edit-in-separate-passes). Run relevant checks required by the document or calling workflow, and distinguish their results from language and meaning review.
+Follow the shared [document validation method](references/validation-guide.md). Review structure against the applicable format, complete the writing guide's editing passes, and apply the calling workflow's domain checks. Scripts provide optional assistance unless the user or project requires them.
 
-Return the draft or edit the requested artifact in place. Briefly report the main improvements and any unresolved meaning that affects the result.
+Return the draft or edit the requested artifact in place. Report the main improvements, review coverage, unresolved findings, and verification limits under the validation guide's reporting rules.
