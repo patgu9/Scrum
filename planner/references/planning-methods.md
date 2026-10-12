@@ -39,20 +39,20 @@ Record the repository and declared Git base/target from project policy and curre
 
 Estimate task design, implementation, and verification together. Explain the basis and uncertainty using affected behavior, modules, tests, integration needs, and current code. Use ranges or qualitative effort when precise estimates lack support. Do not manufacture schedule commitments or line counts.
 
-Use [Google's Small CLs guide](https://google.github.io/eng-practices/review/developer/small-cls.html) for decomposition. A CL is one proposed change, represented here by a task PR. The guide favors small, complete changes and reviewer judgment; its illustrative line counts are not pass/fail thresholds. This team has no default numerical limit or automatic line-count exception.
+Split work into small, complete task PRs and assess reviewability in context. This team has no default numerical limit or automatic line-count exception.
 
 Assess reviewability across these dimensions. Explain only the factors material to the task; a routine task needs a short rationale, not a scoring exercise.
 
-| Dimension | Planning question and action |
-| --- | --- |
-| Goal | Can the task deliver one clear outcome? Separate unrelated goals. |
-| Context | Can the reviewer understand the change from its diff, description, repository, and reviewed dependencies? Include missing usage or return unresolved contracts upstream. |
-| Footprint | How many files, modules, owners, and interfaces must be understood together? A small scattered diff can require substantial review. |
-| Behavioral risk | Which invariants, permissions, concurrency paths, data transitions, or failure modes need careful reasoning? Name appropriate review expertise and supporting checks. |
-| Verification | Do required tests and documentation accompany the behavior? Can each integrated increment work correctly without a later repair? |
-| Simplicity | Does the approach add avoidable indirection or speculative behavior? Prefer a simpler valid approach and split separable preparatory work. |
+| Dimension       | Planning question and action                                                                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Goal            | Can the task deliver one clear outcome? Separate unrelated goals.                                                                                                        |
+| Context         | Can the reviewer understand the change from its diff, description, repository, and reviewed dependencies? Include missing usage or return unresolved contracts upstream. |
+| Footprint       | How many files, modules, owners, and interfaces must be understood together? A small scattered diff can require substantial review.                                      |
+| Behavioral risk | Which invariants, permissions, concurrency paths, data transitions, or failure modes need careful reasoning? Name appropriate review expertise and supporting checks.    |
+| Verification    | Do required tests and documentation accompany the behavior? Can each integrated increment work correctly without a later repair?                                         |
+| Simplicity      | Does the approach add avoidable indirection or speculative behavior? Prefer a simpler valid approach and split separable preparatory work.                               |
 
-The risk, complexity, test-quality, and reviewer-coverage questions adapt [Google's review checklist](https://google.github.io/eng-practices/review/reviewer/looking-for.html). Plan for reviewers to examine all assigned authored changes, including tests, with enough surrounding code to understand behavior. Different reviewer assignments can cover different areas, but their combined coverage must include the whole change and its interactions. Mark missing expertise or context as a gap; additional Agent names alone do not establish coverage.
+Plan for reviewers to examine all assigned authored changes, including tests, with enough surrounding code to understand behavior. Different reviewer assignments can cover different areas, but their combined coverage must include the whole change and its interactions. Mark missing expertise or context as a gap; additional Agent names alone do not establish coverage.
 
 Keep the team's raw scope report: authored additions plus deletions in implementation, tests, and documentation, including Agent-written content. Report reproducible generated artifacts separately, with the total diff and generation/validation context. Count deletions as observed even when their review cost is low. Google permits treating whole-file deletion as cheap to review; this workflow records that judgment separately instead of changing the raw count. Generated, binary, and non-text changes remain visible. AI authorship alone never makes maintained code a reproducible generated artifact or excuses reviewing it.
 
@@ -69,7 +69,7 @@ Use these dispositions when planning and reassessing work:
 
 A pending advance agreement can leave assignment or local design possible, but it blocks implementation of the proposed large scope. It is a specialist review commitment, not a new human approval gate or acceptance of unseen code. If a large PR already exists, retain it and resolve scope before review acceptance. Reviewer rejection returns it to engineering lead for decomposition or clarification. No agreement permits unrelated goals, missing required checks, or blocking defects.
 
-Code Reviewer can reject an unmanageable change regardless of line count. Scope, baseline, or diff changes require current evidence and reassessment of affected agreements and review conclusions. Apply [Google's review standard](https://google.github.io/eng-practices/review/reviewer/standard.html): seek a maintainable improvement, not perfection or compliance with personal preferences. Optional polish alone does not force more tasks; required correctness, acceptance, and project conventions remain binding.
+Code Reviewer can reject an unmanageable change regardless of line count. Scope, baseline, or diff changes require current evidence and reassessment of affected agreements and review conclusions. Seek a maintainable improvement, not perfection or compliance with personal preferences. Optional polish alone does not force more tasks; required correctness, acceptance, and project conventions remain binding.
 
 This workflow's assignment roles, independent Agent review, raw counting, readiness fields, and approval gates are local policy. Do not present them as Google's exact process. If an explicit project rule conflicts with this default and its authority is unclear, identify the conflict instead of silently replacing it.
 
@@ -77,17 +77,17 @@ This workflow's assignment roles, independent Agent review, raw counting, readin
 
 These are hypothetical planning examples, not executed results:
 
-| Input | Planning consequence |
-| --- | --- |
-| A cohesive change grows from 500 to 501 authored changed lines without new behavior or dependencies | Refresh the scope report; the extra line alone changes no review disposition. |
-| A 200-line diff spans 50 files and several ownership boundaries | Assess interactions and review expertise; split separable work or clarify context despite the small count. |
-| 120 lines combine invitation validation and unrelated billing cleanup | Split the goals despite the small diff. |
-| A new API is separated from every usage merely to shorten its diff | Include enough usage and related tests for a meaningful review; avoid an incomplete artificial split. |
-| 180 authored lines plus 2,000 reproducible generated lines | Report 180 authored, 2,000 generated, and 2,180 total; keep generation/validation and review burden visible. |
-| An Agent writes 900 maintained source/test lines | Count all 900 as authored; judge actual behavior and complexity. Neither automatic exemption nor numerical rejection applies. |
-| A trusted refactoring tool performs a broad mechanical rename | Consider a separate change with transformation evidence and regression checks; confirm review coverage rather than mixing new behavior into it. |
-| A whole-file deletion removes 1,200 obsolete lines | Report the actual deletions; check remaining references and behavior. Low reading effort does not prove removal is safe. |
-| A cohesive change remains unusually complex after reasonable split options | Seek advance reviewer agreement on scope and review responsibilities before affected implementation; retain all verification obligations. |
+| Input                                                                                               | Planning consequence                                                                                                                            |
+| --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| A cohesive change grows from 500 to 501 authored changed lines without new behavior or dependencies | Refresh the scope report; the extra line alone changes no review disposition.                                                                   |
+| A 200-line diff spans 50 files and several ownership boundaries                                     | Assess interactions and review expertise; split separable work or clarify context despite the small count.                                      |
+| 120 lines combine invitation validation and unrelated billing cleanup                               | Split the goals despite the small diff.                                                                                                         |
+| A new API is separated from every usage merely to shorten its diff                                  | Include enough usage and related tests for a meaningful review; avoid an incomplete artificial split.                                           |
+| 180 authored lines plus 2,000 reproducible generated lines                                          | Report 180 authored, 2,000 generated, and 2,180 total; keep generation/validation and review burden visible.                                    |
+| An Agent writes 900 maintained source/test lines                                                    | Count all 900 as authored; judge actual behavior and complexity. Neither automatic exemption nor numerical rejection applies.                   |
+| A trusted refactoring tool performs a broad mechanical rename                                       | Consider a separate change with transformation evidence and regression checks; confirm review coverage rather than mixing new behavior into it. |
+| A whole-file deletion removes 1,200 obsolete lines                                                  | Report the actual deletions; check remaining references and behavior. Low reading effort does not prove removal is safe.                        |
+| A cohesive change remains unusually complex after reasonable split options                          | Seek advance reviewer agreement on scope and review responsibilities before affected implementation; retain all verification obligations.       |
 
 ## Review the plan
 

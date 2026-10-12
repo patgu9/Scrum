@@ -4,10 +4,10 @@ This reference owns mode selection, artifacts, approval, readiness, and handoffs
 
 ## Modes and required inputs
 
-| Mode | Responsible role | Required inputs | Output and next function |
-| --- | --- | --- | --- |
-| Overall | Architect; engineering lead can hold this responsibility | Approved product behavior and exact version, project/code context, constraints, relevant feedback | Versioned overall design for owner approval, then a planning handoff to engineering lead using `planner`; or upstream feedback |
-| Task | Assigned developer; architect reviews high-risk or cross-task choices | Claimed task and branch reference, approved product and overall-design versions, current code context, acceptance criteria, dependencies, and constraints on deferred decisions | Task design ready for `code-development`, or feedback to overall design, product design, or `planner` |
+| Mode    | Responsible role                                                      | Required inputs                                                                                                                                                                 | Output and next function                                                                                                       |
+| ------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Overall | Architect; engineering lead can hold this responsibility              | Approved product behavior and exact version, project/code context, constraints, relevant feedback                                                                               | Versioned overall design for owner approval, then a planning handoff to engineering lead using `planner`; or upstream feedback |
+| Task    | Assigned developer; architect reviews high-risk or cross-task choices | Claimed task and branch reference, approved product and overall-design versions, current code context, acceptance criteria, dependencies, and constraints on deferred decisions | Task design ready for `code-development`, or feedback to overall design, product design, or `planner`                          |
 
 Infer the mode from scope and artifacts. A request to design a change before assignment normally uses overall mode. A request to refine one assigned task normally uses task mode. An existing document's mode is evidence, not authority to ignore the requested scope. Ask one focused question only if context cannot distinguish the modes. Do not reinterpret a task request as overall design merely because required task inputs are missing.
 
@@ -32,18 +32,18 @@ Use explicit artifact versions, starting at `v1`; increment for substantive chan
 
 Overall mode retains the ten sections of the overall template unless the user supplies another format:
 
-| Section | Content |
-| --- | --- |
-| 1. Purpose and Scope | Outcome, included Feature IDs, exclusions, source constraints, and Success Criteria |
-| 2. Current System and Constraints | Verified behavior, evidence limits, terminology, applicable architecture decisions, and relevant technical debt |
-| 3. Behavioral Contracts | Shared observable behavior, product-rule references, and verification obligations |
-| 4. Approaches and Decisions | Alternatives, tradeoffs, selected approach, evidence, and rejected options |
-| 5. Technical Solution | Module boundaries, shared interfaces, data ownership, invariants, critical flows, and deferred local decisions |
-| 6. Failure Modes and Operational Requirements | Relevant security, consistency, capacity, availability, recovery, migration, and rollout constraints |
-| 7. Validation and TDD Strategy | Test boundaries, critical scenarios, integration verification, candidate behavior increments, and evidence obligations |
-| 8. Premises and Open Questions | Unknowns, assumptions, dependency and approval impact, and decisions to reopen |
-| 9. Review and Approval | Reviewed version, findings, dispositions, coverage limits, and owner approval evidence |
-| 10. Handoff to Task Breakdown | Baselines, ownership, dependencies, deferred decisions, and readiness for `planner` |
+| Section                                       | Content                                                                                                                |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| 1. Purpose and Scope                          | Outcome, included Feature IDs, exclusions, source constraints, and Success Criteria                                    |
+| 2. Current System and Constraints             | Verified behavior, evidence limits, terminology, applicable architecture decisions, and relevant technical debt        |
+| 3. Behavioral Contracts                       | Shared observable behavior, product-rule references, and verification obligations                                      |
+| 4. Approaches and Decisions                   | Alternatives, tradeoffs, selected approach, evidence, and rejected options                                             |
+| 5. Technical Solution                         | Module boundaries, shared interfaces, data ownership, invariants, critical flows, and deferred local decisions         |
+| 6. Failure Modes and Operational Requirements | Relevant security, consistency, capacity, availability, recovery, migration, and rollout constraints                   |
+| 7. Validation and TDD Strategy                | Test boundaries, critical scenarios, integration verification, candidate behavior increments, and evidence obligations |
+| 8. Premises and Open Questions                | Unknowns, assumptions, dependency and approval impact, and decisions to reopen                                         |
+| 9. Review and Approval                        | Reviewed version, findings, dispositions, coverage limits, and owner approval evidence                                 |
+| 10. Handoff to Task Breakdown                 | Baselines, ownership, dependencies, deferred decisions, and readiness for `planner`                                    |
 
 Task mode records task identity, versions, branch/code baseline, scope and acceptance references, implementation approach, affected code, local error handling, planned self-tests, dependencies, open decisions, review disposition, and implementation readiness. Use only the detail needed for the task. A short note can carry this information without all template headings. Do not repeat the full architecture template for routine tasks.
 
@@ -81,12 +81,12 @@ Use the product contract's [assumption validation rules](../../product-design/re
 
 ## Status and approval
 
-| Mode | Status | Meaning |
-| --- | --- | --- |
-| Both | `DRAFT` | Incomplete design, missing required inputs, unresolved direction, or a readiness blocker |
-| Both | `IN_REVIEW` | Design content is ready for review; required review or approval is pending |
-| Overall | `APPROVED` | The human owner explicitly approved this exact overall version; cite the source and date |
-| Task | `READY` | Task readiness conditions below are satisfied; no new human approval is implied |
+| Mode    | Status      | Meaning                                                                                  |
+| ------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Both    | `DRAFT`     | Incomplete design, missing required inputs, unresolved direction, or a readiness blocker |
+| Both    | `IN_REVIEW` | Design content is ready for review; required review or approval is pending               |
+| Overall | `APPROVED`  | The human owner explicitly approved this exact overall version; cite the source and date |
+| Task    | `READY`     | Task readiness conditions below are satisfied; no new human approval is implied          |
 
 Record readiness separately from status. An approved overall design can still have an evidence gap that blocks affected task breakdown. An `IN_REVIEW` task is not ready while required architect review is outstanding. Task `READY` applies to its declared scope and baselines, not to other tasks, changed code baselines, or release readiness. If an optional proposal conflicts with the baseline, record its separate blocked disposition. Original work can remain ready only with evidence that it does not depend on or adopt that proposal. Name the ready scope explicitly; an unqualified READY must not cover the blocked proposal.
 

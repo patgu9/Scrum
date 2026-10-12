@@ -1,12 +1,12 @@
 # Technical writing guide
 
-Use [Google Technical Writing](https://developers.google.com/tech-writing) to decide what readers need and in what order. For English, then apply the [English controls](english-controls.md). Routine use does not require reopening the sources.
+Decide what readers need and in what order. For English, then apply the [English controls](english-controls.md).
 
 Write in the language requested by the user or required by the project. The calling workflow owns the format, domain rules, and approval process. A writing edit must preserve decisions, conditions, exceptions, IDs, sources, units, and uncertainty. Resolve missing meaning through that workflow; do not invent facts to make a sentence complete.
 
 ## Write for the reader
 
-Identify the reader's goal, existing knowledge, and missing knowledge. Select content that closes the gap. Distinguish the document's readers from the product's users. Explain unfamiliar concepts; link background that readers can consult separately. Avoid internal shorthand, idioms, and cultural references. See [Audience](https://developers.google.com/tech-writing/one/audience).
+Identify the reader's goal, existing knowledge, and missing knowledge. Select content that closes the gap. Distinguish the document's readers from the product's users. Explain unfamiliar concepts; link background that readers can consult separately. Avoid internal shorthand, idioms, and cultural references.
 
 For a substantial draft, use a brief working outline:
 
@@ -15,11 +15,11 @@ For a substantial draft, use a brief working outline:
 - Which questions must the document answer to support that outcome?
 - What is outside scope but could reasonably be expected here?
 
-Use the answers to write the document; do not add a planning questionnaire to the deliverable. For a small edit, infer these answers from the surrounding text. State the relevant scope and prerequisites in the locations assigned by the template. See [Documents](https://developers.google.com/tech-writing/one/documents).
+Use the answers to write the document; do not add a planning questionnaire to the deliverable. For a small edit, infer these answers from the surrounding text. State the relevant scope and prerequisites in the locations assigned by the template.
 
 ## Order explanations by need
 
-Put the main point early. Introduce a concept before relying on it, and give prerequisites before the task that needs them. Add detail where it becomes useful. Use headings that help readers find a question, concept, or task. See [Organizing large documents](https://developers.google.com/tech-writing/two/large-docs).
+Put the main point early. Introduce a concept before relying on it, and give prerequisites before the task that needs them. Add detail where it becomes useful. Use headings that help readers find a question, concept, or task.
 
 Choose the order from the reader's purpose. These are patterns within the required format, not replacement templates:
 
@@ -36,19 +36,19 @@ For Skill instructions, address the agent performing the task. Keep routing in `
 
 ## Lead each paragraph with its point
 
-Begin with the behavior, result, problem, or decision that the paragraph explains. Follow with the reason or evidence needed to assess it. Keep one topic per paragraph and connect adjacent sentences. Remove preambles, tangents, promotional claims, and repeated recaps. See [Paragraphs](https://developers.google.com/tech-writing/one/paragraphs).
+Begin with the behavior, result, problem, or decision that the paragraph explains. Follow with the reason or evidence needed to assess it. Keep one topic per paragraph and connect adjacent sentences. Remove preambles, tangents, promotional claims, and repeated recaps.
 
-Prefer an explicit actor and a specific action. Replace vague claims such as “fast” or “easy” with supported measurements or observable behavior. When evidence is missing, retain the uncertainty or open question. Never invent a target to make a claim sound precise. See [Clear sentences](https://developers.google.com/tech-writing/one/clear-sentences).
+Prefer an explicit actor and a specific action. Replace vague claims such as “fast” or “easy” with supported measurements or observable behavior. When evidence is missing, retain the uncertainty or open question. Never invent a target to make a claim sound precise.
 
 ## Keep terms and references clear
 
-Use one name for each concept. Define unfamiliar terms and acronyms where readers first need them, or link to the existing definition. Avoid new acronyms for terms used only a few times. Preserve proper names, UI labels, and exact identifiers. See [Words](https://developers.google.com/tech-writing/one/words).
+Use one name for each concept. Define unfamiliar terms and acronyms where readers first need them, or link to the existing definition. Avoid new acronyms for terms used only a few times. Preserve proper names, UI labels, and exact identifiers.
 
 Replace an ambiguous pronoun with its intended actor or object. Repeat the noun when several referents are possible. Distinguish different operations: structural validation, assumption validation, and user approval do not mean the same thing. If the source does not establish the distinction, flag the ambiguity instead of choosing a meaning.
 
 ## Keep sentences focused
 
-Use four moves from [Short sentences](https://developers.google.com/tech-writing/one/short-sentences):
+Use four moves to keep sentences focused:
 
 1. Split independent ideas when the sentence changes actor, stage, or topic.
 2. Expose embedded sequences or alternatives as lists when that helps the reader.
@@ -67,23 +67,23 @@ These examples illustrate edits; they do not introduce product requirements or c
 
 ## Choose lists, tables, and examples deliberately
 
-Use numbered steps when order matters, bullets for unordered items, and tables to compare the same attributes across cases. Keep list items parallel in grammar and detail. Give lists and tables context through a heading, field label, or brief introduction. See [Lists and tables](https://developers.google.com/tech-writing/one/lists-and-tables).
+Use numbered steps when order matters, bullets for unordered items, and tables to compare the same attributes across cases. Keep list items parallel in grammar and detail. Give lists and tables context through a heading, field label, or brief introduction.
 
 Keep a shared condition in the introduction so it applies to every item. State whether alternatives permit one choice or several. Do not turn “A or B” into steps that require both. Group long lists by topic when helpful; preserve required headers and columns. Do not delete rules or examples merely to shorten a table.
 
-Place an example beside the explanation it supports. Use a simple case first, then a boundary or failure case when needed. Keep example terms and values consistent with the documented behavior. Mark hypothetical examples; do not present them as observed results. For code samples, give the necessary setup, input, and expected output. Verify executable samples when permitted; report samples that were not run. See [Sample code](https://developers.google.com/tech-writing/two/sample-code).
+Place an example beside the explanation it supports. Use a simple case first, then a boundary or failure case when needed. Keep example terms and values consistent with the documented behavior. Mark hypothetical examples; do not present them as observed results. For code samples, give the necessary setup, input, and expected output. Verify executable samples when permitted; report samples that were not run.
 
 ## Keep evidence and visuals useful
 
 State each fact or rule in its assigned location, then use a cross-reference or stable ID. Put source links beside the claims they support. Use descriptive link text. Keep uncertainty, verification limits, and review history in their assigned fields; repeat only when needed to prevent misunderstanding.
 
-For a user-visible failure, explain what failed and the available recovery action. Give a cause only when supported. Never turn “not verified” into success. See [Writing Helpful Error Messages](https://developers.google.com/tech-writing/error-messages).
+For a user-visible failure, explain what failed and the available recovery action. Give a cause only when supported. Never turn “not verified” into success.
 
-Use a diagram when it clarifies a relationship or flow. Place it beside the relevant text and explain its essential meaning there. Give informative images concise alt text; use empty alt text for decorative images. See [Write helpful alt text](https://developers.google.com/tech-writing/accessibility/self-study/write-alt-text).
+Use a diagram when it clarifies a relationship or flow. Place it beside the relevant text and explain its essential meaning there. Give informative images concise alt text; use empty alt text for decorative images.
 
 ## Edit in separate passes
 
-Review in this order, adapted from [Self-editing](https://developers.google.com/tech-writing/two/editing). These passes supplement the calling workflow's checks.
+Review in this order. These passes supplement the calling workflow's checks.
 
 1. **Content and order:** Can readers find the information needed for their goal? Are prerequisites and concepts introduced before use? Keep each rule in its assigned location and remove irrelevant material.
 2. **Expression:** Check sentence focus, actors, references, examples, and list and table structure. For English, apply [English controls](english-controls.md), including the distinction between instructions and descriptions.

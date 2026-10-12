@@ -24,7 +24,7 @@ Choose the highest useful test boundary that provides reliable feedback for the 
 
 Compare alternatives for consequential choices. Consider reuse, minimal change, and a different module or dependency boundary when relevant. Compare interface complexity, caller needs, testability, failure handling, operational cost, and future change cost. Explain why one approach is sufficient when no meaningful alternative remains.
 
-Choose the simplest approach that satisfies confirmed behavior and quality constraints. Explain the current need for each new abstraction, dependency, configuration option, or extension point. Do not add capabilities solely for hypothetical future use. These criteria adapt the simplicity principle in the [Karpathy Guidelines](https://github.com/multica-ai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md) to technical design.
+Choose the simplest approach that satisfies confirmed behavior and quality constraints. Explain the current need for each new abstraction, dependency, configuration option, or extension point. Do not add capabilities solely for hypothetical future use.
 
 For an uncertain interface, sketch distinct designs and a caller example before selecting one. Prefer modules that hide substantial implementation detail behind a small, coherent interface. Do not expose internal helpers solely to make them easy to mock.
 
@@ -98,15 +98,10 @@ In overall mode, identify candidate behavior increments, critical scenarios, sha
 
 In task mode, refine the assigned increment into small Red → Green → Refactor steps. Describe the first failing test, its intended failure reason, and prerequisites. Each step adds observable behavior across the layers it needs. Do not use a large test inventory to avoid resolving a blocking implementation choice.
 
-Require this execution loop in the downstream work:
-
-1. **Red:** Add one behavior test. Run it and confirm that missing or incorrect behavior causes the expected failure. Fix unrelated setup failures first.
-2. **Green:** Implement the smallest change that satisfies the behavior. Run the focused test and relevant regression checks.
-3. **Refactor:** Improve the design without changing its public behavior. Keep the relevant tests green. If no refactor is needed, record that judgment.
-4. Repeat for the next behavior. Run broader checks at appropriate integration points and before handoff.
+Plan for the downstream [code-development execution loop](../../code-development/references/tdd-and-verification.md#execute-one-behavior-at-a-time): a valid Red, minimal Green, and necessary refactoring for each behavior. That reference owns execution conditions and evidence recording. This design supplies the intended failure, test boundary, prerequisites, and relevant regression and integration obligations.
 
 Do not prescribe writing all executable tests before any implementation. The design can contain a full scenario inventory while execution proceeds one behavior at a time.
 
 Existing behavior may need characterization tests that already pass. Label them as baseline evidence. Do not fabricate a Red result. If TDD does not apply to a change, state why and specify alternative verification without claiming a TDD cycle.
 
-During implementation, require test identity, command, revision or change state, expected and actual Red results, and subsequent Green results. Record refactoring and final relevant checks. At design time, keep those results `Planned` unless actual execution evidence exists.
+Specify the [execution evidence](../../code-development/references/tdd-and-verification.md#preserve-execution-evidence) required at handoff. At design time, keep results `Planned` unless actual evidence exists. Link any development results from their authoritative delivery record rather than maintaining a competing execution log in the design.

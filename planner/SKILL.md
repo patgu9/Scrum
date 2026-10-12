@@ -17,7 +17,7 @@ Missing or stale inputs block dependent assignment. Preserve useful independent 
 
 ## 2. Decompose and assign
 
-Follow the [planning methods](references/planning-methods.md) to map behavior to tasks, sequence dependencies, estimate the full work, and assess reviewability. Use small, complete changes under the Google-based guidance; line counts are scope information, not a default gate. Use [Technical Writing](../technical-writing/SKILL.md) to write concise task instructions.
+Follow the [planning methods](references/planning-methods.md) to map behavior to tasks, sequence dependencies, estimate the full work, and assess reviewability. Use small, complete changes; line counts are scope information, not a default gate. Use [Technical Writing](../technical-writing/SKILL.md) to write concise task instructions.
 
 Use the [plan index template](assets/task-plan-template.md) for `task-plan.md` and the [task template](assets/task-template.md) for each standalone task. Follow the shared [artifact layout](../product-design/references/artifact-layout.md): new tasks use `tasks/<task-key>/task.md` inside the source change directory. Project formats may change presentation but must retain one entry file per task. Each task supplies its goal, acceptance, assignment, readiness, and exact input references.
 

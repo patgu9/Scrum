@@ -6,7 +6,7 @@ Apply these controls after the [writing guide](writing-guide.md) has established
 
 The default is an adaptation, not a claim of full STE compliance. Keep the project's English variant and exact code, commands, paths, UI labels, identifiers, and quotations. Explain an unclear identifier in prose instead of renaming it.
 
-STE controls both writing rules and vocabulary. Its dictionary restricts word meanings and parts of speech; domain terms follow separate rules. For example, `check` is approved as a noun, not a general verb. Clear ordinary English is therefore not automatically STE. See the [official FAQ](https://asd-ste100.org/STE_faq.html).
+STE controls both writing rules and vocabulary. Its dictionary restricts word meanings and parts of speech; domain terms follow separate rules. For example, `check` is approved as a noun, not a general verb. Clear ordinary English is therefore not automatically STE.
 
 If full compliance is explicitly required, use the applicable edition's complete rules and dictionary, plus the project's domain vocabulary. Record unresolved entries or conflicts. If the standard is unavailable, continue useful editing and report compliance as unverified. Do not invent dictionary approvals or use this short guide as a substitute.
 
@@ -20,8 +20,6 @@ Rewrite dense noun groups with prepositions or clauses. For example, “retry li
 
 ## Distinguish instructions from descriptions
 
-The baseline is [ASD-STE100 Issue 9](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf), sections 5, 6, and 9:
-
 - Instructions use commands. Give one instruction per sentence, except for actions that must occur together (rules 5.2–5.3).
 - Put a condition first when the reader needs it before acting (rule 5.4).
 - Keep required actions out of informational notes (rule 5.5).
@@ -32,33 +30,33 @@ For this Skill's default adaptation, use the sentence limits as review triggers.
 
 A requirement describes an obligation; it is not automatically an instruction to the reader. Preserve its actor and modal verb. In mixed documents, classify the passage, not the whole file.
 
-| Passage | Preferred expression | Preserve |
-| --- | --- | --- |
-| Instruction to the reader | “If the export fails, save the error log.” | Condition before action |
-| System behavior | “The service saves the report after the export succeeds.” | Actor and sequence |
-| Requirement | “The service must retain failed jobs for 7 days.” | Obligation and duration |
-| Proposal | “Proposal: retain failed jobs for 7 days.” | Unapproved status |
+| Passage                   | Preferred expression                                      | Preserve                |
+| ------------------------- | --------------------------------------------------------- | ----------------------- |
+| Instruction to the reader | “If the export fails, save the error log.”                | Condition before action |
+| System behavior           | “The service saves the report after the export succeeds.” | Actor and sequence      |
+| Requirement               | “The service must retain failed jobs for 7 days.”         | Obligation and duration |
+| Proposal                  | “Proposal: retain failed jobs for 7 days.”                | Unapproved status       |
 
 Examples in this file illustrate local edits; they have not been checked against the complete STE dictionary.
 
 ## Make grammar explicit
 
-Prefer active statements. In instructions, address the reader directly. For descriptions, STE permits passive voice when the actor is unknown; do not invent an actor. Inspect ambiguous `-ing` forms, while preserving established technical nouns that contain them. See the [official FAQ](https://asd-ste100.org/STE_faq.html).
+Prefer active statements. In instructions, address the reader directly. For descriptions, STE permits passive voice when the actor is unknown; do not invent an actor. Inspect ambiguous `-ing` forms, while preserving established technical nouns that contain them.
 
 For this adaptation, rewrite when the actor, relationship, or timing is unclear:
 
-| Unclear or indirect | Clearer when supported by the source |
-| --- | --- |
-| After saving the file, it is checked. | After the editor saves the file, the validator checks the file. |
-| Processing files can delay shutdown. | Shutdown can be delayed while the service processes files. |
-| Perform a review of the draft. | Review the draft. |
-| In the event that retrieval fails, notify the owner. | If retrieval fails, notify the owner. |
+| Unclear or indirect                                  | Clearer when supported by the source                            |
+| ---------------------------------------------------- | --------------------------------------------------------------- |
+| After saving the file, it is checked.                | After the editor saves the file, the validator checks the file. |
+| Processing files can delay shutdown.                 | Shutdown can be delayed while the service processes files.      |
+| Perform a review of the draft.                       | Review the draft.                                               |
+| In the event that retrieval fails, notify the owner. | If retrieval fails, notify the owner.                           |
 
 The first two rewrites require knowledge of the actor and intended meaning. If the source does not supply it, flag the ambiguity. Preserve meaningful timing and state; do not mechanically remove every `-ing` ending or change every tense.
 
-For ordinary English, prefer specific verbs over nominal phrases. See Google's [Active voice](https://developers.google.com/tech-writing/one/active-voice) and [Clear sentences](https://developers.google.com/tech-writing/one/clear-sentences). In full STE work, dictionary restrictions can require a different construction; do not override them with a general preference for shorter wording.
+For ordinary English, prefer specific verbs over nominal phrases. In full STE work, dictionary restrictions can require a different construction; do not override them with a general preference for shorter wording.
 
-In US English, `that` usually introduces an essential restriction; `which` with commas adds supplementary information. “Reports that contain failures need review” does not apply to all reports. Preserve the restriction and follow the project's English variant. See [Short sentences](https://developers.google.com/tech-writing/one/short-sentences).
+In US English, `that` usually introduces an essential restriction; `which` with commas adds supplementary information. “Reports that contain failures need review” does not apply to all reports. Preserve the restriction and follow the project's English variant.
 
 ## Preserve logical force
 

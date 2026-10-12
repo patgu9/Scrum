@@ -137,8 +137,6 @@ For every Feature, trace **goal → actor → behavioral impact → deliverable*
 
 A dashboard is a deliverable. Noticing stalled requests is a behavioral impact. A change in team practice may achieve the same result. Record the links and hypotheses in the contract's assigned locations. Include actors who help or hinder the outcome, even if they have no User Stories.
 
-Source: [Drawing impact maps](https://www.impactmapping.org/drawing.html).
-
 ## Specification by Example
 
 Use concrete cases to discover and refine rules with the user. Keep cases that distinguish one behavior from another.
@@ -153,5 +151,3 @@ Record the final count in each case. If the action is rejected, record what stay
 For “prevent duplicates,” compare `https://example.com/a` with `https://example.com/a/`. Ask what makes two entries equal before defining how to normalize them.
 
 Repetitive examples may reveal a missing concept or separate rules. Record the rules and examples under the contract's [Feature rules](document-contract.md#feature-rules). The number or format of examples does not prove agreement.
-
-Sources: [Specifying with examples](https://gojko.net/2008/11/04/specifying-with-examples/), [Focus on key examples](https://gojko.net/2014/05/05/focus-on-key-examples/).
