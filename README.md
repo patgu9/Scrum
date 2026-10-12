@@ -34,7 +34,9 @@ Skill 按职能划分，角色表示责任归属。一个角色可以使用多�
 | [document-review](document-review/SKILL.md) | 按指定契约、模板和证据审阅文档，报告检查范围、发现和验证限制 |
 | [git-workflow](git-workflow/SKILL.md) | 处理任务分支、限定范围的提交、评审差异、PR 准备和已授权的 Git 集成操作 |
 
-`technical-writing` 负责写作方法和编辑检查；`document-review` 负责通用文档审阅及报告。各业务 Skill 决定何时审阅，并保留领域标准、独立审阅、状态和审批规则。
+各业务流程输出文档、报告、反馈或交接摘要时，必须使用 `technical-writing` 作为写作方法，并在交付前使用 `document-review` 检查内容、格式和证据。Git 流程的操作报告和 PR 描述同样适用。各流程保留必需内容、领域标准、独立审阅、状态和审批规则；文档审阅不替代代码评审、执行验证或审批。
+
+`document-review` 的审阅报告也使用 `technical-writing` 撰写，并在本次调用内按自身报告规则复核。复核不递归调用 Skill，也不额外生成一份审阅报告。`technical-writing` 保持通用写作能力，由调用流程安排文档审阅。
 
 后续设计中的职能：
 

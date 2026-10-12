@@ -9,8 +9,8 @@ Assess a document against its applicable requirements and available evidence. Th
 
 Identify the document and revision, requested review scope, applicable instructions, and available sources. Use the supplied contract or template. Report missing criteria or evidence rather than inventing requirements.
 
-Follow the [document validation method](references/validation-guide.md) to check the document, recheck corrections, and use automated checks. Use [Technical Writing](../technical-writing/SKILL.md) to assess writing quality.
+Follow the [document validation method](references/validation-guide.md) to check the document, recheck corrections, and use automated checks.
 
 For a review-only request, report proposed corrections without editing the document. Apply corrections when the task authorizes them.
 
-Report findings, coverage, and verification limits under the guide's [reporting rules](references/validation-guide.md#report-the-result). Use the caller's existing review record or requested response format. Review completion does not grant approval or establish implementation success.
+Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for review reports and proposed corrections, and as the basis for assessing writing quality. Report findings, coverage, and verification limits under the guide's [reporting rules](references/validation-guide.md#report-the-result). Use the caller's existing review record or requested response format. Review completion does not grant approval or establish implementation success.

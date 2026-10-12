@@ -17,7 +17,7 @@ Read [discovery methods](references/discovery-methods.md) to choose a mode and g
 
 Check the contract's [inputs and invocation context](references/document-contract.md#inputs-and-invocation-context). For downstream feedback, follow [revisit a product baseline](references/discovery-methods.md#revisit-a-product-baseline) before revising the design.
 
-Read the [Technical Writing Skill](../technical-writing/SKILL.md) before drafting. Apply its writing method to explanations, document prose, tables, rules, and examples.
+Read and apply [Technical Writing](../technical-writing/SKILL.md) as the writing method for product documents, review reports, feedback responses, and handoff summaries. Apply it to explanations, document prose, tables, rules, and examples.
 
 ## 2. Track decisions and dependencies
 
@@ -43,7 +43,7 @@ Use [Specification by Example](references/discovery-methods.md#specification-by-
 
 Save the document using the contract's [saving rules](references/document-contract.md#saving).
 
-Follow the shared [document validation method](../document-review/SKILL.md). Check the contract's [structural requirements](references/document-contract.md#structural-validation) and complete its [final review](references/document-contract.md#final-review).
+Before delivery, use [Document Review](../document-review/SKILL.md) to review product documents, review reports, feedback responses, and handoff summaries. Check the contract's [structural requirements](references/document-contract.md#structural-validation) and complete its [final review](references/document-contract.md#final-review).
 
 Follow [adversarial review](references/adversarial-review.md). Then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
 

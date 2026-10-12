@@ -22,7 +22,9 @@ New development tasks follow claim → branch → task design → implementation
 
 ## 3. Return observed results
 
-Apply the Git contract's [result record](references/git-contract.md#result-record). Distinguish local changes, published PRs, confirmed remote merges, and unresolved operations. Use [Technical Writing](../technical-writing/SKILL.md) for concise handoffs.
+Apply the Git contract's [result record](references/git-contract.md#result-record). Distinguish local changes, published PRs, confirmed remote merges, and unresolved operations. Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for operation reports, PR descriptions, and handoff summaries.
+
+Before publishing or delivering these outputs, use [Document Review](../document-review/SKILL.md) to review their content and supporting evidence. Document review does not replace Git operation checks.
 
 Provider-specific PR commands and task-app updates belong to the applicable platform workflow. If publication is unavailable, retain the prepared content and name the missing capability. A prepared PR is not a published PR.
 

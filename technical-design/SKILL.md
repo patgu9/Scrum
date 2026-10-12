@@ -9,6 +9,8 @@ Use one design method at two scopes: the architect establishes the overall desig
 
 This Skill produces design artifacts and handoffs. Planning, assignment, Git operations, code, executable feature tests, and deployment belong to their respective workflows. Reuse existing authorization for follow-on work; design readiness alone does not grant it.
 
+Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for design documents, review reports, feedback responses, and handoff summaries in both modes. The document contract defines required content, format, and approval.
+
 ## 1. Select the mode and baseline
 
 Read the [document contract](references/document-contract.md) for mode selection, required inputs, approval, and readiness. Infer the mode from the request and artifacts; ask only when the intended scope remains ambiguous. Declare the mode in the output.
@@ -20,7 +22,7 @@ Read relevant project instructions and exact source versions. Use [current-fact 
 
 ## 2. Design at the selected scope
 
-Read the [design methods](references/design-methods.md) and [Technical Writing Skill](../technical-writing/SKILL.md). Compare meaningful approaches and connect behavior to verification.
+Read the [design methods](references/design-methods.md). Compare meaningful approaches and connect behavior to verification.
 
 Use the [overall template](assets/technical-design-doc-template.md) for overall mode. Use the [task template](assets/task-design-template.md) for task mode; a simple task can use a compact note with the same required information.
 
@@ -29,6 +31,8 @@ Resolve shared and high-risk decisions early. Refine local implementation choice
 ## 3. Review and hand off
 
 Follow the [engineering review](references/engineering-review.md), scaled to the mode and risk. Complete the writing passes and document checks. Record actual review coverage and unresolved findings.
+
+Before delivery, use [Document Review](../document-review/SKILL.md) to review design documents, review reports, feedback responses, and handoff summaries in both modes.
 
 Apply the contract's [status and readiness rules](references/document-contract.md#status-and-approval). Overall mode hands approved architecture to `planner`; task mode hands a ready task design to `code-development`. Neither substitutes for independent code review or ship approval.
 

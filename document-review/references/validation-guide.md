@@ -31,3 +31,5 @@ Use the caller's review record or delivery summary. For a small edit, a short st
 - **Limits:** Unreviewed areas, missing evidence, and required checks that were not run. Include optional tool results only when used or relevant to an explicit request.
 
 State whether the review is complete and whether findings remain unresolved. Do not report a script result as overall document validation. Review completion does not change document status or grant approval.
+
+Before delivery, check the review report itself against these reporting rules and the reviewed evidence. Confirm that findings, coverage, and limits match the checks actually performed. Correct reporting errors and retain unresolved gaps in the same report. This is self-review within the current invocation; do not start another invocation or create a separate report to review this report.

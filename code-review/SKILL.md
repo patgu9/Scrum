@@ -21,6 +21,8 @@ Review without implementing corrections. Running OCR on code you authored remain
 
 ## 3. Deliver the conclusion or return findings
 
-Apply the contract's conclusion conditions. Use [Technical Writing](../technical-writing/SKILL.md) and the [review report template](assets/review-report-template.md) in the existing evidence record. Identify reviewed revisions, coverage, findings, limitations, and the next accountable recipient.
+Apply the contract's conclusion conditions. Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for review reports, feedback responses, and handoff summaries. Use the [review report template](assets/review-report-template.md) in the existing evidence record. Identify reviewed revisions, coverage, findings, limitations, and the next accountable recipient.
+
+Before delivery, use [Document Review](../document-review/SKILL.md) to review these outputs. This checks the report and its evidence; it does not replace independent code review.
 
 Project Manager routes corrections and tracks closure. Return updated code for independent review before engineering lead integration. A review conclusion does not establish a merge, QA acceptance, or ship approval.

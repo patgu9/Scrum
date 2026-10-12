@@ -17,7 +17,9 @@ Missing or stale inputs block dependent assignment. Preserve useful independent 
 
 ## 2. Decompose and assign
 
-Follow the [five-step planning method](references/planning-methods.md): understand the goal and flow, clarify behavior, compare candidate splits, check task quality, then verify combined coverage and dependency order. Record the selected boundaries and their reasons. Use [Technical Writing](../technical-writing/SKILL.md) to write concise task instructions.
+Follow the [five-step planning method](references/planning-methods.md): understand the goal and flow, clarify behavior, compare candidate splits, check task quality, then verify combined coverage and dependency order. Record the selected boundaries and their reasons.
+
+Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for plans, task instructions, review reports, feedback responses, and handoff summaries.
 
 Use the [plan index template](assets/task-plan-template.md) and [task template](assets/task-template.md). Follow the shared [artifact layout](../product-design/references/artifact-layout.md): save `task-plan.md` in the source change directory and new tasks at `tasks/<task-key>/task.md`. Project formats may change presentation but must retain one entry file per task. The [plan contract](references/plan-contract.md#development-task-record) defines the required task content.
 
@@ -25,7 +27,7 @@ For resumed work, scope growth, or defect returns, follow the contract's [replan
 
 ## 3. Check and hand off
 
-Complete the [plan review](references/planning-methods.md#review-the-plan) and shared [document validation](../document-review/SKILL.md). Record actual review coverage and evidence limits. This review checks the plan; it does not prove implementation or test success.
+Complete the [plan review](references/planning-methods.md#review-the-plan). Before delivery, use [Document Review](../document-review/SKILL.md) to review plans, task instructions, review reports, feedback responses, and handoff summaries. Record actual review coverage and evidence limits. Document review does not prove implementation or test success.
 
 Apply [task readiness](references/plan-contract.md#status-and-readiness) to each task. Distinguish readiness for assignment/claim from later implementation readiness. A required advance reviewer agreement can remain pending during assignment or local design, but blocks affected implementation.
 

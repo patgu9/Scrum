@@ -19,6 +19,8 @@ Keep each task's PR distinct even when several accepted tasks form one candidate
 
 ## 3. Deliver the candidate or return feedback
 
-Apply the contract's output conditions. Use [Technical Writing](../technical-writing/SKILL.md) and the [integration report template](assets/integration-report-template.md) in the project's existing evidence record. Keep merged state, integration verification, and QA handoff readiness explicit.
+Apply the contract's output conditions. Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for integration reports, feedback responses, and handoff summaries. Use the [integration report template](assets/integration-report-template.md) in the project's existing evidence record. Keep merged state, integration verification, and QA handoff readiness explicit.
+
+Before delivery, use [Document Review](../document-review/SKILL.md) to review these outputs. Document review does not replace integration verification or QA acceptance.
 
 Project Manager routes a ready candidate to QA for test-design and test-execution. The handoff identifies the immutable revision, included tasks, checks, gaps, and retained findings. It grants no deployment authority.
