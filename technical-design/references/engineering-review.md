@@ -9,14 +9,18 @@ Review these areas in order. Revisit earlier areas when a later finding changes 
 | Area | Questions to resolve |
 | --- | --- |
 | Scope and evidence | Does the design preserve included product rules? Are current facts and relevant technical debt supported? Does reuse reduce unnecessary work? |
+| Quality priorities and tradeoffs | Are mandatory constraints distinguished from ranked preferences? Do competing approaches use the same scenarios? Are accepted costs, limits, priority sources, and unresolved conflicts explicit? |
 | Design depth | Does each overall detail support a named architecture decision or consumer agreement? Are complete feature internals assigned to task design where possible? Are any architecture risks hidden as local deferrals? |
+| Readability and content placement | Can readers find the current decision, structure, blockers, and evidence? Do views replace repeated prose? Are process logs and local sketches kept at their proper scope? |
 | Architecture and code quality | Are responsibilities cohesive and interfaces, ownership, and dependency boundaries clear? Can callers use the interface without knowing its internals? |
-| Behavior and diagrams | Do important paths have defined outcomes? Do diagrams agree with contracts, state transitions, and failures? |
+| Behavior and UML models | Do selected views answer the material design questions, or is omission justified? Do relationships, messages, guards, and outcomes agree across models, contracts, and verification? Are simplified notation and rendering limits explicit? |
 | Tests and TDD | Does each rule have meaningful verification? In overall mode, are critical verification obligations defined and local details responsibly deferred? In task mode, can the first implementation step start? Are assertions independent of implementation? Are test replacements and their limits explicit? |
 | Failures and operations | Are relevant recovery, security, performance, capacity, availability, backup restoration, rollout, migration, and rollback behaviors defined and verifiable? |
 | Decisions and handoff | Does each blocker identify a stage, scope, dependency reason, and owner? Are approval and execution evidence separate? Is readiness assessed by scope without waiving shared risks or blocking independent work? |
 
 Scale coverage to the mode and change. Overall review checks shared decisions and deferred work. Task review checks local choices, affected code, baseline compliance, self-tests, and dependency readiness; reference overall evidence instead of repeating unrelated architecture review. Record inapplicable areas and the reason. Do not create requirements solely to fill the table.
+
+Use the [scenario walkthrough](#walk-through-critical-scenarios) to apply the [model consistency checks](uml-modeling.md#check-the-model-against-the-design). Inspect editable sources and rendered output when available; distinguish semantic review from syntax or rendering checks.
 
 Apply the [overall stopping conditions](document-contract.md#stop-overall-design-at-planning-depth). Check local rule coverage through its responsible module and verification obligation; do not require a new shared contract for each rule. Challenge both premature implementation choices and missing shared decisions. A request for more detail must identify the decision or consumer that needs it now.
 
@@ -25,6 +29,32 @@ For architecture review, trace each new module and material change to a requirem
 Apply the [current-fact method](design-methods.md#establish-current-facts) to check technical debt dispositions and their scope. Apply the module assessment in [behavior and interface design](design-methods.md#design-behavior-and-interfaces) to check change propagation, coupling, and deployment boundaries.
 
 Use the [operational design method](design-methods.md#define-failures-and-operational-behavior) to review relevant security controls, load assumptions, capacity limits, and architecture reassessment conditions. Check availability and restoration requirements against the proposed failure handling and verification. Keep estimates and planned recovery checks distinct from measured capacity and successful restoration evidence.
+
+## Walk through critical scenarios
+
+Select existing scenarios that exercise the highest-priority quality goals, consequential tradeoffs, uncertain assumptions, or significant failure risks. Include representative normal and relevant boundary, failure, recovery, or change scenarios. Explain the selection and material coverage gaps; use a small set appropriate to the scope, not a fixed quota. A routine task can use its acceptance scenario and state why other paths are inapplicable.
+
+For each selected scenario:
+
+1. Fix the scenario reference, design baseline, starting state, operating conditions, trigger, and expected result from the contract or quality goal.
+2. Follow the flow step by step. At each step, identify the responsible component, interface call or event, relevant input/output, state change or side effect, and applicable model element. If diagrams are omitted, use the textual flow and record that limit.
+3. At relevant branches, trace rejection, concurrency, partial completion, timeout, retry, and recovery. Check guards, invariants, ownership, and the selected tradeoff's limits against the interfaces and model views. For a change scenario, trace the affected components, interfaces, and deployment work instead of inventing a runtime sequence.
+4. Compare the resulting behavior with the expected result, including prohibited outcomes and quality acceptance criteria. Follow the [reasoning links](document-contract.md#connect-decisions-to-scenarios-risks-and-verification) to supporting evidence and the check that could detect a violation. Separate consistency established by inspection from claims that still need execution or measurement.
+5. Record the path inspected, conclusion and basis, evidence limits, and linked questions or findings. Recheck affected paths after corrections; preserve skipped coverage and unresolved contradictions.
+
+Record a compact walkthrough result in overall Section 9 or the task review record: scenario and baseline, selection reason, conclusion and basis, findings, and evidence limits. Reference the inspected model paths or an existing trace; expand steps only when needed to explain a finding or disputed conclusion. Do not copy a complete flow already shown in the design. Preserve detailed review traces in their authoritative record when needed. A walkthrough establishes only the consistency inspected; it does not establish runtime correctness, measured performance, or approval. Apply the existing stage and scope rules to gaps.
+
+## Check clarity and compression
+
+Apply the contract's [content placement rules](document-contract.md#keep-the-current-design-concise) and the modeling guide's [view selection rules](uml-modeling.md#use-views-to-replace-repeated-prose). Check for:
+
+- The same rule or status restated in contracts, diagrams, tests, review history, and handoff text without a new implication.
+- Overall implementation detail with no named consumer or architecture decision needing it now.
+- Mixed diagram abstraction levels, essential paths explained only outside the view, or long prose moved into labels and table cells.
+- Investigation chronology, resolved review narratives, or one-time delivery commands obscuring current decisions.
+- Opaque evidence IDs without a retrieval location, stale summaries, or missing evidence hidden by shortened text.
+
+During the reader walkthrough, locate the architecture boundaries, key tradeoffs, blocking questions, and evidence for the selected scenarios. After compression, compare conditions, exceptions, IDs, ownership, uncertainty, and approval scope with the source. Word count and diagram count are diagnostic only; fewer words cannot compensate for missing meaning.
 
 ## Findings and reconciliation
 
@@ -53,8 +83,8 @@ Record the reviewed version, reviewer, review type, completed coverage, findings
 Before presenting the design:
 
 1. Verify source versions, stable IDs, local links, section content, and removal of template placeholders.
-2. Trace overall product rules through shared contracts or assigned local design and verification obligations; retain accepted exclusions. Trace task acceptance conditions through the local approach and concrete self-tests.
-3. Walk through the important diagrams and compare each outcome with interface definitions and tests.
+2. Trace overall product rules through shared contracts or assigned local design and verification obligations; retain accepted exclusions. Trace task acceptance conditions through the local approach and concrete self-tests. Inspect reasoning links for consequential decisions and quality claims.
+3. Verify that the selected critical scenarios have walkthrough records, consistent model/interface/outcome checks, and explicit evidence limits. Reuse current review evidence; recheck paths affected by later changes.
 4. Inspect question states, dependencies, assumptions, and unresolved review findings. An empty askable queue does not establish completion.
 5. Complete the [Technical Writing editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
 6. Apply the mode-specific status and handoff rules. Check source versions, the task branch when applicable, required review, downstream design obligations, and the next function. Check readiness and approval coverage for each named scope.

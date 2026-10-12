@@ -10,7 +10,7 @@
 - Related Features: $Source Feature IDs$
 - Status scope: $Scope covered by the status above; identify different states for other scopes if needed$
 
-<!-- Follow the document contract at ../references/document-contract.md. Replace placeholders and remove instructional comments. Use for overall mode. Keep the ten main sections. Give a short reason for inapplicable areas. -->
+<!-- Follow ../references/document-contract.md, including concise design and decision-depth rules. Keep the ten main sections; remove unused subheadings. A section may reference authoritative content elsewhere. Group inapplicable areas with a brief reason. Remove placeholders and comments. -->
 
 <!-- Apply the contract's decision-depth and stopping conditions. Define architecture and shared agreements here; assign feature internals to task design. Explain any detail needed early by its effect on an architecture decision or consumer. -->
 
@@ -25,6 +25,14 @@ $State the change and the architecture and shared decisions needed for coherent 
 - **Product constraints:** $Source rules, Success Criteria, and agreed limits.$
 - **Supporting designs:** $Links and versions, or None.$
 
+### Key Quality Goals
+
+| Goal and Source | Constraint or Preference; Priority and Basis | Acceptance Scenario | Decision State |
+| --- | --- | --- | --- |
+| $Goal and authoritative requirement reference$ | $Mandatory limit, or relative preference order and reason$ | $Existing example, C/T, or Section 6 reference with conditions, response, and measurable/observable criterion$ | $Confirmed source or proposed/unknown with Q reference$ |
+
+<!-- Include only goals material to this design. Keep detailed requirements and scenarios in their authoritative sections; do not invent targets or priorities. -->
+
 ## 2. Current System and Constraints
 
 | Area | Current Fact or Constraint | Source | Design Impact |
@@ -34,13 +42,13 @@ $State the change and the architecture and shared decisions needed for coherent 
 - **Terminology:** $Link the product Design Doc's Glossary. Define additional technical terms needed by the reader.$
 - **Existing architecture decisions:** $Relevant ADRs or None.$
 - **Relevant patterns and technical debt:** $Evidence, design impact, and decision to retain, work around, or repair; or None.$
-- **Evidence limits:** $What was inspected or executed, and what remains unverified.$
+- **Evidence limits:** $Current conclusion and material uncertainty; link versioned investigation records rather than repeating probe chronology.$
 
 ## 3. Behavioral Contracts
 
 | Contract | Product Rules and Examples | Required Behavior | Verification |
 | --- | --- | --- | --- |
-| C1 | $Source rule and example IDs$ | $Condition, actor, observable result, invariant, and relevant prohibited outcome$ | $T IDs or explicit verification method$ |
+| C1 | $Source rule and example IDs$ | $Shared guarantee, consumers, conditions, invariant, and prohibited outcome; reference product behavior rather than copying it$ | $T IDs or verification obligation$ |
 
 <!-- Use C IDs for shared contracts. Account for local rules below without repeating the full product behavior or inventing shared contracts. -->
 
@@ -55,45 +63,45 @@ $State the change and the architecture and shared decisions needed for coherent 
 
 | Approach | How It Works | Benefits | Costs and Risks |
 | --- | --- | --- | --- |
-| $Approach$ | $Responsibilities, interface, and dependencies$ | $Benefits under the actual constraints$ | $Tradeoffs, uncertainty, and change cost$ |
+| $Approach$ | $Core mechanism$ | $Effect on priority goals$ | $Costs, limits, and rejection reason where applicable$ |
 
-- **Selected approach:** $Choice and status, or Pending with a Q ID.$
-- **Decision basis:** $Reason, evidence, and user answer or applicable authorization.$
-- **Rejected alternatives:** $Reasons, or why no meaningful alternative remains.$
-- **Related decisions:** $Authoritative ADR or supporting-design links, if applicable.$
-- **Early detail, if needed:** $Architecture decision affected, required evidence, and how findings would change the approach; or None.$
+- **Decision and status:** $Selected approach or ADR link; decision authority/source, or Pending with Q reference.$
+- **Basis and tradeoff:** $Goal/contract and scenario references; why this approach fits, precedence of competing goals, accepted cost and limit, and evidence basis. Explain if no meaningful alternative remains.$
+- **Risks and verification:** $Risk/assumption/finding and T references, evidence limits, and residual risk acceptance basis. Pending evidence retains its owner, required stage, and affected conclusion in that record.$
+- **Reopen when:** $Changed assumption, requirement, or evidence that would change this decision.$
+
+<!-- Repeat the decision fields only for consequential decisions, or link their authoritative ADRs. Keep reasoning links beside each conclusion under the document contract; reuse existing record IDs. -->
 
 ## 5. Technical Solution
 
 ### Modules and Responsibilities
 
-| Module | Responsibility | Public Interface | Dependencies |
-| --- | --- | --- | --- |
-| $Module$ | $Behavior and data owned$ | $Caller-facing operations$ | $Required modules or services$ |
+$Show responsibilities, dependencies, and relevant execution/trust boundaries in a structure diagram. For a simple change, use a compact table or explanation. Distinguish components, participants, and stored data.$
 
-- **Module assessment:** $Cohesion, change propagation, coupling, and any justified deployment boundaries; explain accepted tradeoffs.$
+- **Ownership and boundary rationale:** $Only ownership, cohesion, change propagation, or accepted coupling not clear from the view; link decisions rather than restating them.$
 
-### Key Flows and Diagrams
+### UML Models and Key Flows
 
-$Insert relevant architecture, flow, sequence, or state diagrams. Explain the important paths beside each diagram. Link paths to C and T IDs. State why diagrams are unnecessary for a simple change.$
+<!-- Select views under ../references/uml-modeling.md. Keep shared decisions here; assign local modeling to task design. -->
+
+$Embed or link the selected flow, interaction, or state views; use decision tables for condition/outcome combinations. Include essential entry paths, guards, and failures. Caption each view with purpose, scope, current/proposed baseline, and rule/C/T references. Explain only constraints and exceptions the view cannot convey; state an omission reason where applicable.$
+
+- **Notation and rendering:** $Tool/notation, simplifications, and actual rendering result or Not run. Semantic review belongs in Section 9.$
 
 ### Cross-Task Interface Contracts
 
 <!-- Repeat for interfaces that require agreement across tasks or with existing consumers. Leave complete command sets, schemas, and provider protocols to task design unless that agreement depends on them. -->
 
-- **Interface:** $Operation and related C IDs.$
-- **Consumers and agreement:** $Tasks or existing callers that need this contract, and what they must agree on.$
-- **Inputs and outputs:** $Required semantics, validation, and observable results; exact fields only where consumers depend on them.$
-- **Errors:** $Caller-visible failures and their conditions.$
-- **Invariants and ordering:** $Required state, sequence, and side effects.$
-- **Compatibility:** $Existing callers, versions, and intentional changes.$
+- **Interface and consumers:** $Operation, callers, and C references; state the agreement not already defined there.$
+- **Inputs, outputs, and failures:** $Required semantics, validation, and caller-visible results; exact fields only where consumers depend on them.$
+- **Constraints:** $Ordering, side effects, compatibility, and invariant references; do not repeat the linked contract or diagram.$
 
 ### Data, State, and Dependencies
 
-- **Data ownership:** $Authoritative data, integrity, storage responsibility, retention constraints, and transaction guarantees; assign local schema design below.$
-- **State transitions:** $Allowed and rejected transitions; refer to the state diagram when applicable.$
-- **Concurrency and asynchronous work:** $Shared idempotency, ordering, retry safety, cancellation, and coordination constraints; local mechanisms belong to task design.$
-- **External dependencies:** $Required capabilities, access boundaries, and dependency contracts.$
+$Use a relationship model for identities, revisions, ownership, and reference cardinalities when material. Reference lifecycle and interaction views above; keep independent status dimensions separate.$
+
+- **Additional invariants:** $Integrity, retention, transaction, concurrency, or retry guarantees not expressed in the views; link authoritative contracts.$
+- **External dependencies:** $Required capabilities, access boundaries, and contract references.$
 
 ### Downstream Task Design
 
@@ -103,7 +111,7 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 
 ## 6. Failure Modes and Operational Requirements
 
-<!-- Record shared guarantees, responsibilities, and acceptance here. The responsible task defines local recovery procedures and configuration. Investigate mechanics early only when an architecture decision depends on them. -->
+<!-- Record shared guarantees and acceptance. Refer to failure paths already modeled; explain only additional handling here. Review relevant operational areas under design-methods.md, include applicable rows, and group inapplicable areas with a reason. Task design owns local procedures and configuration. -->
 
 | Failure | Trigger or Path | Handling and Recovery | Observable Result | Verification |
 | --- | --- | --- | --- | --- |
@@ -111,16 +119,9 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 
 | Area | Requirement or Decision | Verification |
 | --- | --- | --- |
-| Security and access | $Trust boundaries, least privileges, default access denial, input validation, relevant audit trails, and data protection$ | $Behavior tests or checks$ |
-| Performance and resources | $Supported targets, units, load context, and limits; link unknowns to Q IDs$ | $Measurement method$ |
-| Capacity and evolution | $Load and growth assumptions, bottlenecks, capacity limits, and observable architecture reassessment conditions; qualify estimates and unknowns$ | $Measurement or validation plan$ |
-| Availability | $Required service behavior, acceptable interruption, and treatment of relevant single points of failure$ | $Failure and recovery checks$ |
-| Observability | $Signals needed to detect failures and assess behavior$ | $How to verify the signals$ |
-| Build and distribution | $Build, package, supported environments, and how users receive the change$ | $Relevant checks$ |
-| Rollout and configuration | $Activation, compatibility, and rollout conditions$ | $Readiness and acceptance checks$ |
-| Migration | $Data changes, old/new coexistence, and ordering$ | $Migration verification$ |
-| Rollback and recovery | $Triggers, ownership, required outcome, and limitations; assign procedure design$ | $Recovery acceptance$ |
-| Backup and restoration | $Affected data and supported retention, data-loss, and restoration-time requirements; assign procedure design and qualify unknowns$ | $Recovered data and service acceptance$ |
+| $Applicable operational area$ | $Shared requirement or decision reference; supported target/conditions, responsibility, and unknowns$ | $T reference or verification method$ |
+
+<!-- Consider security/access, performance/resources, capacity, availability, observability, distribution, rollout, migration, rollback, and backup/restoration. Omitted template rows do not waive this assessment. -->
 
 ## 7. Validation and TDD Strategy
 
@@ -134,9 +135,9 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 
 | Scenario | Contract or Product Reference | Condition and Observable Outcome | Verification Boundary and Evidence | Responsible Role and Required Stage |
 | --- | --- | --- | --- | --- |
-| T1 | $C or source IDs$ | $Critical interaction, failure, or combined outcome to verify$ | $Method, real dependency or substitution, and evidence limits$ | $Owner and when the evidence is needed$ |
+| T1 | $C, source, or quality-goal references$ | $Affected system, operating conditions, trigger, required response, and measurable/observable acceptance criterion$ | $Method, real dependency or substitution, actual evidence or Planned, and limits$ | $Owner and when the evidence is needed$ |
 
-<!-- This is not a full functional test inventory. Section 3 retains local verification obligations; task designs supply concrete cases, fixtures, assertions, and TDD steps. -->
+<!-- Retain architecture-critical and cross-feature scenarios here. Section 3 assigns local verification obligations; task designs own detailed cases and fixtures. Preserve existing T IDs and relocation links when moving local cases. -->
 
 - **Existing coverage:** $Current tests, baseline, and execution status.$
 - **Regression and integration:** $Behavior to protect and checks across Features.$
@@ -148,9 +149,7 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 | --- | --- | --- | --- |
 | $Small behavior slice$ | $Contract and acceptance outcome$ | $Critical T ID or behavior obligation; task mode refines the first Red step$ | $Real dependency or None$ |
 
-- **Downstream execution:** $Require Red → Green → Refactor one behavior at a time. Task mode refines local tests and steps; retain final integration checks here.$
-- **Evidence required:** $Test, command, code state, actual Red and Green results, refactoring outcome, and relevant final checks.$
-- **Current evidence:** $Planned, or links to actual results with their limits. Explain any TDD exception.$
+- **Execution and evidence:** $Task mode plans Red → Green → Refactor one behavior at a time. Reference the downstream evidence contract; link actual results and limits when available, otherwise Planned. Explain any TDD exception.$
 
 ## 8. Premises and Open Questions
 
@@ -163,27 +162,27 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 
 ## 9. Review and Approval
 
-- **Record sources:** $Accessible review and approval references for the exact design revision and scope, or Pending. Identify the date/revision of summaries below and any superseding record under the document contract; no duplicate report is required.$
-- **Reviewed version:** $Version and scope of the review.$
-- **Review type and reviewer:** $Independent or self-review; reviewer identity.$
-- **Coverage and limits:** $Areas reviewed, skipped areas with reasons, and independent review requests used if applicable.$
+- **Current review:** $Exact version/scope, reviewer and independence, conclusion, date and openable source; or Pending. Identify superseded summaries through record links.$
+- **Coverage and limits:** $Reviewed areas, skipped coverage and reasons, material evidence limits, and independent review request count if applicable.$
+
+<!-- Summarize the current assessment. Keep review rounds and full traces in their authoritative records; use references instead of duplicating their findings below. -->
+
+| Scenario and Selection Reason | Conclusion and Findings | Basis and Limits |
+| --- | --- | --- |
+| $Existing scenario and priority/tradeoff/risk basis; baseline above$ | $Expected versus traced outcome and Q/finding references$ | $Inspected model path or openable trace, contract/test references, basis, and remaining uncertainty; expand steps only to explain a finding$ |
 
 | Finding and Location | Evidence and Consequence | Remedy or Question | Disposition, Blocked Stage and Scope |
 | --- | --- | --- | --- |
 | $Finding or None$ | $Basis and effect$ | $Correction or Q ID$ | $Open, resolved with basis, or deferred with owner; stage/scope affected and dependency reason, or None$ |
 
-- **Applied changes:** $Changes and verification of affected content.$
+- **Recheck:** $Affected paths rechecked after corrections and result; link prior dispositions.$
 - **Approval:** $Pending, or approver, exact approved version and scope, date, and source; distinguish any remaining unapproved scope.$
 
 ## 10. Handoff to Task Breakdown
 
-- **Design baseline:** $Task directory, document paths, and exact technical and product versions, including supporting designs.$
-- **Shared contracts and coordination:** $Interface and module ownership constraints.$
-- **Downstream task design:** $Section 5 references for feature design, owners, constraints, evidence, and resolution points; no architecture risk hidden as a local choice.$
-- **Sequence constraints:** $Real dependencies, necessary preparatory refactors, and Section 7 increment references.$
-- **Final integration acceptance:** $Observable result and verification across the completed change.$
-- **Outstanding validation:** $Question or assumption references, owners, evidence, and work blocked.$
-- **Ready for task breakdown:** $Refer to the assessment below; planning readiness does not mean every task is ready to code.$
+- **Handoff references:** $Exact design/product baselines above; Sections 3–5 for contracts, ownership and downstream design; Section 7 for dependencies and integration acceptance; Sections 8–9 for remaining evidence and review.$
+
+<!-- Add only coordination constraints not already recorded. Use a dependency diagram where helpful. Keep dispatch instructions, Git steps, and reply metadata in the delivery record. -->
 
 | Scope | Status and Approval Reference | Ready for Task Breakdown | Blocker, Dependency Reason, and Next Action |
 | --- | --- | --- | --- |
@@ -192,6 +191,5 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 <!-- Include remaining product scope. Do not use an overall No to hide supported independent scope, or a subset's approval to imply approval of the whole change. -->
 
 - **Task breakdown:** Pending
-- **Handoff summary:** $Scope and input versions, output references, conclusion and evidence limits, unresolved issues, next function and responsible recipient.$
-- **Feedback:** $None, or issue identity, constraint, observations versus estimates, impact, alternatives, requested decision, and affected downstream work.$
-- **Next action:** $Owner approval, planner handoff, or upstream feedback with the expected result.$
+- **Next function and recipient:** $Owner approval, planner handoff, or upstream feedback; accountable recipient and expected result.$
+- **Feedback:** $Authoritative issue reference with constraint, evidence/estimates, impact, alternatives, and requested decision; or None.$

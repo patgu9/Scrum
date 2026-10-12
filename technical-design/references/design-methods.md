@@ -16,13 +16,25 @@ For an existing system, inspect the test framework and useful test boundaries. I
 
 Use bounded, safe checks to answer questions at the selected design depth. Before an overall-mode probe, state the architecture decision, evidence needed, and stopping condition under the [decision-depth rule](document-contract.md#decision-depth-and-deferred-work). Record commands, results, and limits. If a needed experiment exceeds the authorized work, return its purpose and required authorization. Keep dependent conclusions provisional; classify missing access by the stage it actually blocks.
 
+## Prioritize quality goals and resolve tradeoffs
+
+Identify the quality goals that materially influence this design, using confirmed product goals and constraints as their basis. Separate mandatory constraints from preferences that can be traded. Rank competing preferences, explain ties where relevant, and cite the priority's source and decision state. Do not invent a universal ordering or numeric weights.
+
+Express each key goal through a usage, failure, or change scenario: the affected system, operating conditions, event, required response, and measurable or otherwise observable acceptance criterion. Reuse existing product examples, contracts, or `T<n>` scenarios. Keep unknown targets or priorities explicit in the question record; classify the work they block under the document contract.
+
+Compare meaningful alternatives against the same goals and scenarios. For each material conflict, state the goals affected, which takes precedence under the stated conditions, the benefit, the accepted cost or degradation, and its permissible limit. A preference cannot override a mandatory constraint. If no approach satisfies the constraints, return the conflict through the existing decision process.
+
+Explain how evidence supports the selected tradeoff and what change in assumptions, load, or requirements would reopen it. Distinguish estimates and untested claims from observations. Use bounded investigation when the decision depends on missing evidence; do not turn an unexplored alternative into a proven impossibility.
+
+Overall mode owns shared quality priorities and tradeoffs. Task mode references those decisions and resolves local choices within them. Route proposed changes to approved targets or priorities through the existing baseline feedback rules. A simple task can cite the applicable goals and state that no new tradeoff arises.
+
 ## Design behavior and interfaces
 
 Start with product rules and examples. Define what a caller or user can observe, including outcomes that must not occur. Distinguish intentional behavior changes from behavior that must remain compatible.
 
 Choose the highest useful test boundary that provides reliable feedback for the behavior. Reuse existing public interfaces where they fit. A test seam is a boundary where a dependency can be replaced during testing. Establish shared test boundaries before task breakdown. Refine task-local seams during task design without exposing new shared contracts silently.
 
-Compare alternatives for consequential choices. Consider reuse, minimal change, and a different module or dependency boundary when relevant. Compare interface complexity, caller needs, testability, failure handling, operational cost, and future change cost. Explain why one approach is sufficient when no meaningful alternative remains.
+Compare alternatives for consequential choices under the [quality priorities and tradeoff method](#prioritize-quality-goals-and-resolve-tradeoffs). Consider reuse, minimal change, and a different module or dependency boundary when relevant. Compare interface complexity, caller needs, testability, failure handling, operational cost, and future change cost. Explain why one approach is sufficient when no meaningful alternative remains.
 
 Choose the simplest approach that satisfies confirmed behavior and quality constraints. Explain the current need for each new abstraction, dependency, configuration option, or extension point. Do not add capabilities solely for hypothetical future use.
 
@@ -39,24 +51,11 @@ Select interfaces under the contract's [shared-contract rule](document-contract.
 
 Identify which consumer needs each exact field, command, or sequence before specifying it in overall mode. Leave complete feature protocols and schemas to task design where the shared agreement does not depend on them. In task mode, define the local interfaces, algorithms, configuration, and errors needed to begin coding. Investigate high-risk choices before treating the task as ready. Use existing paths as evidence or likely integration points; avoid fixing every future filename in the design.
 
-Keep important decisions and rejected alternatives in the design. Link an existing ADR when it owns a decision. A separate ADR is useful for a hard-to-reverse choice with non-obvious tradeoffs; create one when project conventions or the request call for it.
+Keep important decisions and rejected alternatives in the design. Connect their basis, risks, and verification under the contract's [reasoning links](document-contract.md#connect-decisions-to-scenarios-risks-and-verification). Link an existing ADR when it owns a decision. A separate ADR is useful for a hard-to-reverse choice with non-obvious tradeoffs; create one when project conventions or the request call for it.
 
 ## Use diagrams to expose missing behavior
 
-Place diagrams beside the technical explanation. Prefer Mermaid when the document supports it. Show one shared flow for Features that participate in the same behavior.
-
-| Design characteristic | Required diagram content |
-| --- | --- |
-| Several modules or system boundaries | Architecture diagram showing responsibilities and dependencies |
-| Important branches, rejection, or recovery paths | Flowchart showing triggers, decisions, outcomes, and failure paths |
-| Asynchronous work or order-sensitive interaction | Sequence diagram showing participants, handoffs, responses, and timing constraints |
-| A meaningful entity or job lifecycle | State diagram showing allowed transitions and terminal states |
-
-A diagram can satisfy more than one need if it remains readable. Simple changes can omit diagrams with a brief reason. Do not add all diagram types mechanically.
-
-For each important flow, expose the trigger, participants, key decisions, and observable completion. Overall diagrams show cross-module interactions and shared failure or consistency boundaries. Task diagrams refine internal branches, writes, and retry sequences as needed. Link paths to applicable product rules, `C<n>` contracts, or `T<n>` scenarios.
-
-Keep diagrams consistent with interface definitions, failure handling, and tests. If a diagram reveals undefined behavior, record a question. A diagram does not establish that the implementation works.
+Use the [UML modeling guide](uml-modeling.md) to select views, define their semantics, and check consistency with contracts and verification. Model uncertain relationships and paths while comparing approaches; revise the model as decisions change. Place each view beside its explanation. Show one shared flow for Features that participate in the same behavior.
 
 ## Define failures and operational behavior
 

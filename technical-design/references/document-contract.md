@@ -30,7 +30,7 @@ Use explicit artifact versions, starting at `v1`; increment for substantive chan
 
 ## Structure and content placement
 
-Overall mode retains the ten sections of the overall template unless the user supplies another format:
+Overall mode retains the ten sections of the overall template unless the user supplies another format. They are navigation anchors, not equal-length writing assignments. A section can point to its authoritative content elsewhere; omit unused subheadings and group inapplicable areas with a brief reason.
 
 | Section                                       | Content                                                                                                                |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -47,7 +47,29 @@ Overall mode retains the ten sections of the overall template unless the user su
 
 Task mode records task identity, versions, branch/code baseline, scope and acceptance references, implementation approach, affected code, local error handling, planned self-tests, dependencies, open decisions, review disposition, and implementation readiness. Use only the detail needed for the task. A short note can carry this information without all template headings. Do not repeat the full architecture template for routine tasks.
 
+Both modes record applicable UML views or a brief omission reason under the [modeling guide](uml-modeling.md). Place overall models in Section 5, with operational views beside Section 6 when clearer; task models belong with the implementation approach. Keep sources and baseline references with the design.
+
+Record shared quality priorities in Section 1, tradeoffs with their decisions in Section 4, and linked acceptance scenarios in Section 7. Keep detailed operational requirements in Section 6. Task notes reference applicable priorities in their inputs and local tradeoffs with their approach. Apply the [quality goal method](design-methods.md#prioritize-quality-goals-and-resolve-tradeoffs); cross-reference existing records instead of copying their content.
+
 Write plain, concise English unless the user requests another language. Follow [technical-writing](../../technical-writing/SKILL.md). Remove placeholders and instructional comments from completed artifacts. For an inapplicable area, give a short reason rather than inventing work.
+
+### Keep the current design concise
+
+Keep the main document focused on the decisions its reader must understand or act on now. Use this placement rule in both modes:
+
+| Content | Placement |
+| --- | --- |
+| Current decisions, shared guarantees, key models, risks, and acceptance obligations | Main design at the selected scope |
+| Investigation commands, raw responses, and probe chronology | Existing evidence record; summarize the current conclusion, impact, and limits in the design |
+| Complete reviews, walkthrough traces, and superseded decisions | Versioned review/history references; retain current disposition and material limits in the design |
+| Local schemas, command syntax, parameter defaults, and detailed test cases | Responsible task design; retain early detail in overall mode only under the decision-depth rule |
+| Dispatch IDs, issue-status instructions, Git delivery steps, and one-time replies | Handoff message or delivery record; keep only durable dependencies and next responsibility in the design |
+
+Before shortening an existing document, preserve a retrievable snapshot and verify the destinations of moved content. Retain stable IDs, baseline/approval references, and links from old locations when needed. If no task exists, retain useful local sketches as clearly provisional supporting material with a downstream owner; do not create task files or imply assignment. Do not hide unresolved risks in an appendix or discard their evidence.
+
+State each rule or decision once. Elsewhere, link it and explain only the new implication. Prefer diagrams for relationships, flows, and states, and decision tables for condition/outcome combinations under the [modeling guide](uml-modeling.md). Keep rationale, constraints, and exceptions that those views cannot express clearly. Full product-rule restatements and repeated caveats add no coverage.
+
+Revise current conclusions in place instead of appending each investigation or review round. Keep history accessible through its original record or a versioned snapshot. Use descriptive, directly openable links for evidence and approvals; an opaque ID alone needs a retrieval location. If the source is unavailable, state that limit rather than inventing a link or a verified conclusion.
 
 ## Decision depth and deferred work
 
@@ -62,6 +84,8 @@ Overall design resolves the decisions needed to divide responsibilities, identif
 | Test data, assertions, fixtures, and concrete Red → Green → Refactor steps | Task |
 
 A shared contract contains only the decisions that other tasks or existing consumers must rely on. Name those consumers and their required agreement. A field, command, or schema may need an exact definition when consumers cannot coordinate without it. Being user-visible, important, or complex does not by itself make every detail a shared contract.
+
+For local detail retained in overall mode, name the consumer or architecture decision that needs it now. Otherwise move it to the location defined above. Calling a long implementation sketch "nonbinding" does not justify keeping it in the overall body. Critical ordering, transaction guarantees, and failure semantics remain shared even when their implementation is deferred.
 
 Investigate a task-level detail early only when it can change feasibility, an architecture decision, a shared guarantee, or a task boundary. State the affected decision and how different findings would change it. For example, a storage capability may determine whether the proposed atomicity guarantee is possible. Stop the investigation when that decision has sufficient evidence; do not continue into the feature's full implementation design.
 
@@ -98,6 +122,14 @@ Task design maps assigned acceptance conditions to applicable shared contracts, 
 A test can cover several contracts and vice versa. Inspect expected outcomes and assertions; ID lists alone do not establish coverage. Derive expected results from contracts rather than implementation. Keep existing tests, planned tests, unrun checks, failures, and actual passes distinct.
 
 Separate current facts, proposed behavior, accepted decisions, assumptions, and executed verification. Cite sources, versions, commands or procedures, actual results, and limits as applicable. A failed probe does not establish that a system lacks the capability. Planned TDD steps do not establish Red or Green results.
+
+### Connect decisions to scenarios, risks, and verification
+
+For each consequential decision or quality claim, link its goal or contract, relevant scenario, supporting rationale and evidence, material risks or assumptions, and verification obligation. Explain why the evidence supports the conclusion and what it cannot establish; a list of IDs is insufficient. Where evidence is pending, retain the planned method, owner, required stage, and affected conclusion.
+
+Use document-qualified IDs, section anchors, or existing ADR references. Reuse the authoritative scenario, question, finding, and execution records; no separate numbering scheme or duplicate evidence log is required. Keep risks and their dispositions in the existing question or finding records, or link an existing risk register. Record residual risk and its acceptance basis where applicable; a mitigation plan alone does not resolve it.
+
+Keep these links beside the decision or claim, so a reader can follow it to the scenario and evidence. When a goal, decision, scenario, risk, or result changes, follow the links to reassess dependent conclusions, model views, tests, and readiness. Mark superseded evidence explicitly. Overall mode retains verification obligations; task mode refines them and links actual results when available.
 
 ## Questions and assumptions
 
@@ -143,7 +175,7 @@ If approved product behavior or shared technical decisions must change, reopen t
 
 The author owns design content. The reviewer owns the version-bound review report and finding dispositions. The human owner supplies approval; Project Manager links those records and assesses the next coordination step. A review report or approval record may be an accessible external artifact or workflow message with a stable reference, exact design revision, scope, author, and time. Preserve the evidence used if that source is revised.
 
-Section 9 and the task review record can link those sources instead of duplicating them. Section 10 can reference the resulting readiness assessment. An approval request can use the reviewed design revision plus its applicable review report; copying the report into the design is not an additional gate. The author can synchronize record summaries during the next authorized design maintenance or planning invocation without a separate record-only run.
+Section 9 and the task review record default to a compact current assessment with links to those sources. Include review scope/version, reviewer and independence, conclusion, open findings, material limits, and approval state; keep full review history in its authoritative record. Section 10 references this assessment instead of repeating it. An approval request can use the reviewed design revision plus its applicable review report; copying the report into the design is not an additional gate. Synchronize summaries during the next authorized maintenance or planning invocation without a separate record-only run.
 
 Treat status and finding summaries in the file as a snapshot. When a later authoritative record changes them for the same revision, identify the stale summary, cite the superseding evidence, and state current readiness by scope in the handoff. Do not silently ignore contradictions. Missing, ambiguous, or inapplicable evidence blocks the dependent conclusion; a newer timestamp alone does not resolve it. Project Manager cannot close a specialist finding or grant approval.
 

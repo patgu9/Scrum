@@ -22,15 +22,17 @@ Read relevant project instructions and exact source versions. Use [current-fact 
 
 ## 2. Design at the selected scope
 
-Read the [design methods](references/design-methods.md). Compare meaningful approaches and connect behavior to verification.
+Read the [design methods](references/design-methods.md). Establish quality priorities, compare approaches and their tradeoffs, and connect decisions to scenarios, risks, and verification. Select UML views using the [modeling guide](references/uml-modeling.md) when structure, interaction, or lifecycle needs clarification.
 
 Use the [overall template](assets/technical-design-doc-template.md) for overall mode. Use the [task template](assets/task-design-template.md) for task mode; a simple task can use a compact note with the same required information.
+
+Apply the contract's [concise design rules](references/document-contract.md#keep-the-current-design-concise). Prefer diagrams and decision tables where they clarify the design; replace the corresponding prose instead of repeating it.
 
 Apply the contract's [decision depth and stopping conditions](references/document-contract.md#decision-depth-and-deferred-work). Leave feature internals to task mode unless they determine an architecture decision or shared contract. In overall mode, define verification obligations; in task mode, plan concrete Red → Green → Refactor steps. Return baseline changes through the [feedback loop](references/document-contract.md#feedback-and-revisions).
 
 ## 3. Review and hand off
 
-Follow the [engineering review](references/engineering-review.md), scaled to the mode and risk. Complete the writing passes and document checks. Record actual review coverage and unresolved findings.
+Follow the [engineering review](references/engineering-review.md), including walkthroughs of selected critical scenarios, scaled to the mode and risk. Complete the writing passes and document checks. Record actual review coverage and unresolved findings.
 
 Before delivery, use [Document Review](../document-review/SKILL.md) to review design documents, review reports, feedback responses, and handoff summaries in both modes.
 

@@ -7,7 +7,7 @@ The calling workflow defines domain criteria and owns status, independent review
 ## Review the artifact
 
 1. **Structure:** Check the applicable headings, fields, tables, identifiers, references, and required coverage. Use the calling workflow's checklist. For standalone writing, preserve the requested or existing format instead of imposing a new template.
-2. **Content and expression:** Complete the [editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes). Apply [English controls](../../technical-writing/references/english-controls.md) to English prose. Compare revisions with their sources and retain unresolved meaning.
+2. **Content and expression:** Complete the [editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes). Check duplication, content placement, overloaded tables, and whether visuals convey essential conditions. Apply [English controls](../../technical-writing/references/english-controls.md) to English prose. Compare revisions with their sources and retain unresolved meaning.
 3. **Domain and evidence:** Apply the calling workflow's domain criteria. Check claims against available evidence. Keep intended behavior, planned checks, observed results, and approval evidence distinct. A reader walkthrough reviews the text; it does not demonstrate product behavior.
 
 For a local wording edit, review the changed passage and affected references. For a completed document or material revision, review the full affected artifact. Identify the reviewed path and version or revision when available.
@@ -33,5 +33,7 @@ Use the caller's review record or delivery summary. For a small edit, a short st
 - **Limits:** Unreviewed areas, missing evidence, and required checks that were not run. Include optional tool results only when used or relevant to an explicit request.
 
 State whether the review is complete and whether findings remain unresolved. Do not report a script result as overall document validation. Review completion does not change document status or grant approval.
+
+Keep review work complete and its summary proportionate. Group checks with no findings by reviewed area; expand defects, uncertainty, and material limits. Reference existing evidence or walkthroughs rather than copying them. A shorter report must still identify the checked revision, coverage, and basis for its conclusion; summary brevity does not waive a required check.
 
 Before delivery, check the review report itself against these reporting rules and the reviewed evidence. Confirm that findings, coverage, and limits match the checks actually performed. Correct reporting errors and retain unresolved gaps in the same report. This is self-review within the current invocation; do not start another invocation or create a separate report to review this report.

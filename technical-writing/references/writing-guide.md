@@ -34,6 +34,14 @@ Keep required headings, fields, and their order. Improve the explanation within 
 
 For Skill instructions, address the agent performing the task. Keep routing in `SKILL.md` and detailed rules in references. Give each rule one authoritative location and link to it where needed.
 
+## Compress content before sentences
+
+First remove duplication and place detail at the reader's required scope. Then shorten sentences. Follow the calling workflow's artifact rules: link existing evidence, history, and downstream detail instead of creating new documents by default. Keep current conclusions in place and preserve superseded records through accessible references.
+
+Choose one primary representation for each fact or relationship. A diagram can replace a flow description; a table can replace repeated comparisons. Retain the rationale, conditions, exceptions, and uncertainty that the representation does not convey. Do not narrate every arrow or repeat a table in prose.
+
+Keep table cells comparable and brief. Move narrative explanations to a nearby focused paragraph or linked record. Preserve the outcome and important limits in the visible summary. Group repeated qualifications where their scope remains clear; never remove an unknown or approval condition just to meet a length target.
+
 ## Lead each paragraph with its point
 
 Begin with the behavior, result, problem, or decision that the paragraph explains. Follow with the reason or evidence needed to assess it. Keep one topic per paragraph and connect adjacent sentences. Remove preambles, tangents, promotional claims, and repeated recaps.
@@ -75,7 +83,7 @@ Place an example beside the explanation it supports. Use a simple case first, th
 
 ## Keep evidence and visuals useful
 
-State each fact or rule in its assigned location, then use a cross-reference or stable ID. Put source links beside the claims they support. Use descriptive link text. Keep uncertainty, verification limits, and review history in their assigned fields; repeat only when needed to prevent misunderstanding.
+State each fact or rule in its assigned location, then use a cross-reference or stable ID. Put source links beside the claims they support. Use descriptive link text and include a retrieval location for opaque IDs. Keep uncertainty, verification limits, and review history in their assigned fields; repeat only when needed to prevent misunderstanding.
 
 For a user-visible failure, explain what failed and the available recovery action. Give a cause only when supported. Never turn “not verified” into success.
 
@@ -85,7 +93,7 @@ Use a diagram when it clarifies a relationship or flow. Place it beside the rele
 
 Review in this order. These passes supplement the calling workflow's checks.
 
-1. **Content and order:** Can readers find the information needed for their goal? Are prerequisites and concepts introduced before use? Keep each rule in its assigned location and remove irrelevant material.
+1. **Content and order:** Can readers find the information needed for their goal? Are prerequisites and concepts introduced before use? Apply the [content compression pass](#compress-content-before-sentences); keep each rule in its assigned location.
 2. **Expression:** Check sentence focus, actors, references, examples, and list and table structure. For English, apply [English controls](english-controls.md), including the distinction between instructions and descriptions.
 3. **Meaning:** Compare source and revision. Verify the same actors, actions, conditions, exceptions, sequence, alternatives, negation, limits, units, IDs, evidence, uncertainty, and approval state. A wording change cannot settle an unresolved decision.
 4. **Reader walkthrough:** Follow a documented task or answer the document's main question using only the text and its stated prerequisites. Identify missing steps or unexplained terms. Treat this as a text review, not evidence that the product or procedure works.
