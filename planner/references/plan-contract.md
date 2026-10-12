@@ -43,6 +43,8 @@ Write concise English unless the user or project requires another language. Remo
 
 The plan owns change-level scope, coverage, shared integration responsibilities, overall dependency order, cross-task issues, planning review, and handoff. Its task index links every task and names the version summarized. Include accepted source exclusions rather than silently omitting rules.
 
+Record the required user path or the outcome for a technical consumer and the decomposition basis in the plan. Include candidate boundaries, meaningful alternatives when available, and the selection rationale. Reuse source rules and examples; link unresolved questions to their accountable recipients. Scale this record to the change using the [five-step method](planning-methods.md#five-step-decomposition).
+
 Each task file owns its goal, acceptance, direct dependencies, assignment, baselines, readiness, blockers, lineage, and observed execution links. The index may summarize these fields but must not repeat full task bodies.
 
 Update affected task files and the index together, then check their agreement. If they differ, read the task file and referenced evidence. Report the stale summary and resolve it before the affected claim or handoff.
@@ -60,15 +62,15 @@ Each standalone task must supply the following before assignment is actionable. 
 | Field | Required content |
 | --- | --- |
 | Identity and lineage | Stable task ID, task version, title, plan backlink, active/superseded/cancelled disposition, and original task or defect links when split or corrective |
-| Goal and boundaries | One verifiable outcome, required changes and likely modules, explicit exclusions; no unrelated cleanup |
+| Goal and boundaries | One verifiable outcome, required changes and likely modules, explicit exclusions, and a brief boundary rationale linked to the plan's decomposition basis; no unrelated cleanup |
 | Baselines and traceability | Exact plan, approved product, overall-design, and code versions with accessible paths and approval evidence; assigned rule/example/contract references |
-| Acceptance and verification | Observable conditions and expected outcomes, required self-test/regression obligations, and shared integration checks with their responsible recipients; planned evidence remains planned |
+| Acceptance and verification | Observable conditions, concrete scenarios or source example references, expected outcomes, required self-test/regression obligations, and shared integration checks with their responsible recipients; planned evidence remains planned |
 | Dependencies | Predecessor or external input, required artifact/version or condition, current evidence, and whether it gates claim, task design, coding, review, or merge |
 | Assignment | Named available developer, assignment basis and relevant capacity limits; otherwise `Unassigned` with the missing input and supplier |
 | Git baseline | Repository, declared base ref and known revision, integration target, dependency/stack relationship if applicable, and claim-time recheck requirements |
 | Existing execution links | Claim owner/state, time and confirmation source; actual branch/PR, task design, and evidence links for resumed tasks. New tasks record `Pending claim` and `Not created`, without links to nonexistent artifacts |
 | Deferred decisions | Source decision reference, developer responsible after assignment, allowed choices, constraints, required evidence, and resolution point before affected coding |
-| Effort and review scope | Design, implementation, and verification effort; affected files/interfaces, behavioral risk, estimated authored additions plus deletions, generated changes separately, uncertainty, and reviewability disposition with rationale and any required advance reviewer agreement |
+| Effort and review scope | Design, implementation, and verification effort; an agreed time boundary/checkpoint or Unknown with supplier; affected files/interfaces, behavioral risk, estimated authored additions plus deletions, generated changes separately, uncertainty, and reviewability disposition with rationale and any required advance reviewer agreement |
 | Readiness and handoff | Ready for assignment/claim with reasons, blockers and owners, next function and accountable recipient; this is not readiness for coding |
 
 One assigned development task corresponds to one active branch and one PR against its declared base. A task can depend on another task without being independently deployable. Do not bundle separate tasks into one PR or split one task into several independently reviewed PRs without first revising the task boundaries.

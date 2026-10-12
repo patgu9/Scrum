@@ -16,11 +16,22 @@
 ## Scope and Coverage
 
 - **Outcome and included scope:** $Approved outcome and included Features/rules/contracts.$
+- **Required path:** $User and complete path to the outcome, with source references; use an existing Story Map when useful. For technical work, name the consumer and engineering outcome.$
 - **Exclusions:** $Out-of-scope work and accepted exclusions with source references.$
 
 | Product Rule / Technical Contract | Task IDs | Observable Acceptance and Verification Responsibility | Exclusion or Gap |
 | --- | --- | --- | --- |
-| $Document-qualified reference$ | $Task IDs$ | $Expected behavior, task self-tests, and shared integration check/recipient$ | $None, accepted exclusion source, or unresolved gap$ |
+| $Document-qualified rule/contract and example references$ | $Task IDs$ | $Expected behavior, task self-tests, and shared integration check/recipient$ | $None, accepted exclusion source, or unresolved gap$ |
+
+## Decomposition Basis
+
+- **Behavior boundaries:** $Rules and concrete examples that distinguish candidate slices; link unresolved questions in the issue table below. Reuse source content.$
+
+| Candidate Boundaries / Pattern | Benefits and Tradeoffs | Disposition and Reason |
+| --- | --- | --- |
+| $Materially different split, or the single viable choice with its basis$ | $Complete outcomes, early feedback, risks, dependencies, and review context$ | $Selected / Rejected / Needs clarification, with evidence or uncertainty$ |
+
+- **Selected approach:** $Why these boundaries fit the approved scope and current code. Keep a small change brief; do not manufacture alternatives. Task files own final task definitions.$
 
 ## Task Index and Dependency Order
 
@@ -46,7 +57,7 @@ The linked task files own their definitions, assignment, readiness, and observed
 ## Review and Handoff
 
 - **Review scope:** $Reviewed plan and task versions, reviewer, and review type: self-review or independent review.$
-- **Checks performed:** $Actual coverage, dependency, readiness, and task-entry walkthrough checks. Include entry links, backlinks, task versions, and index consistency.$
+- **Checks performed:** $Actual user-path and rule/example coverage, split rationale, INVEST/SMART and Small CLs checks, combined-scope completeness, dependencies, readiness, and task-entry walkthrough. Include entry links, backlinks, task versions, and index consistency.$
 - **Review findings:** $Corrections, unresolved findings and their dispositions, and unreviewed areas; or no unresolved findings within the reviewed scope.$
 - **Ready tasks and assignments:** $Exact task paths/versions and accountable developers, or None. Summary only; confirm from each task file.$
 - **Blocked, unassigned, or retired tasks:** $Exact IDs, reasons, suppliers, and resumption conditions.$

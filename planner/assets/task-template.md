@@ -14,6 +14,7 @@
 ## Goal and Boundaries
 
 - **Goal:** $One complete, observable outcome.$
+- **Boundary rationale:** $Why this is a complete behavior slice or a necessary technical prerequisite with named consumers; link the plan's decomposition basis.$
 - **Required changes:** $Behavior and likely code/modules; local implementation design follows claim.$
 - **Exclusions:** $Unrelated work and explicit limits.$
 - **Lineage:** $None, or links to original task/defect, affected candidate, replacement tasks, and distributed acceptance scope.$
@@ -32,9 +33,9 @@
 
 ## Acceptance and Planned Verification
 
-| Acceptance Condition | Source | Expected Outcome | Planned Verification / Responsible Recipient |
-| --- | --- | --- | --- |
-| $Observable condition$ | $Document-qualified reference$ | $Concrete result including relevant boundaries/failures$ | $Self-test/regression obligation or shared integration check and recipient; execution remains pending$ |
+| Acceptance Condition | Source | Example / Scenario | Expected Outcome | Planned Verification / Responsible Recipient |
+| --- | --- | --- | --- | --- |
+| $Observable condition$ | $Document-qualified reference$ | $Source example reference or concrete setup and action; distinguish unconfirmed interpretation$ | $Concrete result including relevant boundaries/failures$ | $Self-test/regression obligation or shared integration check and recipient; execution remains pending$ |
 
 ## Dependencies and Deferred Decisions
 
@@ -49,6 +50,7 @@
 
 - **Git baseline:** $Repository, declared base ref/revision, integration target, stack relationship if any, and claim-time rechecks.$
 - **Effort:** $Estimates for task design, implementation, and verification, with basis and uncertainty.$
+- **Time boundary / checkpoint:** $Agreed duration or checkpoint for seeking help or replanning, or Unknown with supplier; no invented deadline or timing-only readiness gate.$
 - **Review scope:** $Affected files/interfaces, behavioral risks, and required context/expertise.$
 - **Estimated diff:** $Authored additions plus deletions; generated changes separately; total diff, including binary/non-text changes. State uncertainty and generation/validation needs.$
 - **Reviewability disposition:** $Suitable / Split / Clarify / Advance review agreement needed, with material reasons; no default numerical gate.$

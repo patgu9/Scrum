@@ -17,7 +17,7 @@ Missing or stale inputs block dependent assignment. Preserve useful independent 
 
 ## 2. Decompose and assign
 
-Follow the [planning methods](references/planning-methods.md) to map behavior to tasks, sequence dependencies, estimate the full work, and assess reviewability. Use small, complete changes; line counts are scope information, not a default gate. Use [Technical Writing](../technical-writing/SKILL.md) to write concise task instructions.
+Follow the [five-step planning method](references/planning-methods.md): understand the goal and flow, clarify behavior, compare candidate splits, check task quality, then verify combined coverage and dependency order. Record the selected boundaries and their reasons. Use [Technical Writing](../technical-writing/SKILL.md) to write concise task instructions.
 
 Use the [plan index template](assets/task-plan-template.md) and [task template](assets/task-template.md). Follow the shared [artifact layout](../product-design/references/artifact-layout.md): save `task-plan.md` in the source change directory and new tasks at `tasks/<task-key>/task.md`. Project formats may change presentation but must retain one entry file per task. The [plan contract](references/plan-contract.md#development-task-record) defines the required task content.
 
