@@ -1,6 +1,6 @@
 # Feedback and resumption
 
-Any function can return evidence before completing its forward deliverable. Delivery Lead tracks the return and affected work; the receiving function owns the professional decision.
+Any function can return evidence before completing its forward deliverable. Project Manager tracks the return and affected work; the receiving function owns the professional decision.
 
 ## Preserve the feedback
 
@@ -54,6 +54,6 @@ If the same issue returns against the same baseline without new evidence or a vi
 
 ## Deployment failure
 
-A failed deployment or required post-deployment check keeps ship incomplete. Obtain Ops' actual deployed candidate/environment, failure evidence, recovery authority, and observed recovery outcome. Ops may act within supplied approved constraints; missing authority requires a decision request through Delivery Lead.
+A failed deployment or required post-deployment check keeps ship incomplete. Obtain Ops' actual deployed candidate/environment, failure evidence, recovery authority, and observed recovery outcome. Ops may act within supplied approved constraints; missing authority requires a decision request through Project Manager.
 
 If code changes, follow the correction path and applicable verification. If candidate, environment, or retained issues change, renew ship approval. Reconcile Ops and QA reports against the actual deployment before reconsidering completion. Returning service to an earlier version is recovery evidence, not delivery of the requested candidate.

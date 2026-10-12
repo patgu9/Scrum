@@ -1,4 +1,0 @@
-interface:
-  display_name: "Delivery Coordination"
-  short_description: "Coordinate handoffs, approvals, blockers, and delivery"
-  default_prompt: "Use $delivery-coordination to assess the current delivery evidence, route the next handoff, and track approvals, blockers, and feedback through verified ship completion."

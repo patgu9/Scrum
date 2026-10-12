@@ -49,4 +49,4 @@ Targeted reruns or documented supplemental review by the independent reviewer ca
 | Session/output permission failure | Preserve the error and request the required authorized access or environment correction. Do not treat failure to create a session as zero findings. |
 | Timeout, rate limit, or budget exhaustion | Preserve partial results; address the cause before a targeted retry. Do not increase cost or limits beyond supplied authority. |
 
-For an interrupted range review, resume its session only with the same immutable `--from` and `--to` inputs. Verify any changed rules or context before reusing session evidence. A changed diff needs a new run and the contract's re-review assessment. Stop retries when the same cause persists without a supported remedy; route the blocker through Delivery Lead.
+For an interrupted range review, resume its session only with the same immutable `--from` and `--to` inputs. Verify any changed rules or context before reusing session evidence. A changed diff needs a new run and the contract's re-review assessment. Stop retries when the same cause persists without a supported remedy; route the blocker through Project Manager.

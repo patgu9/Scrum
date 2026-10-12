@@ -8,7 +8,7 @@ Accept a goal, available context and constraints, user answers, and any downstre
 
 For a continuation or feedback request, read the referenced artifacts and check their versions and approval evidence against the requested scope. Missing, inaccessible, conflicting, or stale required input blocks dependent work. Report what is needed, who can supply it, and the affected work. Continue only work whose inputs remain valid; do not reconstruct an approved baseline from memory.
 
-Use the caller's established workflow. In a team workflow, PM owns product discovery and artifacts; Delivery Lead routes handoffs and submits approval requests to the human owner. In standalone work, deliver directly to the user. Ask about the route only when the supplied context is ambiguous and the answer affects the next handoff. This context is separate from Startup / Builder discovery mode. Platform commands and record transport belong to the caller's platform Skill.
+Use the caller's established workflow. In a team workflow, PM owns product discovery and artifacts; Project Manager routes handoffs and submits approval requests to the human owner. In standalone work, deliver directly to the user. Ask about the route only when the supplied context is ambiguous and the answer affects the next handoff. This context is separate from Startup / Builder discovery mode. Platform commands and record transport belong to the caller's platform Skill.
 
 ## Saving
 
@@ -124,7 +124,7 @@ Use `Version: v<n>`, starting at `v1`. Increment the version when substantive ch
 
 Before changing a handed-off version, retain its exact content through an accessible repository revision or an immutable snapshot at `history/product-design/v<n>.md` within the task directory. Reuse an existing matching reference; never overwrite a different snapshot at that version. Historical snapshots are evidence, not competing current documents. Record the prior version, reference, approval evidence, and reason for revision in Premises and Open Questions. The current `product-design.md` remains authoritative.
 
-Keep `Approval: Pending` for DRAFT and IN_REVIEW. For APPROVED, use `Approval: <version> | <YYYY-MM-DD> | <human approver> | <evidence reference>`. The version must equal the current Version. Cite the actual approving message or decision record; preserve its explicit scope. Approval relayed by Delivery Lead must identify the human decision, not the coordinator's own conclusion. An unavailable or ambiguous approval record blocks approved handoff.
+Keep `Approval: Pending` for DRAFT and IN_REVIEW. For APPROVED, use `Approval: <version> | <YYYY-MM-DD> | <human approver> | <evidence reference>`. The version must equal the current Version. Cite the actual approving message or decision record; preserve its explicit scope. Approval relayed by Project Manager must identify the human decision, not the coordinator's own conclusion. An unavailable or ambiguous approval record blocks approved handoff.
 
 When revising an older document without version fields, identify and retain the source revision first. Add `v1` for the newly tracked document; do not invent earlier versions or approval evidence. Preserve APPROVED only when evidence covers the exact content; otherwise record the uncertainty and seek confirmation through the applicable route.
 
@@ -145,7 +145,7 @@ If goals, scope, rules, or outcomes change materially:
 
 Typographic edits alone preserve approval.
 
-In team work, send the approval request and exact product version to Delivery Lead for submission to the human owner. PM may clarify business decisions with the owner but does not take over cross-role approval routing. In standalone work, request approval directly from the user. Record explicit approval before handing the version to technical design. Approval neither proves feasibility nor authorizes implementation.
+In team work, send the approval request and exact product version to Project Manager for submission to the human owner. PM may clarify business decisions with the owner but does not take over cross-role approval routing. In standalone work, request approval directly from the user. Record explicit approval before handing the version to technical design. Approval neither proves feasibility nor authorizes implementation.
 
 ## Handoff summary
 
@@ -158,7 +158,7 @@ Include:
 - **Conclusion:** Discovery incomplete, awaiting approval, approved for technical design, or feedback/blocker. State the document Status and approval evidence separately; completing this invocation does not establish downstream acceptance.
 - **Evidence:** Structure and final-review results, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../technical-writing/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
 - **Open items:** Stable question/finding IDs, dispositions, affected product rules, missing information, and who can supply it. Preserve feedback identity through revisions.
-- **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. In team work, address Delivery Lead and identify the intended specialist or human decision; in standalone work, address the user. An approved forward handoff names `technical-design` in overall mode and the recipient holding the Architect responsibility. Delivery Lead routes the team handoff. Engineering lead can hold this responsibility.
+- **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. In team work, address Project Manager and identify the intended specialist or human decision; in standalone work, address the user. An approved forward handoff names `technical-design` in overall mode and the recipient holding the Architect responsibility. Project Manager routes the team handoff. Engineering lead can hold this responsibility.
 
 For a feedback response, include the content required by [revisit a product baseline](discovery-methods.md#revisit-a-product-baseline). A blocker or a request for evidence is a valid delivery; it does not require a completed product revision.
 

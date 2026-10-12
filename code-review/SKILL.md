@@ -23,4 +23,4 @@ Review without implementing corrections. Running OCR on code you authored remain
 
 Apply the contract's conclusion conditions. Use [Technical Writing](../technical-writing/SKILL.md) and the [review report template](assets/review-report-template.md) in the existing evidence record. Identify reviewed revisions, coverage, findings, limitations, and the next accountable recipient.
 
-Delivery Lead routes corrections and tracks closure. Return updated code for independent review before engineering lead integration. A review conclusion does not establish a merge, QA acceptance, or ship approval.
+Project Manager routes corrections and tracks closure. Return updated code for independent review before engineering lead integration. A review conclusion does not establish a merge, QA acceptance, or ship approval.

@@ -1,9 +1,9 @@
 ---
-name: delivery-coordination
-description: Coordinate delivery across specialist roles as Delivery Lead. Use to route versioned handoffs, request owner approvals, track dependencies and blockers, manage feedback and resumption, and assess ship completion from Ops and QA evidence. Specialist decisions and platform operations retain their owners.
+name: project-manager
+description: Coordinate delivery across specialist roles as Project Manager. Use to route versioned handoffs, request owner approvals, track dependencies and blockers, manage feedback and resumption, and assess ship completion from Ops and QA evidence. Specialist decisions and platform operations retain their owners.
 ---
 
-# Delivery Coordination
+# Project Manager
 
 Advance the authorized delivery workflow from the owner's goal to verified ship completion. Route work using observed artifacts and decisions. Keep professional conclusions with their accountable roles and approval with the human owner.
 

@@ -39,5 +39,5 @@
 - Ready for QA: $Yes / No; scope and basis$
 - Verification limits: $Missing evidence, unrun checks, retained findings, and affected conclusions$
 - Output references: $PR/merge evidence, candidate, logs, reports, and any corrective task$
-- Next function and recipient: $QA through Delivery Lead, or accountable blocker recipient$
+- Next function and recipient: $QA through Project Manager, or accountable blocker recipient$
 - Handoff summary: $Task/input versions, output artifacts, conclusion/evidence, unresolved issues, and next action. Integration does not establish QA acceptance or ship approval.$

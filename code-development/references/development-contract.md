@@ -44,7 +44,7 @@ Publish the PR through the applicable authorized platform workflow. Missing tool
 
 ## Feedback and corrections
 
-When implementation evidence changes the options, report the affected task and source versions, observation, impact, alternatives, uncertainty, and requested decision. Delivery Lead coordinates the receiving function:
+When implementation evidence changes the options, report the affected task and source versions, observation, impact, alternatives, uncertainty, and requested decision. Project Manager coordinates the receiving function:
 
 | Finding | Decision owner |
 | --- | --- |
@@ -55,7 +55,7 @@ When implementation evidence changes the options, report the affected task and s
 | Incorrect QA case | QA using test-design |
 | Code defect within approved baselines | Developer correction, then independent review, integration, and affected QA |
 
-Block only affected work when independence is supported. Never weaken acceptance or rewrite an upstream decision to turn a failing test green. If investigation repeats without new evidence or a viable option, preserve the blocker and request the missing fact or decision through Delivery Lead.
+Block only affected work when independence is supported. Never weaken acceptance or rewrite an upstream decision to turn a failing test green. If investigation repeats without new evidence or a viable option, preserve the blocker and request the missing fact or decision through Project Manager.
 
 Before merge, corrections update the same task branch and PR. After merge, use a linked correction task with its own branch and PR under planner's contract. Retain finding identities and verify fixes; changes invalidate affected earlier review and test conclusions.
 

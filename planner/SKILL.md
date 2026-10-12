@@ -31,4 +31,4 @@ Apply [task readiness](references/plan-contract.md#status-and-readiness) to each
 
 Return the contract's [common handoff](references/plan-contract.md#common-handoff), including artifact versions, coverage, assignments, ready and blocked task IDs, and accountable recipients.
 
-Delivery Lead coordinates the handoff. The assigned developer claims ready work, uses `git-workflow` to create or inspect its branch, then uses `technical-design` in task mode before `code-development`. If a required capability is unavailable, preserve the handoff and name the delivery blocker.
+Project Manager coordinates the handoff. The assigned developer claims ready work, uses `git-workflow` to create or inspect its branch, then uses `technical-design` in task mode before `code-development`. If a required capability is unavailable, preserve the handoff and name the delivery blocker.

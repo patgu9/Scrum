@@ -54,7 +54,7 @@ Set `Ready for integration handoff: Yes` only when code review is accepted, requ
 
 Use the [report template](../assets/review-report-template.md) in the existing authoritative evidence location. For a new local record, save `review.md` beside `task.md` under the [artifact layout](../../product-design/references/artifact-layout.md) and link it from that entry. Preserve previous reports through accessible history or immutable references. Keep OCR output and logs available with their run identity; do not overwrite earlier evidence as if it covered a new revision.
 
-The handoff identifies task and design versions, reviewer identity, PR and exact diff, scope and coverage, tool run evidence, findings and dispositions, conclusions, limits, and next function/recipient. Delivery Lead routes accepted work to engineering lead for code-integration, or returns findings to their owners.
+The handoff identifies task and design versions, reviewer identity, PR and exact diff, scope and coverage, tool run evidence, findings and dispositions, conclusions, limits, and next function/recipient. Project Manager routes accepted work to engineering lead for code-integration, or returns findings to their owners.
 
 ## Corrections and re-review
 
@@ -68,10 +68,10 @@ Route findings by the decision they affect:
 | Product behavior, scope, or acceptance ambiguity | product-design; PM |
 | Task size, split, assignment, dependencies, or post-merge correction | planner; engineering lead, then the assigned developer |
 | Missing or stale verification evidence | Responsible developer, check owner, or environment owner |
-| Missing review capability, context, or independent reviewer | Responsible supplier through Delivery Lead |
+| Missing review capability, context, or independent reviewer | Responsible supplier through Project Manager |
 
-Delivery Lead preserves finding identity, affected baseline, evidence, impact, requested decision, recipient, and resumption condition. Corrections within approved product and overall-design scope need no new scope approval. Changed product or overall technical baselines return to their existing approval points before dependent work resumes.
+Project Manager preserves finding identity, affected baseline, evidence, impact, requested decision, recipient, and resumption condition. Corrections within approved product and overall-design scope need no new scope approval. Changed product or overall technical baselines return to their existing approval points before dependent work resumes.
 
 Before merge, corrections stay in the original task branch and PR. After merge, engineering lead defines a linked correction task with its own branch and PR. Follow self-tests, independent review, integration, and affected QA; a review report never performs the merge.
 
-On re-review, inspect the current task, PR, base/head, corrections, and previous report. Reassess changed code, its interactions, required checks, and affected earlier findings. Carry forward unchanged coverage only with a stated applicability basis. A new head, changed base, conflict resolution, or revised design invalidates affected prior conclusions. Confirm each fix against the updated revision before closing its finding. If the same issue returns without new evidence or a viable resolution, preserve the blocker and escalate through Delivery Lead rather than repeating an identical request.
+On re-review, inspect the current task, PR, base/head, corrections, and previous report. Reassess changed code, its interactions, required checks, and affected earlier findings. Carry forward unchanged coverage only with a stated applicability basis. A new head, changed base, conflict resolution, or revised design invalidates affected prior conclusions. Confirm each fix against the updated revision before closing its finding. If the same issue returns without new evidence or a viable resolution, preserve the blocker and escalate through Project Manager rather than repeating an identical request.

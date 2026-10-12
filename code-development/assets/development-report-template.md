@@ -48,5 +48,5 @@ Record final checks for the delivered code state. Include required checks and re
 | $Stable ID or None$ | $Acceptance, design, code, or environment reference$ | $Blocking / Nonblocking; actual evidence and impact$ | $Responsible function and next action$ |
 
 - **Review handoff readiness:** $Yes / No, evidence, and remaining publication or verification work.$
-- **Next function and recipient:** $Independent code-review through Delivery Lead, or the owner of a blocker/feedback decision.$
+- **Next function and recipient:** $Independent code-review through Project Manager, or the owner of a blocker/feedback decision.$
 - **Handoff summary:** $Task and input versions, output references, conclusion, verification limits, unresolved issues, and next recipient.$

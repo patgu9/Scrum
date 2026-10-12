@@ -2,7 +2,7 @@
 
 - Updated: <time and timezone>
 - Scope and source change directory: <scope/path>
-- Delivery Lead: <actual recipient>
+- Project Manager: <actual recipient>
 - Current conclusion: <observed progress; separate blocked and independent scope>
 - Next action: <function, recipient, required input or decision>
 

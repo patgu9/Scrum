@@ -4,7 +4,9 @@ This reference owns coordination inputs, authority, evidence, approval requests,
 
 ## Inputs and authority
 
-Delivery Lead initiates cross-role handoffs, tracks blockers, requests owner decisions, and reports delivery state. A role can use several Skills; a Skill invocation does not create another Agent or independent review.
+Project Manager owns workflow coordination. PM means Product Manager and owns product discovery and product decisions through `product-design`.
+
+Project Manager initiates cross-role handoffs, tracks blockers, requests owner decisions, and reports delivery state. A role can use several Skills; a Skill invocation does not create another Agent or independent review.
 
 | Input | Required information and supplier |
 | --- | --- |
@@ -18,7 +20,7 @@ Delivery Lead initiates cross-role handoffs, tracks blockers, requests owner dec
 
 Require inputs when their stage needs them. PM can start discovery from an incomplete goal. Do not demand a candidate or deployment context before those stages exist. Do not invent missing product facts, approved baselines, recipients, or completed dependencies.
 
-Engineering lead owns task breakdown, developer assignment, and merge. The architect owns shared design; developers own task design and implementation. Independent Code Reviewer owns code review; QA owns test design and execution; Ops owns deployment and service verification. Delivery Lead routes their conclusions and challenges missing or inconsistent evidence. It cannot substitute its own acceptance conclusion, rewrite their baselines, or waive a blocking finding.
+Engineering lead owns task breakdown, developer assignment, and merge. The architect owns shared design; developers own task design and implementation. Independent Code Reviewer owns code review; QA owns test design and execution; Ops owns deployment and service verification. Project Manager routes their conclusions and challenges missing or inconsistent evidence. It cannot substitute its own acceptance conclusion, rewrite their baselines, or waive a blocking finding.
 
 Apply the recipient's functional contract before a dependent handoff. If a named Skill or capability is unavailable, preserve inputs and identify the missing capability and supplier. Do not assume a planned Skill exists or silently implement its professional function inside coordination.
 

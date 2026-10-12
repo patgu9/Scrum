@@ -45,6 +45,6 @@
 - Ready for integration handoff: $Yes / No; remaining gates$
 - Verification limits: $Unreviewed scope, unavailable evidence, stale inputs, and retained nonblocking issues$
 - Output references: $Report, raw OCR result/logs, verification evidence, prior review, and finding history$
-- Next function and recipient: $Engineering lead for code-integration, or correction/decision owner, through Delivery Lead$
+- Next function and recipient: $Engineering lead for code-integration, or correction/decision owner, through Project Manager$
 - Resumption or closure condition: $Required updated evidence or decision; creating a task does not close a finding$
 - Handoff summary: $Task/input versions, outputs, conclusion/evidence, unresolved issues, and next action. Review acceptance does not establish merge, QA acceptance, or ship approval.$

@@ -16,7 +16,7 @@ Establish the requested operation, its scope, and existing authorization. For ta
 
 Require only inputs applicable to the operation. Read-only diff inspection needs no development claim. New task branch creation requires confirmed claim and valid baseline, but task design is produced afterward. Do not require an existing PR before creating its branch.
 
-Use repository instructions and existing records before asking for missing context. Resolve conflicting task ownership or baseline information through Delivery Lead. Do not silently use the latest default branch instead of a pinned revision. Missing remote access leaves remote state unverified; cached refs alone cannot prove current publication or merge readiness.
+Use repository instructions and existing records before asking for missing context. Resolve conflicting task ownership or baseline information through Project Manager. Do not silently use the latest default branch instead of a pinned revision. Missing remote access leaves remote state unverified; cached refs alone cannot prove current publication or merge readiness.
 
 ## Task and authority boundaries
 

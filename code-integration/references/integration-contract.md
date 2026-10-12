@@ -59,7 +59,7 @@ Integration verification does not establish QA acceptance, ship approval, or dep
 
 ## Feedback and resumption
 
-Preserve finding identity, originating function, affected task/candidate and baseline versions, observations, impact, uncertainty, alternatives, requested fact or decision, and accountable recipient. Delivery Lead routes the feedback:
+Preserve finding identity, originating function, affected task/candidate and baseline versions, observations, impact, uncertainty, alternatives, requested fact or decision, and accountable recipient. Project Manager routes the feedback:
 
 | Finding | Receiving function and owner |
 | --- | --- |
@@ -69,10 +69,10 @@ Preserve finding identity, originating function, affected task/candidate and bas
 | Shared interface, architecture, or feasibility conflict | technical-design in overall mode by architect |
 | Local approach correction within shared constraints | technical-design in task mode by assigned developer |
 | Product scope, behavior, or acceptance ambiguity | product-design by PM |
-| Unavailable checks or integration capability | Responsible environment/tool owner, coordinated by Delivery Lead |
+| Unavailable checks or integration capability | Responsible environment/tool owner, coordinated by Project Manager |
 
 Before merge, corrections retain the task branch and PR. After merge, a defect requires a linked correction task with a new branch and PR, followed by self-tests, independent review, integration, and affected QA. Do not weaken acceptance or edit approved baselines to make integration pass.
 
-Product or overall-design changes need their existing owner approval and reassessment of affected outputs. Independent work can continue only with supported valid inputs. If a return repeats without new evidence or a viable alternative, request the missing decision through Delivery Lead instead of retrying indefinitely.
+Product or overall-design changes need their existing owner approval and reassessment of affected outputs. Independent work can continue only with supported valid inputs. If a return repeats without new evidence or a viable alternative, request the missing decision through Project Manager instead of retrying indefinitely.
 
 On resumption, inspect remote PR/target state and existing candidate reports before any mutation. Keep confirmed merges, failed checks, and pending results distinct. A new candidate needs current evidence; previous QA or ship approval does not automatically cover it. A task or correction record alone cannot close a finding.

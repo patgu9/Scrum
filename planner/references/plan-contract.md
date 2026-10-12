@@ -4,7 +4,7 @@ This reference owns planning inputs, artifact fields, readiness, and revision ha
 
 ## Inputs and authority
 
-Engineering lead is accountable for task breakdown and developer assignment. Delivery Lead coordinates the resulting handoffs and blockers. These responsibilities can use several Skills; invoking another Skill does not create another role or establish independent review.
+Engineering lead is accountable for task breakdown and developer assignment. Project Manager coordinates the resulting handoffs and blockers. These responsibilities can use several Skills; invoking another Skill does not create another role or establish independent review.
 
 Before dependent planning, inspect:
 
@@ -14,7 +14,7 @@ Before dependent planning, inspect:
 | Overall technical baseline | Accessible document, exact version, owner approval, and readiness for the requested breakdown scope; supplied by architect |
 | Repository context | Relevant code revision and local changes, project instructions, existing work, test conventions, Git policy, and integration target; supplied by project context and engineering lead |
 | Dependencies | Shared contracts, external prerequisites, integration obligations, and deferred local decisions with constraints and required evidence; supplied by overall design and current task records |
-| Available developers | Actual developer identities, relevant capabilities, availability, and existing assignments; supplied by engineering lead or Delivery Lead |
+| Available developers | Actual developer identities, relevant capabilities, availability, and existing assignments; supplied by engineering lead or Project Manager |
 | Review scope and feedback | Applicable reviewability policy, existing findings, task/branch/PR identities, and returns affecting task boundaries; supplied by project policy and originating functions |
 
 Use the overall design's [planning readiness contract](../../technical-design/references/document-contract.md#overall-handoff-to-planner). Approval alone cannot resolve missing feasibility evidence. Do not treat an unresolved shared interface, storage guarantee, or security constraint as a harmless local choice.
@@ -77,9 +77,9 @@ New branches are created by the developer after claim and before code changes, t
 
 ## Agent entry point and claim handoff
 
-Delivery Lead gives the assigned Agent the exact task file path and version. The plan is a discovery index, not sufficient evidence that a task is available. Before claim or resumption, the Agent reads its task file, checks disposition, assignment, readiness, pinned sources, dependency evidence, and any existing claim/branch/PR.
+Project Manager gives the assigned Agent the exact task file path and version. The plan is a discovery index, not sufficient evidence that a task is available. Before claim or resumption, the Agent reads its task file, checks disposition, assignment, readiness, pinned sources, dependency evidence, and any existing claim/branch/PR.
 
-The applicable coordination or platform workflow confirms exclusive ownership before branch creation. A Markdown field is a record, not an atomic lock. If another owner holds the task, records conflict, or exclusive ownership cannot be confirmed, return that blocker through Delivery Lead; do not race another Agent by editing the file. Planner does not implement claim transport or a scheduler.
+The applicable coordination or platform workflow confirms exclusive ownership before branch creation. A Markdown field is a record, not an atomic lock. If another owner holds the task, records conflict, or exclusive ownership cannot be confirmed, return that blocker through Project Manager; do not race another Agent by editing the file. Planner does not implement claim transport or a scheduler.
 
 Record confirmed claim evidence in the task file through the authorized workflow. Then the developer creates or inspects its branch and produces task-mode technical design. Add the local design link only after the file exists. A simple task may have a short design file; its task entry point still remains separate. Update observed branch, PR, and verification links without treating a plan or a claim as completed implementation.
 
@@ -146,13 +146,13 @@ For an upstream constraint, provide a feedback issue with:
 - Considered alternatives and tradeoffs, or an explicit statement that no alternative is known.
 - Requested decision or missing fact, receiving function and accountable role, and affected work that must wait.
 
-Route behavior, scope, or acceptance changes to PM using `product-design`. Route shared architecture and interfaces to the architect using overall `technical-design`. Local design corrections go to the assigned developer using task mode. Planning and assignment corrections stay with engineering lead using `planner`. Delivery Lead tracks these handoffs through `delivery-coordination`; no platform commands belong in this contract.
+Route behavior, scope, or acceptance changes to PM using `product-design`. Route shared architecture and interfaces to the architect using overall `technical-design`. Local design corrections go to the assigned developer using task mode. Planning and assignment corrections stay with engineering lead using `planner`. Project Manager tracks these handoffs through `project-manager`; no platform commands belong in this contract.
 
 Do not silently revise upstream decisions, weaken acceptance, or invent a cost/complexity threshold. Without a supplied limit, return an evidenced tradeoff or fact request. Preserve prior decisions and identify affected plans, task designs, interfaces, code, tests, and review conclusions. Independent work continues only with supported validity of its inputs, interfaces, dependencies, and approvals.
 
 Close feedback only with a supported specialist resolution or an explicit owner decision to defer or stop the affected scope. Approval alone does not prove feasibility; deferral is not delivery.
 
-If the same issue returns on the same baseline without new evidence or a viable alternative, stop repeating the handoff. Escalate through Delivery Lead. Include attempted options, consequences, and the missing fact or authority. Keep affected work blocked.
+If the same issue returns on the same baseline without new evidence or a viable alternative, stop repeating the handoff. Escalate through Project Manager. Include attempted options, consequences, and the missing fact or authority. Keep affected work blocked.
 
 ## Common handoff
 
@@ -164,6 +164,6 @@ Every output, including a blocker or feedback return, identifies:
 4. Unresolved issues with stable identities, owners, and affected work.
 5. Next function and responsible recipient for each ready task or blocker.
 
-For a forward handoff, include ready and blocked task IDs, assignments, dependency conditions, Git baselines, reviewability dispositions and any advance agreements, and deferred decisions. Delivery Lead coordinates the recorded assignments; the developer claims a ready task, establishes its branch, and completes task design before coding. Preserve a handoff even when the same Agent holds consecutive responsibilities.
+For a forward handoff, include ready and blocked task IDs, assignments, dependency conditions, Git baselines, reviewability dispositions and any advance agreements, and deferred decisions. Project Manager coordinates the recorded assignments; the developer claims a ready task, establishes its branch, and completes task design before coding. Preserve a handoff even when the same Agent holds consecutive responsibilities.
 
 Report absent follow-on Skills or unavailable routing separately. Do not publish tasks, contact recipients, spawn workers, or operate Git merely to make the plan appear executed. Such operations require their applicable workflow and existing user authorization. Downstream self-tests, independent code review, integration, QA, and ship approval remain required.
