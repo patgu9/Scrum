@@ -1,11 +1,11 @@
 ---
 name: technical-design
-description: Create or revise technical designs in two modes. Use overall mode for architecture, shared contracts, and feasibility before task planning; use task mode to refine an assigned task before coding. Include verification strategy, design review, and upstream feedback.
+description: Create or revise technical designs in two modes. Use overall mode to define architecture and the shared decisions needed for task planning; use task mode to design an assigned feature or behavior before coding. Include verification strategy, design review, and scoped handoffs.
 ---
 
 # Technical Design
 
-Use one design method at two scopes: the architect establishes the overall design; an assigned developer refines a task. Engineering lead can hold the architect responsibility. Design continues as implementation exposes new evidence.
+Use one design method at two scopes. Overall design supports coherent task planning; task design supports implementation and verification of one assignment. Engineering lead can hold the architect responsibility. Design continues as implementation exposes new evidence.
 
 This Skill produces design artifacts and handoffs. Planning, assignment, Git operations, code, executable feature tests, and deployment belong to their respective workflows. Reuse existing authorization for follow-on work; design readiness alone does not grant it.
 
@@ -26,7 +26,7 @@ Read the [design methods](references/design-methods.md). Compare meaningful appr
 
 Use the [overall template](assets/technical-design-doc-template.md) for overall mode. Use the [task template](assets/task-design-template.md) for task mode; a simple task can use a compact note with the same required information.
 
-Resolve shared and high-risk decisions early. Refine local implementation choices in task mode. Plan Red → Green → Refactor evidence without presenting planned tests as executed results. Return constraints or baseline changes through the contract's [feedback loop](references/document-contract.md#feedback-and-revisions).
+Apply the contract's [decision depth and stopping conditions](references/document-contract.md#decision-depth-and-deferred-work). Leave feature internals to task mode unless they determine an architecture decision or shared contract. In overall mode, define verification obligations; in task mode, plan concrete Red → Green → Refactor steps. Return baseline changes through the [feedback loop](references/document-contract.md#feedback-and-revisions).
 
 ## 3. Review and hand off
 
@@ -36,4 +36,4 @@ Before delivery, use [Document Review](../document-review/SKILL.md) to review de
 
 Apply the contract's [status and readiness rules](references/document-contract.md#status-and-approval). Overall mode hands approved architecture to `planner`; task mode hands a ready task design to `code-development`. Neither substitutes for independent code review or ship approval.
 
-Return the mode, scope, artifact and baseline references, status, readiness, evidence limits, blockers, and next function with its responsible recipient. If a required follow-on Skill is unavailable, preserve the handoff and report the missing capability.
+Return the mode, artifact and baseline references, status, readiness by scope, evidence limits, and next function with its responsible recipient. Identify the stage and work affected by each blocker. If a required follow-on Skill is unavailable, preserve the handoff and report the missing capability.

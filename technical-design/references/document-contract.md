@@ -11,7 +11,7 @@ This reference owns mode selection, artifacts, approval, readiness, and handoffs
 
 Infer the mode from scope and artifacts. A request to design a change before assignment normally uses overall mode. A request to refine one assigned task normally uses task mode. An existing document's mode is evidence, not authority to ignore the requested scope. Ask one focused question only if context cannot distinguish the modes. Do not reinterpret a task request as overall design merely because required task inputs are missing.
 
-Missing, inaccessible, conflicting, or stale input blocks dependent conclusions. Identify the missing input, its supplier, and affected work. Independent analysis can remain a draft, but cannot claim readiness. A draft product source can support explicitly requested provisional exploration; approval and planning readiness still require an approved product baseline. Do not infer approval from document location, a task assignment, or the request to write a design.
+Missing, inaccessible, conflicting, or stale input blocks dependent conclusions. Identify its supplier and apply the [stage and scope rules](#questions-and-assumptions). Independent work can claim readiness only for a named scope that satisfies its own conditions. A draft product source can support explicitly requested provisional exploration; approval and planning readiness still require an approved product baseline. Do not infer approval from document location, a task assignment, or the request to write a design.
 
 In task mode, inspect the recorded branch and code baseline when accessible. Branch creation or reuse belongs to `git-workflow` or the project's authorized Git procedure, not this Skill's design instructions. Do not create a duplicate branch, change another task's checkout, or claim that the branch exists without evidence. A missing branch reference keeps implementation readiness false while useful independent design can continue.
 
@@ -36,9 +36,9 @@ Overall mode retains the ten sections of the overall template unless the user su
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | 1. Purpose and Scope                          | Outcome, included Feature IDs, exclusions, source constraints, and Success Criteria                                    |
 | 2. Current System and Constraints             | Verified behavior, evidence limits, terminology, applicable architecture decisions, and relevant technical debt        |
-| 3. Behavioral Contracts                       | Shared observable behavior, product-rule references, and verification obligations                                      |
+| 3. Behavioral Contracts                       | Shared observable behavior, product-rule coverage, and responsibility for downstream design and verification           |
 | 4. Approaches and Decisions                   | Alternatives, tradeoffs, selected approach, evidence, and rejected options                                             |
-| 5. Technical Solution                         | Module boundaries, shared interfaces, data ownership, invariants, critical flows, and deferred local decisions         |
+| 5. Technical Solution                         | Module boundaries, shared interfaces, data ownership, invariants, critical flows, and downstream task design           |
 | 6. Failure Modes and Operational Requirements | Relevant security, consistency, capacity, availability, recovery, migration, and rollout constraints                   |
 | 7. Validation and TDD Strategy                | Test boundaries, critical scenarios, integration verification, candidate behavior increments, and evidence obligations |
 | 8. Premises and Open Questions                | Unknowns, assumptions, dependency and approval impact, and decisions to reopen                                         |
@@ -51,19 +51,49 @@ Write plain, concise English unless the user requests another language. Follow [
 
 ## Decision depth and deferred work
 
-Overall design must resolve enough architecture and shared behavior to split and assign coherent work. Identify module responsibilities, cross-task interfaces, data ownership, invariants, critical failures, integration acceptance, and material feasibility risks.
+Overall design resolves the decisions needed to divide responsibilities, identify dependencies, and coordinate tasks. Task design resolves the assigned feature or behavior before coding. Task mode owns feature internals by default; it covers more than helpers or parameter selection.
 
-Resolve a detail before affected assignment when it determines feasibility, shared contracts, security or consistency guarantees, or task boundaries. A critical algorithm, storage capability, migration, or dependency can need deep investigation in overall mode. Private helpers and other local, reversible choices can remain open for task mode.
+| Decision | Default scope |
+| --- | --- |
+| System and module boundaries, data ownership, major dependencies, and integration acceptance | Overall |
+| Interface semantics and security, consistency, or compatibility guarantees that several tasks must share | Overall |
+| Internal feature flows, complete schemas, field mappings, algorithms, storage structures, and provider protocols | Task |
+| Libraries, timeouts, retry counts, pagination details, and other local configuration | Task |
+| Test data, assertions, fixtures, and concrete Red → Green → Refactor steps | Task |
 
-Each deferred decision identifies its scope, owner or accountable role pending assignment, constraints, required evidence, and the point before which it must be resolved. A detail that could overturn the architecture is an unresolved risk, not a harmless deferral. Missing critical evidence blocks the affected assignment or calls for a separately authorized investigation. Reuse authorization already given for that investigation.
+A shared contract contains only the decisions that other tasks or existing consumers must rely on. Name those consumers and their required agreement. A field, command, or schema may need an exact definition when consumers cannot coordinate without it. Being user-visible, important, or complex does not by itself make every detail a shared contract.
+
+Investigate a task-level detail early only when it can change feasibility, an architecture decision, a shared guarantee, or a task boundary. State the affected decision and how different findings would change it. For example, a storage capability may determine whether the proposed atomicity guarantee is possible. Stop the investigation when that decision has sufficient evidence; do not continue into the feature's full implementation design.
+
+Record downstream design by feature or module, with its accountable role, constraints, required evidence, and resolution point. Group related local choices instead of listing every future parameter. Planner assigns the developer. A choice that could overturn the architecture remains an explicit risk, not a routine deferral. Apply the [stage and scope rules](#questions-and-assumptions) to missing evidence; reuse existing authorization for any required investigation.
 
 Task mode resolves its local approach against actual code and dependencies. High-risk or cross-task choices receive architect review before affected coding. Routine decisions within approved constraints need no new human gate. Architect review checks consistency; it cannot approve changes to an owner-approved baseline. Keep review identity and any self-review explicit.
+
+### Stop overall design at planning depth
+
+Move the named scope to review and owner approval when:
+
+- Module responsibilities, main interactions, and data ownership are clear.
+- Shared contracts and dependencies support coherent task boundaries.
+- No unresolved architecture risk blocks that scope; any other blocked scope and its dependencies are explicit.
+- Remaining feature design has owners, constraints, evidence obligations, and resolution points.
+- Integration acceptance can assess the combined result against the product baseline.
+
+Do not keep the scope in `DRAFT` merely because downstream commands, schemas, algorithms, or test cases are unfinished. Review and approval are still required before planning readiness. A bounded review scope does not remove the remaining product scope or waive its acceptance conditions.
 
 ## Traceability and evidence
 
 Preserve source Feature, rule, example, and Success Criteria IDs. Assign stable `C<n>` IDs to new technical contracts and `T<n>` IDs to planned tests when useful for traceability. Never renumber or reuse existing IDs. Qualify references by document when IDs occur in multiple artifacts.
 
-Overall design maps each included product rule to an observable contract and verification obligation or an explicitly accepted exclusion. Task design maps its assigned acceptance conditions to shared contracts and concrete self-tests. It need not reproduce coverage for unrelated tasks. Overall mode can defer local test construction while retaining critical scenarios, integration checks, and evidence obligations.
+Overall design accounts for every included product rule through one of these routes:
+
+- A shared contract and its verification obligation for behavior that crosses task boundaries.
+- A responsible feature or module, the product-rule reference, and a downstream design and verification obligation for local behavior.
+- An explicitly accepted exclusion with its decision source.
+
+Retain integration acceptance for outcomes that span features. Group rule references where ownership and obligations match. Do not invent a technical contract or repeat product behavior merely to give every rule a C ID. Local behavior still needs an observable verification obligation, not an owner name alone.
+
+Task design maps assigned acceptance conditions to applicable shared contracts, the local approach, and concrete self-tests. It need not reproduce coverage for unrelated tasks.
 
 A test can cover several contracts and vice versa. Inspect expected outcomes and assertions; ID lists alone do not establish coverage. Derive expected results from contracts rather than implementation. Keep existing tests, planned tests, unrun checks, failures, and actual passes distinct.
 
@@ -71,11 +101,24 @@ Separate current facts, proposed behavior, accepted decisions, assumptions, and 
 
 ## Questions and assumptions
 
-Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) and [question records](../../product-design/references/document-contract.md#question-records):
+Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) and [question record format](../../product-design/references/document-contract.md#question-records):
 
 `Type | Statement and Impact | Evidence / Validation Status | Follow-up`
 
-Link existing questions to their authoritative records. Allocate new `Q<n>` IDs without collisions or qualify them by document. State affected rules, contracts, tests, and decisions. Record whether each issue blocks approval, task breakdown, or implementation, with the relevant reason. Independent work needs a valid, unaffected baseline.
+Use this contract's stage and scope assessment for technical impact. A product-level approval field does not replace that assessment.
+
+Link existing questions to their authoritative records. Allocate new `Q<n>` IDs without collisions or qualify them by document. For each question or finding, record the missing evidence or decision and the affected rules and decisions. State the blocked stage and scope, dependency reason, supplier, and resolution point. Distinguish architecture approval, task breakdown, task design, coding, acceptance, and activation.
+
+| Unresolved item | Stage and scope to assess |
+| --- | --- |
+| Capability or security uncertainty that could overturn the architecture | Block the affected architecture decision and dependent work until the risk is resolved or the baseline changes through approval. |
+| Feature implementation, parsing, or local configuration choice | Resolve in the responsible task before the affected coding step; block earlier stages only when the decision-depth rule requires it. |
+| Missing login, credentials, samples, or test environment | Block checks that require the input. Identify any architecture decision that depends on those checks; unavailable access alone does not prove infeasibility. |
+| Unmeasured quality, capacity, or recovery behavior | Set the required evidence and resolution point according to risk. It may gate architecture, implementation, acceptance, or activation; do not automatically apply the earliest gate. |
+
+For example, if product behavior permits missing metrics, an unknown provider field can remain an adapter task obligation. It does not automatically block the shared archive. An unverified isolation capability can block the affected security design if no supported alternative preserves the required boundary.
+
+Assess other scopes before declaring the whole change blocked. Independent work requires evidence that its inputs, interfaces, dependencies, and approvals remain valid. If independence is unknown, investigate that dependency rather than assume either global readiness or global blockage. Preserve the full product scope and all eventual acceptance obligations.
 
 Use the product contract's [assumption validation rules](../../product-design/references/document-contract.md#assumption-validation). Specify the observation, how to collect evidence, the disconfirming result, affected decisions, and owner. Keep resolved questions and reopening history. Routine authorized technical choices need no new permission; material tradeoffs beyond that authority require a decision.
 
@@ -83,12 +126,14 @@ Use the product contract's [assumption validation rules](../../product-design/re
 
 | Mode    | Status      | Meaning                                                                                  |
 | ------- | ----------- | ---------------------------------------------------------------------------------------- |
-| Both    | `DRAFT`     | Incomplete design, missing required inputs, unresolved direction, or a readiness blocker |
+| Both    | `DRAFT`     | Design content is incomplete at the selected depth, or a missing input, decision, or evidence item blocks that scope |
 | Both    | `IN_REVIEW` | Design content is ready for review; required review or approval is pending               |
-| Overall | `APPROVED`  | The human owner explicitly approved this exact overall version; cite the source and date |
+| Overall | `APPROVED`  | The human owner explicitly approved this exact version and named scope; cite the source and date |
 | Task    | `READY`     | Task readiness conditions below are satisfied; no new human approval is implied          |
 
-Record readiness separately from status. An approved overall design can still have an evidence gap that blocks affected task breakdown. An `IN_REVIEW` task is not ready while required architect review is outstanding. Task `READY` applies to its declared scope and baselines, not to other tasks, changed code baselines, or release readiness. If an optional proposal conflicts with the baseline, record its separate blocked disposition. Original work can remain ready only with evidence that it does not depend on or adopt that proposal. Name the ready scope explicitly; an unqualified READY must not cover the blocked proposal.
+Record readiness separately from status. An approved overall design can still have an evidence gap that blocks affected task breakdown. For mixed scopes, name the status and approval coverage of each; never imply whole-document approval from approval of a subset. Routine downstream design does not prevent overall review or approval under the stopping conditions above.
+
+An `IN_REVIEW` task is not ready while required architect review is outstanding. Task `READY` applies to its declared scope and baselines, not to other tasks, changed code baselines, or release readiness. If an optional proposal conflicts with the baseline, record its separate blocked disposition. Original work can remain ready only with evidence that it does not depend on or adopt that proposal. Name the ready scope explicitly; an unqualified READY must not cover the blocked proposal.
 
 Owner approval is required for product behavior and the overall technical solution before affected planning proceeds. A task design that refines choices within those approved baselines does not add an owner approval gate. Design approval and readiness do not themselves authorize implementation or external operations; apply existing task authorization.
 
@@ -98,13 +143,15 @@ If approved product behavior or shared technical decisions must change, reopen t
 
 Set `Ready for task breakdown: Yes` only for an explicitly identified scope when:
 
-- The exact overall version and included product baseline have owner approval.
-- Included product rules have shared contracts and verification obligations, or accepted exclusions.
+- Owner approval covers the exact overall version and named scope, together with the included product baseline.
+- Included product rules have coverage and verification responsibility under the traceability rules above, or accepted exclusions.
 - Cross-task interfaces, data ownership, critical failures, dependencies, and integration checks support coherent assignment.
-- No unresolved material feasibility or shared-design decision blocks that scope. Deferred local choices have owners, constraints, evidence requirements, and deadlines before coding.
+- No unresolved architecture or shared-design decision blocks that scope. Downstream feature design has owners, constraints, evidence requirements, and resolution points before dependent coding.
 - Review findings have dispositions and no applicable approval or breakdown blocker remains.
 
-Output the change directory, document paths and versions, included rules and contracts, ownership boundaries, candidate behavior increments, dependencies, integration acceptance, and deferred decisions. Candidate increments guide planning; they are not assigned tasks. The first task can start its local design without requiring every private implementation decision upfront.
+Output the change directory, document paths and versions, included rules and contracts, ownership boundaries, candidate behavior increments, dependencies, integration acceptance, and downstream design obligations. Candidate increments guide planning; they are not assigned tasks. An assigned task can start its feature design without a complete implementation specification from overall mode.
+
+Report planning readiness separately for each materially different scope, including scope with pending approval. Give the applicable approval reference, `Yes / No`, blocker IDs, dependency reason, and next action. Keep remaining product scope visible. A whole-change `No` must not replace this assessment when independent scope could proceed. Do not declare a subset ready without its required approval and evidence of independence.
 
 Engineering lead uses the separate `planner` Skill to split and assign work, including design, implementation, and verification effort. Do not assume it is installed. If unavailable, preserve this package and name the missing stage. This Skill does not publish tasks or choose app commands.
 

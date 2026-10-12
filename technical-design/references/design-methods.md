@@ -14,7 +14,7 @@ Identify existing patterns, conventions, and technical debt that affect this cha
 
 For an existing system, inspect the test framework and useful test boundaries. Identify protected behavior, uncovered paths, and constraints on local execution. For a new system, record framework and runtime choices as proposals until decided.
 
-Use bounded, safe checks when they can answer a factual question. Record commands, results, and limits. If feasibility requires a prototype or benchmark beyond the authorized work, specify the experiment and the decision it would inform. Keep dependent conclusions provisional.
+Use bounded, safe checks to answer questions at the selected design depth. Before an overall-mode probe, state the architecture decision, evidence needed, and stopping condition under the [decision-depth rule](document-contract.md#decision-depth-and-deferred-work). Record commands, results, and limits. If a needed experiment exceeds the authorized work, return its purpose and required authorization. Keep dependent conclusions provisional; classify missing access by the stage it actually blocks.
 
 ## Design behavior and interfaces
 
@@ -30,14 +30,14 @@ For an uncertain interface, sketch distinct designs and a caller example before 
 
 Assess cohesion and coupling in the selected scope's solution. Group responsibilities that change for the same reason. Trace which modules and callers must change for a representative requirement change. Examine circular dependencies, exposed internals, and modules with unrelated responsibilities. Separate module boundaries from deployment boundaries; require independent deployment only when actual release or operational needs justify it. Explain accepted coupling and its consequences.
 
-Define each important interface with:
+Select interfaces under the contract's [shared-contract rule](document-contract.md#decision-depth-and-deferred-work). In overall mode, define the agreement required by consumers:
 
-- Inputs, outputs, validation, and caller-visible errors.
+- Inputs, outputs, validation, and caller-visible failure semantics needed across the boundary.
 - Invariants, ordering, and compatibility requirements.
 - Ownership of data and side effects.
-- Time, resource, and concurrency limits where relevant, including units and their basis.
+- Time, resource, and concurrency constraints that affect coordination, including units and their basis.
 
-In overall mode, specify enough detail to coordinate task boundaries and shared implementation contracts. Leave private algorithms and helper structure open when they do not affect feasibility or those contracts. In task mode, select the local approach needed to begin coding; investigate high-risk details before treating the task as ready. Use existing paths as evidence or likely integration points; avoid fixing every future filename in the design.
+Identify which consumer needs each exact field, command, or sequence before specifying it in overall mode. Leave complete feature protocols and schemas to task design where the shared agreement does not depend on them. In task mode, define the local interfaces, algorithms, configuration, and errors needed to begin coding. Investigate high-risk choices before treating the task as ready. Use existing paths as evidence or likely integration points; avoid fixing every future filename in the design.
 
 Keep important decisions and rejected alternatives in the design. Link an existing ADR when it owns a decision. A separate ADR is useful for a hard-to-reverse choice with non-obvious tradeoffs; create one when project conventions or the request call for it.
 
@@ -54,15 +54,15 @@ Place diagrams beside the technical explanation. Prefer Mermaid when the documen
 
 A diagram can satisfy more than one need if it remains readable. Simple changes can omit diagrams with a brief reason. Do not add all diagram types mechanically.
 
-For each important flow, expose the trigger, participants, key decisions, and observable completion. Show state writes, transaction boundaries, failure handling, and retry behavior when relevant. Link paths or adjacent explanations to `C<n>` and `T<n>` IDs.
+For each important flow, expose the trigger, participants, key decisions, and observable completion. Overall diagrams show cross-module interactions and shared failure or consistency boundaries. Task diagrams refine internal branches, writes, and retry sequences as needed. Link paths to applicable product rules, `C<n>` contracts, or `T<n>` scenarios.
 
 Keep diagrams consistent with interface definitions, failure handling, and tests. If a diagram reveals undefined behavior, record a question. A diagram does not establish that the implementation works.
 
 ## Define failures and operational behavior
 
-Trace normal, boundary, and failure paths through the proposed design. For relevant paths, specify the detection point, caller-visible result, retained state, recovery action, and verification.
+Trace normal, boundary, and failure paths at the selected scope. Overall mode defines shared guarantees, failure containment, recovery responsibilities, and integration checks. Task mode defines the local detection, retained state, recovery steps, and tests needed to implement those guarantees.
 
-Examine duplicates, partial writes, concurrency, dependency failures, cancellation, and retry exhaustion where the design permits them. State idempotency and transaction boundaries explicitly when correctness depends on them. Do not introduce retries without defining their limits and effects.
+Examine duplicates, partial writes, concurrency, dependency failures, cancellation, and retry exhaustion where the design permits them. State idempotency and transaction boundaries explicitly when correctness depends on them. Define which operations may retry and which outcomes prohibit retry. Task design selects retry counts, delays, and mechanisms unless those values determine a shared guarantee.
 
 Address security and data access at the actual trust boundaries. Specify the least privileges needed and deny access by default. Define input validation and caller-visible rejection behavior at relevant boundaries. Identify security-sensitive actions that need an audit trail. Map these requirements to behavior contracts and verification where applicable.
 
@@ -72,7 +72,7 @@ When service availability matters, define the required service behavior and acce
 
 Describe how the change reaches users: build, package or deploy, configuration, compatibility, and rollout. For persistent-state changes, describe migration, coexistence, and recovery. State rollback limitations when data changes cannot be reversed safely.
 
-When the change affects data durability or recovery, define backup scope, retention, acceptable data loss, and required restoration time. Describe the restoration procedure and how to verify recovered data and service behavior. Keep release rollback, service restart, and backup restoration distinct. Record unconfirmed recovery targets as open questions. Record shared operational requirements in overall Sections 6 and 7. Task designs link those requirements and refine only their assigned effects and verification.
+When the change affects data durability or recovery, record supported backup scope, retention, acceptable data loss, and restoration-time requirements. Keep release rollback, service restart, and backup restoration distinct. Overall Sections 6 and 7 define shared recovery guarantees and acceptance; the responsible task defines the procedure and concrete checks. Record unconfirmed targets as questions with the stage they block. Investigate recovery mechanics early only when an architecture decision depends on them.
 
 Specify the signals needed to detect failures and assess rollout. Match verification to the risk; do not require a benchmark or a new monitoring system for every change.
 
@@ -80,7 +80,7 @@ Specify the signals needed to detect failures and assess rollout. Match verifica
 
 Test-driven development (TDD) uses a failing behavior test to guide a small implementation step, followed by refactoring while tests remain green.
 
-Plan observable behavior before private implementation detail. Each planned test needs concrete setup, an action, an independent expected result, and the incorrect behavior it would detect. Derive expected results from the contract or product example, not the implementation being tested.
+Plan observable behavior before private implementation detail. In overall mode, define critical architecture scenarios and integration outcomes, with verification responsibility for local product rules. In task mode, specify concrete setup, action, independent expected result, and the incorrect behavior each test detects. Derive expectations from contracts or product examples, not the implementation being tested.
 
 Choose test levels by the claim:
 
@@ -88,19 +88,19 @@ Choose test levels by the claim:
 - Use integration tests for contracts between components, storage, or adapters.
 - Use end-to-end tests for critical user paths that require the full system.
 
-Name the real dependencies and replacements for each boundary. Prefer real local components or a test database when practical. Replace external services, time, or randomness at explicit boundaries. State what a replacement cannot verify and how to check the real integration contract.
+In overall mode, identify shared test boundaries, required live evidence, and limits of substituted dependencies. Task design chooses concrete fixtures and replacements. Prefer real local components or a test database when practical. Replace external services, time, or randomness at explicit boundaries. State what a replacement cannot verify and how to check the real integration contract.
 
 Avoid tests coupled to private call order, internal collaborators, or implementation-derived expectations. Use interaction assertions when the interaction is itself part of the required public contract.
 
-Cover relevant normal, boundary, failure, and recovery behavior. Include regression protection and verification across Features. Test count and line coverage alone do not demonstrate this coverage.
+Retain verification obligations for relevant normal, boundary, failure, recovery, and regression behavior. Overall mode assigns local coverage to the responsible feature or module and retains cross-feature acceptance. Task mode develops the assigned cases. Test count and line coverage alone do not demonstrate coverage.
 
-In overall mode, identify candidate behavior increments, critical scenarios, shared test boundaries, and final integration acceptance. Specify the TDD evidence expected downstream. Leave task-local test details open with explicit ownership and constraints when they do not determine feasibility or the shared contract. These increments inform `planner`; they do not assign work.
+In overall mode, identify candidate behavior increments and their dependencies. Specify the TDD evidence expected downstream without drafting every functional test. These increments inform `planner`; they do not assign work. Stop at the contract's [overall completion conditions](document-contract.md#stop-overall-design-at-planning-depth).
 
 In task mode, refine the assigned increment into small Red → Green → Refactor steps. Describe the first failing test, its intended failure reason, and prerequisites. Each step adds observable behavior across the layers it needs. Do not use a large test inventory to avoid resolving a blocking implementation choice.
 
-Plan for the downstream [code-development execution loop](../../code-development/references/tdd-and-verification.md#execute-one-behavior-at-a-time): a valid Red, minimal Green, and necessary refactoring for each behavior. That reference owns execution conditions and evidence recording. This design supplies the intended failure, test boundary, prerequisites, and relevant regression and integration obligations.
+Plan for the downstream [code-development execution loop](../../code-development/references/tdd-and-verification.md#execute-one-behavior-at-a-time): a valid Red, minimal Green, and necessary refactoring for each behavior. That reference owns execution conditions and evidence recording. Task design supplies the intended failure and concrete test setup within the overall verification obligations.
 
-Do not prescribe writing all executable tests before any implementation. The design can contain a full scenario inventory while execution proceeds one behavior at a time.
+Do not prescribe writing all executable tests before any implementation. A task design can contain its scenario inventory while execution proceeds one behavior at a time.
 
 Existing behavior may need characterization tests that already pass. Label them as baseline evidence. Do not fabricate a Red result. If TDD does not apply to a change, state why and specify alternative verification without claiming a TDD cycle.
 

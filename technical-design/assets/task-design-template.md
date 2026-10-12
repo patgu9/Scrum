@@ -18,11 +18,12 @@
 - **Exclusions:** $Task boundaries and unrelated work.$
 - **Current evidence:** $Relevant code, tests, conventions, and limits of inspection.$
 - **Dependencies:** $Required interfaces or tasks, their state, and effect on design or coding readiness.$
-- **Deferred decisions assigned here:** $Overall-design references, permitted choices, constraints, and required evidence.$
+- **Design work assigned here:** $Feature internals and deferred choices from the overall design, shared constraints, required evidence, and resolution points.$
 
 ## Implementation Approach
 
 - **Approach and rationale:** $Local design, meaningful alternatives where needed, and consistency with the overall baseline.$
+- **Feature internals:** $Flows, local interfaces and schemas, field mappings, algorithms, storage choices, provider protocols, and configuration needed for this task; omit inapplicable detail.$
 - **Affected code:** $Likely modules or paths and their responsibilities; avoid prescribing every helper.$
 - **Behavior and errors:** $Local flow, failure paths, concurrency or recovery where relevant, and shared contract references.$
 - **Diagram:** $Only if it clarifies a material interaction, or a reason it is unnecessary.$
@@ -43,7 +44,7 @@
 
 | Type | Statement and Impact | Evidence / Validation Status | Follow-up |
 | --- | --- | --- | --- |
-| $Q ID, assumption, finding, or None$ | $Affected decision; Blocks approval, task breakdown, or implementation as applicable, with reason$ | $Facts, estimates, missing evidence, and review disposition$ | $Owner, required evidence, and work blocked$ |
+| $Q ID, assumption, finding, or None$ | $Affected decision, blocked stage and scope or None, and dependency reason$ | $Facts, estimates, missing evidence, and review disposition$ | $Owner/supplier, required evidence, resolution point, and next action$ |
 
 - **Review:** $Reviewed task version, reviewer identity, self-review or independent coverage, and remaining limits.$
 - **Architect review:** $Required with result and evidence, Pending, or Not required with the basis for routine local refinement.$

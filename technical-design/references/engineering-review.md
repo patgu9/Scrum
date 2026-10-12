@@ -9,13 +9,16 @@ Review these areas in order. Revisit earlier areas when a later finding changes 
 | Area | Questions to resolve |
 | --- | --- |
 | Scope and evidence | Does the design preserve included product rules? Are current facts and relevant technical debt supported? Does reuse reduce unnecessary work? |
+| Design depth | Does each overall detail support a named architecture decision or consumer agreement? Are complete feature internals assigned to task design where possible? Are any architecture risks hidden as local deferrals? |
 | Architecture and code quality | Are responsibilities cohesive and interfaces, ownership, and dependency boundaries clear? Can callers use the interface without knowing its internals? |
 | Behavior and diagrams | Do important paths have defined outcomes? Do diagrams agree with contracts, state transitions, and failures? |
 | Tests and TDD | Does each rule have meaningful verification? In overall mode, are critical verification obligations defined and local details responsibly deferred? In task mode, can the first implementation step start? Are assertions independent of implementation? Are test replacements and their limits explicit? |
 | Failures and operations | Are relevant recovery, security, performance, capacity, availability, backup restoration, rollout, migration, and rollback behaviors defined and verifiable? |
-| Decisions and handoff | Are unresolved questions visible? Are approval and execution evidence separate? Does the selected scope meet planning readiness in overall mode or implementation readiness in task mode? |
+| Decisions and handoff | Does each blocker identify a stage, scope, dependency reason, and owner? Are approval and execution evidence separate? Is readiness assessed by scope without waiving shared risks or blocking independent work? |
 
 Scale coverage to the mode and change. Overall review checks shared decisions and deferred work. Task review checks local choices, affected code, baseline compliance, self-tests, and dependency readiness; reference overall evidence instead of repeating unrelated architecture review. Record inapplicable areas and the reason. Do not create requirements solely to fill the table.
+
+Apply the [overall stopping conditions](document-contract.md#stop-overall-design-at-planning-depth). Check local rule coverage through its responsible module and verification obligation; do not require a new shared contract for each rule. Challenge both premature implementation choices and missing shared decisions. A request for more detail must identify the decision or consumer that needs it now.
 
 For architecture review, trace each new module and material change to a requirement, constraint, or verification need. Apply the [approach-selection criteria](design-methods.md#design-behavior-and-interfaces) to assess whether reuse or fewer boundaries can reduce complexity. For necessary preparatory refactors, verify that the design explains the reason, affected behavior and callers, and regression protection.
 
@@ -25,7 +28,7 @@ Use the [operational design method](design-methods.md#define-failures-and-operat
 
 ## Findings and reconciliation
 
-Give each finding a location, defect or unknown, supporting evidence, consequence, proposed remedy, and approval impact. Distinguish an observed contradiction from a fact that remains unverified.
+Give each finding a location, defect or unknown, supporting evidence, consequence, and proposed remedy. Classify its blocked stage and scope under the [question rules](document-contract.md#questions-and-assumptions). Distinguish an observed contradiction from a fact that remains unverified.
 
 Store overall findings in Section 9 and questions in Section 8. Store task findings and questions in the task note's review and readiness record. Keep evidence and question states in their authoritative locations.
 
@@ -50,10 +53,10 @@ Record the reviewed version, reviewer, review type, completed coverage, findings
 Before presenting the design:
 
 1. Verify source versions, stable IDs, local links, section content, and removal of template placeholders.
-2. Trace included product rules in overall mode, or assigned acceptance conditions in task mode, through contracts to meaningful verification or accepted exclusions.
+2. Trace overall product rules through shared contracts or assigned local design and verification obligations; retain accepted exclusions. Trace task acceptance conditions through the local approach and concrete self-tests.
 3. Walk through the important diagrams and compare each outcome with interface definitions and tests.
 4. Inspect question states, dependencies, assumptions, and unresolved review findings. An empty askable queue does not establish completion.
 5. Complete the [Technical Writing editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
-6. Apply the mode-specific status and handoff rules. Check source versions, the task branch when applicable, required review, deferred decisions, and the next function.
+6. Apply the mode-specific status and handoff rules. Check source versions, the task branch when applicable, required review, downstream design obligations, and the next function. Check readiness and approval coverage for each named scope.
 
 Report these as document checks. Do not report them as successful product tests, validated assumptions, or completed implementation. Planning readiness and task implementation readiness are different conclusions. No automated Technical Design Doc validator is supplied with this Skill.

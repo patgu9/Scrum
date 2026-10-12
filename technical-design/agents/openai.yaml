@@ -1,4 +1,4 @@
 interface:
   display_name: "Technical Design"
-  short_description: "Design overall architecture or refine an assigned task"
-  default_prompt: "Use $technical-design in overall mode before task planning or task mode before coding; record the baselines, verification strategy, review, and readiness for the next function."
+  short_description: "Design architecture for planning or task behavior for coding"
+  default_prompt: "Use $technical-design in overall mode for architecture and shared agreements needed by planning, or task mode for an assigned feature's implementation design. Record baselines, verification, review, and readiness by stage and scope."
