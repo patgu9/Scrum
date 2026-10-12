@@ -1,0 +1,4 @@
+interface:
+  display_name: "Document Review"
+  short_description: "Review document quality, evidence, and coverage"
+  default_prompt: "Use $document-review to check this document against its requirements and sources, then report findings, review coverage, and verification limits."

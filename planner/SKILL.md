@@ -25,7 +25,7 @@ For resumed work, scope growth, or defect returns, follow the contract's [replan
 
 ## 3. Check and hand off
 
-Complete the [plan review](references/planning-methods.md#review-the-plan) and shared [document validation](../technical-writing/references/validation-guide.md). Record actual review coverage and evidence limits. This review checks the plan; it does not prove implementation or test success.
+Complete the [plan review](references/planning-methods.md#review-the-plan) and shared [document validation](../document-review/SKILL.md). Record actual review coverage and evidence limits. This review checks the plan; it does not prove implementation or test success.
 
 Apply [task readiness](references/plan-contract.md#status-and-readiness) to each task. Distinguish readiness for assignment/claim from later implementation readiness. A required advance reviewer agreement can remain pending during assignment or local design, but blocks affected implementation.
 

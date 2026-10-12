@@ -28,6 +28,6 @@ Use the project's language, framework, conventions, and approved architecture. U
 
 ## 3. Prepare the review handoff
 
-Inspect the complete task diff and run the required final checks. Apply the contract's [delivery conditions](references/development-contract.md#delivery-conditions). Use [Technical Writing](../technical-writing/SKILL.md) and the [delivery template](assets/development-report-template.md) to record the result in the project's delivery format. Complete the shared [document validation](../technical-writing/references/validation-guide.md) for that record; document review does not replace execution checks.
+Inspect the complete task diff and run the required final checks. Apply the contract's [delivery conditions](references/development-contract.md#delivery-conditions). Use [Technical Writing](../technical-writing/SKILL.md) and the [delivery template](assets/development-report-template.md) to record the result in the project's delivery format. Complete the shared [document validation](../document-review/SKILL.md) for that record; document review does not replace execution checks.
 
 Report implementation verification, PR publication, and review handoff readiness separately. Include the references, evidence, gaps, and recipient required by the contract. Self-review does not satisfy independent code review. If publication or another required capability is unavailable, preserve the local package and identify the remaining handoff.

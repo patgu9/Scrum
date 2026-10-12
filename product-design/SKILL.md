@@ -43,7 +43,7 @@ Use [Specification by Example](references/discovery-methods.md#specification-by-
 
 Save the document using the contract's [saving rules](references/document-contract.md#saving).
 
-Follow the shared [document validation method](../technical-writing/references/validation-guide.md). Check the contract's [structural requirements](references/document-contract.md#structural-validation) and complete its [final review](references/document-contract.md#final-review).
+Follow the shared [document validation method](../document-review/SKILL.md). Check the contract's [structural requirements](references/document-contract.md#structural-validation) and complete its [final review](references/document-contract.md#final-review).
 
 Follow [adversarial review](references/adversarial-review.md). Then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
 

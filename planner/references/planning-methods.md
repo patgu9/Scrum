@@ -177,7 +177,7 @@ Record the repository and declared Git base/target from project policy and curre
 
 ## Review the plan
 
-Review the full plan before handoff; after a narrow revision, also inspect affected coverage, dependencies, and readiness. Use the shared [document validation method](../../technical-writing/references/validation-guide.md) and complete the [writing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
+Review the full plan before handoff; after a narrow revision, also inspect affected coverage, dependencies, and readiness. Use the shared [document validation method](../../document-review/references/validation-guide.md) and complete the [writing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
 
 1. **Inputs:** Verify accessible source versions, owner approval evidence, overall readiness, and current repository facts. Compare against the prior plan on a replan.
 2. **Coverage:** Trace the required user path, rules, contracts, and concrete examples to observable acceptance and verification responsibility, or an accepted exclusion. Check combined outcomes, supporting work, and duplicate responsibility.

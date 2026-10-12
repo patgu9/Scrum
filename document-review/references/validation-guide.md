@@ -1,14 +1,14 @@
 # Document validation
 
-Use this method for document review. The agent checks the artifact against the applicable Skill, document contract, template, and source evidence. Those instructions define the requirements. Scripts can assist with mechanical checks; they do not replace the review.
+Review the document against the applicable Skill, document contract, template, and source evidence. The applicable instructions define the requirements. Scripts can assist with mechanical checks; they do not replace the review.
 
-The calling workflow owns domain checks, status, independent review, and approval. This guide owns the shared validation method and reporting. Use the existing artifact and delivery format; do not add a validation document or approval gate by default.
+The calling workflow defines domain criteria and owns status, independent review, and approval. This guide defines the shared validation method and reporting. Use the existing artifact and delivery format. Do not add a validation document or approval gate by default.
 
 ## Review the artifact
 
 1. **Structure:** Check the applicable headings, fields, tables, identifiers, references, and required coverage. Use the calling workflow's checklist. For standalone writing, preserve the requested or existing format instead of imposing a new template.
-2. **Content and expression:** Complete the [editing passes](writing-guide.md#edit-in-separate-passes). Apply [English controls](english-controls.md) to English prose. Compare revisions with their sources and retain unresolved meaning.
-3. **Domain and evidence:** Complete the calling workflow's domain review. Check claims against available evidence. Keep intended behavior, planned checks, observed results, and approval evidence distinct. A reader walkthrough reviews the text; it does not demonstrate product behavior.
+2. **Content and expression:** Complete the [editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes). Apply [English controls](../../technical-writing/references/english-controls.md) to English prose. Compare revisions with their sources and retain unresolved meaning.
+3. **Domain and evidence:** Apply the calling workflow's domain criteria. Check claims against available evidence. Keep intended behavior, planned checks, observed results, and approval evidence distinct. A reader walkthrough reviews the text; it does not demonstrate product behavior.
 
 For a local wording edit, review the changed passage and affected references. For a completed document or material revision, review the full affected artifact. Identify the reviewed path and version or revision when available.
 
@@ -30,4 +30,4 @@ Use the caller's review record or delivery summary. For a small edit, a short st
 - **Findings:** Corrections, unresolved issues, affected locations or stable IDs, and their completion or approval impact under the calling workflow.
 - **Limits:** Unreviewed areas, missing evidence, and required checks that were not run. Include optional tool results only when used or relevant to an explicit request.
 
-Distinguish reviewed content with no unresolved findings, content with unresolved findings, and incomplete review. Do not report a script result as overall document validation. Review completion does not change document status or grant approval.
+State whether the review is complete and whether findings remain unresolved. Do not report a script result as overall document validation. Review completion does not change document status or grant approval.

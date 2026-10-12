@@ -6,7 +6,7 @@ Scrum 是一组面向多 Agent 产品团队的 Skills，用明确的输入、输
 
 ## 当前范围
 
-仓库目前包含 **7 个职能 Skill 和 2 个工具 Skill** 的说明及配套资源。完整设计还包括 `test-design`、`test-execution` 和 `deployment`，这三个 Skill 尚未加入仓库。
+仓库目前包含 **7 个职能 Skill 和 3 个工具 Skill** 的说明及配套资源。完整设计还包括 `test-design`、`test-execution` 和 `deployment`，这三个 Skill 尚未加入仓库。
 
 当前设计文档为 **v3 / IN_REVIEW / Approval Pending**。已有 Skill 文件不代表整套流程已经通过实际运行验证。本项目提供工作方法与交接约定；Agent 配置、任务认领、运行调度和平台操作需要由使用环境提供。
 
@@ -26,12 +26,15 @@ Skill 按职能划分，角色表示责任归属。一个角色可以使用多�
 
 架构职责可由工程负责人兼任。PM 在本项目中专指 Product Manager，与 Project Manager 区分。
 
-两个工具 Skill 为各职能提供共用方法：
+三个工具 Skill 为各职能提供共用方法：
 
 | Skill | 用途 |
 | --- | --- |
 | [technical-writing](technical-writing/SKILL.md) | 按读者需要组织文档，使表达清晰、精炼，并保留决策、条件和证据边界 |
+| [document-review](document-review/SKILL.md) | 按指定契约、模板和证据审阅文档，报告检查范围、发现和验证限制 |
 | [git-workflow](git-workflow/SKILL.md) | 处理任务分支、限定范围的提交、评审差异、PR 准备和已授权的 Git 集成操作 |
+
+`technical-writing` 负责写作方法和编辑检查；`document-review` 负责通用文档审阅及报告。各业务 Skill 决定何时审阅，并保留领域标准、独立审阅、状态和审批规则。
 
 后续设计中的职能：
 

@@ -19,8 +19,8 @@ Read the [writing guide](references/writing-guide.md) to select content, order e
 
 Use the task's existing content structure and decision process. This Skill provides writing methods; the calling workflow owns document formats, domain rules, and approval. Flag unresolved meaning instead of inventing facts or settling decisions through a wording change.
 
-## 3. Review and deliver
+## 3. Check the writing and deliver
 
-Follow the shared [document validation method](references/validation-guide.md). Review structure against the applicable format, complete the writing guide's editing passes, and apply the calling workflow's domain checks. Scripts provide optional assistance unless the user or project requires them.
+Complete the writing guide's [editing passes](references/writing-guide.md#edit-in-separate-passes). Preserve the requested format and flag unresolved meaning.
 
-Return the draft or edit the requested artifact in place. Report the main improvements, review coverage, unresolved findings, and verification limits under the validation guide's reporting rules.
+Return the draft or edit the requested artifact in place. Explain the main changes when useful.

@@ -156,7 +156,7 @@ Include:
 - **Task and inputs:** Task identity and directory; input artifacts and exact versions, applicable approval references, and feedback identity. For a new goal, cite the supplied request rather than inventing an input version.
 - **Outputs:** Product document path and Version, or the feedback response and its affected baseline. Link supporting artifacts rather than copying them.
 - **Conclusion:** Discovery incomplete, awaiting approval, approved for technical design, or feedback/blocker. State the document Status and approval evidence separately; completing this invocation does not establish downstream acceptance.
-- **Evidence:** Structure and final-review results, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../technical-writing/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
+- **Evidence:** Structure and final-review results, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../document-review/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
 - **Open items:** Stable question/finding IDs, dispositions, affected product rules, missing information, and who can supply it. Preserve feedback identity through revisions.
 - **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. In team work, address Project Manager and identify the intended specialist or human decision; in standalone work, address the user. An approved forward handoff names `technical-design` in overall mode and the recipient holding the Architect responsibility. Project Manager routes the team handoff. Engineering lead can hold this responsibility.
 
@@ -184,7 +184,7 @@ Within each assigned location, answer the reader's main question first. Then giv
 
 ## Structural validation
 
-Use the shared [document validation method](../../technical-writing/references/validation-guide.md). Check the document directly against this contract and the applicable template:
+Use the shared [document validation method](../../document-review/references/validation-guide.md). Check the document directly against this contract and the applicable template:
 
 1. **Format:** Heading order, metadata values, required labels, table headers and complete rows, and populated sections. Remove template placeholders and instructional comments. Apply the user's replacement template when supplied.
 2. **Identifiers and coverage:** Unique, stable Success Criteria, Feature, Rule, and Example IDs. Each User Story links to defined Success Criteria. Each example links to valid rules and contains Given, When, and Then. Every defined rule has an example.

@@ -23,6 +23,6 @@ Reuse existing authorization for ordinary coordination and corrections within ap
 
 ## 3. Record progress and verify completion
 
-Use [Technical Writing](../technical-writing/SKILL.md) and the [delivery record template](assets/delivery-record-template.md) in the project's existing record. The contract owns its required content; adapt presentation and include only applicable sections. Validate the record with the shared [document validation method](../technical-writing/references/validation-guide.md).
+Use [Technical Writing](../technical-writing/SKILL.md) and the [delivery record template](assets/delivery-record-template.md) in the project's existing record. The contract owns its required content; adapt presentation and include only applicable sections. Validate the record with the shared [document validation method](../document-review/SKILL.md).
 
 Return the common handoff, ready next actions, blockers and owners, pending decisions, and evidence limits. Declare ship complete only under the contract's [completion conditions](references/coordination-contract.md#ship-completion). Coordination progress, review acceptance, merge, QA acceptance, approval, and deployment are distinct results.
