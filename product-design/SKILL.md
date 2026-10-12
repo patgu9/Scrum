@@ -1,46 +1,48 @@
 ---
 name: product-design
-description: Clarify product value, scope, and behavior through focused questions and concrete examples. Create or revise an English Think-stage Design Doc before implementation; not for visual styling or implementation planning.
+description: Define product value, scope, and behavior through focused questions and concrete examples. Create or revise an English Design Doc in the Think stage before implementation. Use for product discovery and requirements, not visual styling or implementation planning.
 ---
 
 # Product Design
 
-Help the user choose what is worth building and define its behavior. Stop at Think: code, scaffolding, tickets, and implementation require a separate request.
+Help the user decide what is worth building and how the product should behave. Produce a Design Doc in the Think stage. Code, scaffolding, tickets, and implementation require a separate request.
 
 ## 1. Establish context
 
-Read relevant project instructions, existing designs, terminology, and evidence of current behavior. A repository is optional. Reuse supplied answers; investigate available facts yourself. Distinguish implementation, user intent, and evidence of demand.
+Read project instructions, terminology, and evidence of current behavior. A repository is optional. Reuse the user's answers and investigate available facts. Keep current behavior, user intent, and evidence of demand distinct.
 
-Find related designs in `doc/design/`, `docs/designs/`, or user-specified locations. Separate approved decisions from superseded proposals and unresolved drafts. Raise conflicts that affect scope; prior approval does not approve a revision.
+Find related designs in `doc/design/`, `docs/designs/`, or the user's chosen location. Separate approved decisions, superseded proposals, and unresolved drafts. Report conflicts that affect scope. Approval applies to the version the user approved.
 
-Read [discovery methods](references/discovery-methods.md) for mode selection, conversation rules, and decision methods. Apply them throughout discovery.
+Read [discovery methods](references/discovery-methods.md) to choose a mode and guide questions and decisions.
 
-## 2. Resolve decisions
+Read the [Technical Writing Skill](../technical-writing/SKILL.md) before drafting. Apply its writing method to explanations, document prose, tables, rules, and examples.
 
-Use [decision clarification](references/discovery-methods.md#clarify-decisions-and-terms) to resolve choices in dependency order.
+## 2. Track decisions and dependencies
 
-Draft throughout discovery using the [document contract](references/document-contract.md). Keep unresolved choices visible and continue independent work while answers are pending.
+Read the [document contract](references/document-contract.md) before recording decisions. Follow the [clarification protocol](references/discovery-methods.md#clarify-decisions-and-terms) to track questions and dependencies. The contract defines where to save these records.
+
+Draft as discovery progresses. New findings can change the problem, value, scope, approaches, or examples. In steps 3–5, use the clarification protocol for new questions before continuing work that depends on the answers.
 
 ## 3. Connect value to scope
 
-Use [Impact Mapping](references/discovery-methods.md#impact-mapping) to connect each Feature to its goal and actors.
+Use [Impact Mapping](references/discovery-methods.md#impact-mapping) to connect each Feature to a goal, actors, and the intended change in behavior.
 
-Follow [approach comparison](references/discovery-methods.md#compare-approaches) to select a direction with the user.
+Follow [approach comparison](references/discovery-methods.md#compare-approaches) to compare ways to achieve the same user goal. Choose a direction with the user. Then define the smallest useful scope and the cost of future changes.
 
-Define scope and the user journey using the contract's [content placement](references/document-contract.md#content-placement).
+Record scope and the user journey in the contract's [assigned locations](references/document-contract.md#content-placement).
 
 ## 4. Specify Features
 
-Read [the template](assets/design-doc-template.md) before specifying Features. Use a user-supplied replacement template when requested.
+Read [the template](assets/design-doc-template.md) before defining Features. Use the user's replacement template when requested.
 
-Use [Specification by Example](references/discovery-methods.md#specification-by-example) to clarify behavior with the user. Apply the contract's [Feature rules](references/document-contract.md#feature-rules) and [document language](references/document-contract.md#document-language) when recording it.
+Use [Specification by Example](references/discovery-methods.md#specification-by-example) to clarify behavior with the user. Record rules and examples under the contract's [Feature rules](references/document-contract.md#feature-rules).
 
 ## 5. Review and deliver
 
 Save the document using the contract's [saving rules](references/document-contract.md#saving).
 
-Complete the contract's [final review](references/document-contract.md#final-review) and [structural validation](references/document-contract.md#structural-validation).
+Complete the contract's [final review](references/document-contract.md#final-review). Then run [structural validation](references/document-contract.md#structural-validation).
 
-Follow [adversarial review](references/adversarial-review.md), then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
+Follow [adversarial review](references/adversarial-review.md). Then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
 
-Finish with the saved path, status, blockers, review coverage, and the document's Next Action.
+Report the saved path, document Status, blockers, review coverage, and Next Action.
