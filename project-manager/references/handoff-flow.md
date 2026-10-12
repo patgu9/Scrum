@@ -46,6 +46,10 @@ Readiness for assignment/claim differs from implementation readiness. A coding- 
 
 Prepare a concrete handoff with the common summary and accessible professional artifacts. Use the authorized transport when available, then record its observed outcome. If dispatch fails or its result is unknown, inspect delivery/receipt and current worker state before retrying. Do not create duplicate work to make a handoff appear successful.
 
+Forward existing results by reference under the [common handoff](coordination-contract.md#common-handoff). Read the referenced evidence and state only the new action and material changes. Reuse already-read contracts while their versions and applicability remain valid; refresh current worker state and affected evidence before dispatch.
+
+After a technical design review passes, apply the design contract's [review and approval records](../../technical-design/references/document-contract.md#review-and-approval-records). Request approval for the reviewed version and scope when its remaining gates permit it. Do not dispatch an author solely to copy that review into the design first. Professional corrections or unresolved applicability still return to the responsible specialist. Separate function summaries do not require separate agent runs when the same recipient can perform the authorized sequence with valid gates.
+
 Track each active dependency at its actual gate: claim, task design, coding, review, merge, QA, or release. Report ready next actions and affected blockers together. Do not freeze unrelated work or assume independence when impact is unresolved.
 
 Report progress from role outputs and current evidence. A sent request is not acceptance, an accepted PR is not a merged candidate, and a merge is not permission to deploy. Return findings through [feedback and resumption](feedback-and-resumption.md) instead of skipping the failing stage.

@@ -139,6 +139,16 @@ Owner approval is required for product behavior and the overall technical soluti
 
 If approved product behavior or shared technical decisions must change, reopen the affected overall design as `DRAFT` and follow the feedback loop below. A revised task design returns to `DRAFT` until its affected readiness conditions are reassessed; use `IN_REVIEW` when only the required review remains. Local task refinements update the task design and its review/readiness as affected; they do not automatically reopen the overall document. Typographic or link-index edits that change no decision preserve approval. Reassess source and code revisions before every handoff; do not silently adopt changed baselines.
 
+### Review and approval records
+
+The author owns design content. The reviewer owns the version-bound review report and finding dispositions. The human owner supplies approval; Project Manager links those records and assesses the next coordination step. A review report or approval record may be an accessible external artifact or workflow message with a stable reference, exact design revision, scope, author, and time. Preserve the evidence used if that source is revised.
+
+Section 9 and the task review record can link those sources instead of duplicating them. Section 10 can reference the resulting readiness assessment. An approval request can use the reviewed design revision plus its applicable review report; copying the report into the design is not an additional gate. The author can synchronize record summaries during the next authorized design maintenance or planning invocation without a separate record-only run.
+
+Treat status and finding summaries in the file as a snapshot. When a later authoritative record changes them for the same revision, identify the stale summary, cite the superseding evidence, and state current readiness by scope in the handoff. Do not silently ignore contradictions. Missing, ambiguous, or inapplicable evidence blocks the dependent conclusion; a newer timestamp alone does not resolve it. Project Manager cannot close a specialist finding or grant approval.
+
+Record-only updates do not change the design's substantive version. If their Git revision changes, retain the reviewed and approved revision and verify that only records changed before carrying evidence forward. Substantive edits still require affected review and applicable approval. Reuse the existing reviewed revision when no record update is needed; never relabel old evidence as a review of new content.
+
 ## Overall handoff to planner
 
 Set `Ready for task breakdown: Yes` only for an explicitly identified scope when:
@@ -175,7 +185,7 @@ During implementation, update task decisions when new evidence changes the appro
 
 ## Feedback and revisions
 
-A constraint or decision request is a valid design output before a forward deliverable is complete. Every handoff contains scope/task and input versions, output references, conclusion and evidence, unresolved issues, and next function with its accountable recipient. State mode and readiness; do not equate completion of design work with downstream acceptance.
+A constraint or decision request is a valid design output before a forward deliverable is complete. Every handoff contains scope/task and input versions, output references, conclusion and evidence, unresolved issues, and next function with its accountable recipient. Supply unchanged information through the [handoff reference method](../../project-manager/references/coordination-contract.md#handoff-by-reference) when applicable. State mode and readiness; do not equate completion of design work with downstream acceptance.
 
 For feedback, also record a stable issue identity, affected requirements/contracts, the constraint, observations versus estimates and uncertainty, impact, alternatives and tradeoffs, and the requested decision or missing fact. Say when no alternative is known. Without a supplied cost or complexity limit, request a tradeoff decision instead of inventing a threshold or declaring impossibility.
 

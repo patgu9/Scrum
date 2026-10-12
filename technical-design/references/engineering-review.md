@@ -30,7 +30,7 @@ Use the [operational design method](design-methods.md#define-failures-and-operat
 
 Give each finding a location, defect or unknown, supporting evidence, consequence, and proposed remedy. Classify its blocked stage and scope under the [question rules](document-contract.md#questions-and-assumptions). Distinguish an observed contradiction from a fact that remains unverified.
 
-Store overall findings in Section 9 and questions in Section 8. Store task findings and questions in the task note's review and readiness record. Keep evidence and question states in their authoritative locations.
+Record overall findings or their authoritative review references in Section 9, and questions in Section 8. Use the task note's review and readiness record for task findings and questions. Apply the contract's [review and approval records](document-contract.md#review-and-approval-records) to external results and stale summaries. Keep evidence and question states in their authoritative locations; do not require an author run solely to copy a completed review before requesting approval.
 
 Apply wording and structural corrections within the agreed design. Route baseline changes through the contract's feedback and approval rules; reassess local task changes without inventing a new owner gate. After a correction, inspect affected contracts, diagrams, test cases, dependencies, and handoff content.
 

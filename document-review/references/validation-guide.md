@@ -12,6 +12,8 @@ The calling workflow defines domain criteria and owns status, independent review
 
 For a local wording edit, review the changed passage and affected references. For a completed document or material revision, review the full affected artifact. Identify the reviewed path and version or revision when available.
 
+For a handoff that forwards an existing result, check the new request, source accessibility, exact version, applicability, and any changed facts or limits. Retain the original review's scope and unresolved findings. Do not repeat the full professional review merely to validate its forwarding message; substantive changes or conflicting evidence require the affected review under the calling workflow.
+
 Correct defects within the authorized scope. Record missing evidence or decisions and identify dependent work that remains blocked. After a correction, recheck the affected structure, meaning, domain rules, and references. Never invent content to satisfy a checklist.
 
 ## Use automated checks

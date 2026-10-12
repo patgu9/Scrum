@@ -148,6 +148,8 @@ doc/YYYY-MM-DD-change-slug/
 
 即使前后两个职能由同一角色承担，也保留各自的交接摘要。阶段完成、下游验收和人类批准分别记录。
 
+交接信息可以引用可访问、版本明确的权威结果。转交时只补充本次动作、接收者及变化或限制，不重复完整报告；首次交付和实质修订仍按专业契约提供完整结果。不同职能保留独立结论，但不必因此创建新的文件、评论或 Agent 运行。技术设计的审阅与批准记录可以绑定被审版本保存在外部记录中，仅将结果抄回文档不构成请求批准前的新门槛，详见[审阅与批准记录](technical-design/references/document-contract.md#review-and-approval-records)。
+
 ## 设计来源
 
 本 README 根据本地设计文档 `doc/2026-10-12-ai-product-team-skills/product-design.md`（v3，2026-10-12）及当前 Skill 文件整理。该设计仍待整体审批，完整团队协作尚未进行真实项目试运行。

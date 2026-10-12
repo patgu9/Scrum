@@ -163,6 +163,7 @@ $Insert relevant architecture, flow, sequence, or state diagrams. Explain the im
 
 ## 9. Review and Approval
 
+- **Record sources:** $Accessible review and approval references for the exact design revision and scope, or Pending. Identify the date/revision of summaries below and any superseding record under the document contract; no duplicate report is required.$
 - **Reviewed version:** $Version and scope of the review.$
 - **Review type and reviewer:** $Independent or self-review; reviewer identity.$
 - **Coverage and limits:** $Areas reviewed, skipped areas with reasons, and independent review requests used if applicable.$

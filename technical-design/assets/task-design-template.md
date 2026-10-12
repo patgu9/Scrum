@@ -46,7 +46,7 @@
 | --- | --- | --- | --- |
 | $Q ID, assumption, finding, or None$ | $Affected decision, blocked stage and scope or None, and dependency reason$ | $Facts, estimates, missing evidence, and review disposition$ | $Owner/supplier, required evidence, resolution point, and next action$ |
 
-- **Review:** $Reviewed task version, reviewer identity, self-review or independent coverage, and remaining limits.$
+- **Review:** $Reviewed task version, reviewer identity, self-review or independent coverage, and remaining limits; use exact external result references where applicable and identify superseded summaries.$
 - **Architect review:** $Required with result and evidence, Pending, or Not required with the basis for routine local refinement.$
 - **Advance reviewer agreement:** $Not needed with basis, Pending, or agreement evidence for unusually large/complex scope. Pending blocks affected implementation; agreement does not replace independent review of the actual diff.$
 - **Baseline compliance:** $Within approved decisions, or the exact product/shared decision needing upstream revision.$

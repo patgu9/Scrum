@@ -58,6 +58,8 @@ Reuse the existing delivery record and professional artifact locations. For a ne
 
 Use the [delivery record template](../assets/delivery-record-template.md). Keep one current record with an update time and accessible decision history. Preserve earlier evidence and approvals before replacing their references. Record exact input versions; a live path alone cannot preserve an earlier approved version.
 
+Keep current coordination references separate from detailed execution history. Link the originating specialist's result and the human decision instead of copying their full bodies. Specialist conclusions retain their authors; Project Manager records their applicability and next action without substituting its own acceptance. Platform instructions own storage fields, limits, and publication commands.
+
 Maintain only applicable sections:
 
 - Scope, current conclusions, and source artifact/version references.
@@ -72,7 +74,7 @@ Use concise English unless the user or project requires another language. Mark a
 
 ## Common handoff
 
-Every output, including an approval request, blocker, return, or final summary, identifies:
+Every output, including an approval request, blocker, return, or final summary, identifies the following information directly or through the [handoff reference method](#handoff-by-reference):
 
 1. Change/task scope and exact input versions.
 2. Output artifact references and versions, including the coordination record when used.
@@ -81,6 +83,14 @@ Every output, including an approval request, blocker, return, or final summary, 
 5. Next function and responsible recipient, requested action, and required inputs or decision.
 
 Report unknown or unavailable recipients explicitly. For final delivery, the next recipient is the human owner; identify any agreed follow-up owner. An honest blocked handoff is a valid output without claiming the forward stage succeeded.
+
+### Handoff by reference
+
+The calling workflow owns required handoff information. Supply that information directly or through accessible, version-specific references to authoritative artifacts and results. A reference satisfies a field only when the recipient can locate the required information and it still applies to this request.
+
+For a first delivery or substantive revision, provide the workflow's complete result. When forwarding an existing result, cite it and state the requested action, recipient, and any changed scope, evidence, blockers, or limits. Do not copy unchanged reports into another result schema. Expand the relevant context when references are unavailable, versions change, or conclusions conflict. Never hide a new blocker behind an old reference.
+
+Keep summaries for consecutive functions distinct, even when one agent performs them in one authorized run. A separate summary does not require another document, comment, or agent run. If nothing changed, follow the caller's reporting rules without repeating an unchanged dispatch.
 
 ## Ship completion
 

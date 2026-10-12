@@ -8,6 +8,8 @@
 
 Use only applicable sections. Replace prompts with supported facts or explicit unknowns. Link professional artifacts instead of copying them. Preserve previous decisions and evidence through accessible history.
 
+For a reference-only handoff, cite the existing result and state the new action, recipient, and changed facts or limits. The [common handoff contract](../references/coordination-contract.md#common-handoff) defines the required information; do not refill this template for every forwarding message.
+
 ## Baselines and evidence
 
 | Artifact / scope | Path or evidence reference | Exact version / revision | Approval or applicability evidence | Gaps |
