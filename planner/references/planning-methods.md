@@ -54,7 +54,15 @@ Assess reviewability across these dimensions. Explain only the factors material 
 
 Plan for reviewers to examine all assigned authored changes, including tests, with enough surrounding code to understand behavior. Different reviewer assignments can cover different areas, but their combined coverage must include the whole change and its interactions. Mark missing expertise or context as a gap; additional Agent names alone do not establish coverage.
 
-Keep the team's raw scope report: authored additions plus deletions in implementation, tests, and documentation, including Agent-written content. Report reproducible generated artifacts separately, with the total diff and generation/validation context. Count deletions as observed even when their review cost is low. Google permits treating whole-file deletion as cheap to review; this workflow records that judgment separately instead of changing the raw count. Generated, binary, and non-text changes remain visible. AI authorship alone never makes maintained code a reproducible generated artifact or excuses reviewing it.
+### Report estimated and actual scope
+
+Include these measures in the scope report:
+
+- Authored additions plus deletions in implementation, tests, and documentation, including Agent-written content.
+- Reproducible generated changes, reported separately with generation and validation context.
+- The total diff, with binary and other non-text changes kept visible.
+
+Count deletions as observed even when their review cost is low. Google permits treating whole-file deletion as cheap to review; record that judgment separately instead of changing the raw count. AI authorship alone does not make maintained code a reproducible generated artifact or excuse reviewing it.
 
 Label planning figures as estimates. At review submission, the developer reports the actual base-to-head scope, changed files, behavioral risks, and verification evidence. Neither a low count nor a large model context window proves reviewability. Never hide changes or omit required tests to make a diff appear smaller.
 
@@ -65,7 +73,9 @@ Use these dispositions when planning and reassessing work:
 - **Suitable:** One complete goal, understandable context, and manageable review effort. Proceed through the ordinary task workflow; this is not code-review acceptance.
 - **Split:** Separate outcomes or excessive combined complexity can be reduced. Define smaller tasks, preserving acceptance coverage, tests, working increments, and dependencies.
 - **Clarify:** Missing context or evidence prevents a supported judgment. Identify the supplier and block only affected work.
-- **Advance review agreement needed:** An unusually large or complex cohesive change remains after meaningful split options are assessed. Record why, considered alternatives, affected scope, review responsibilities, and validation strategy. Obtain the independent Code Reviewer's agreement to undertake that scope before implementing it. If discovered mid-task, stop expansion and obtain agreement before continuing affected coding.
+- **Advance review agreement needed:** An unusually large or complex cohesive change remains after meaningful split options are assessed. Follow the agreement procedure below.
+
+For advance review agreement, record why the scope remains cohesive, alternatives considered, affected scope, review responsibilities, and validation strategy. Obtain the independent Code Reviewer's agreement to undertake that scope before implementing it. If the need is discovered mid-task, stop expansion and obtain agreement before continuing affected coding.
 
 A pending advance agreement can leave assignment or local design possible, but it blocks implementation of the proposed large scope. It is a specialist review commitment, not a new human approval gate or acceptance of unseen code. If a large PR already exists, retain it and resolve scope before review acceptance. Reviewer rejection returns it to engineering lead for decomposition or clarification. No agreement permits unrelated goals, missing required checks, or blocking defects.
 
@@ -100,6 +110,8 @@ Review the full plan before handoff; after a narrow revision, also inspect affec
 5. **Revisions and evidence:** Ensure split/replacement tasks preserve lineage and coverage; stale conclusions are marked for reassessment. Planned tests and estimated diffs cannot appear as passes or actual counts.
 6. **Readiness and handoff:** Open each task from its plan-index link. Verify a unique standalone entry point, matching task ID/version, plan backlink, pinned input references, dependency links, and agreement between the task and its index summary. Reassess readiness, name blockers and recipients, and remove template prompts. Do not add links to unproduced task designs or PRs.
 
-Walk through at least one ready task starting only from its entry file and linked prerequisites: assignment, confirmed claim, branch creation, task design, implementation, review, and integration prerequisites. For a blocked or revised plan, trace the affected return and resumption conditions as well. Check that a superseded task cannot be mistaken for available work and that replacement links preserve scope. Do not execute those stages as part of the walkthrough. Preserve QA and ship gates after integration.
+If the plan has ready tasks, walk through at least one using only its entry file and linked prerequisites. Cover assignment, confirmed claim, branch creation, task design, implementation, review, and integration prerequisites. This is a text review; do not execute those stages. Preserve QA and ship gates after integration.
+
+For a blocked or revised plan, also trace the affected return and resumption conditions. Check that a superseded task cannot be mistaken for available work and that replacement links preserve scope.
 
 Record reviewed plan version, review type, checks actually performed, findings and their dispositions, and remaining limits in the plan. Self-review remains self-review. A mechanical package check, a paper walkthrough, and a real downstream trial establish different evidence; report only what occurred.

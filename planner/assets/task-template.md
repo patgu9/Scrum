@@ -42,14 +42,15 @@
 | --- | --- | --- | --- | --- |
 | $Relative task link, e.g. ../t1/task.md, external input, or None$ | $Version/outcome needed$ | $Actual evidence or missing fact$ | $Claim / Design / Coding / Review / Merge$ | $Accountable recipient$ |
 
-- **Deferred local decisions:** $Source, constraints, required evidence, developer responsible, and resolution point before affected coding; or None.$
+- **Deferred local decisions:** $Source, allowed choices, constraints, required evidence, developer responsible, and resolution point before affected coding; or None.$
 - **Independent work:** $What can proceed while a dependency waits, with the supporting basis; do not assume independence.$
 
 ## Git Baseline and Review Scope
 
 - **Git baseline:** $Repository, declared base ref/revision, integration target, stack relationship if any, and claim-time rechecks.$
-- **Effort:** $Task design, implementation, and verification effort with basis and uncertainty.$
-- **Review scope:** $Affected files/interfaces, behavior risks, context/expertise, estimated authored additions plus deletions, generated changes separately, and generation/validation needs.$
+- **Effort:** $Estimates for task design, implementation, and verification, with basis and uncertainty.$
+- **Review scope:** $Affected files/interfaces, behavioral risks, and required context/expertise.$
+- **Estimated diff:** $Authored additions plus deletions; generated changes separately; total diff, including binary/non-text changes. State uncertainty and generation/validation needs.$
 - **Reviewability disposition:** $Suitable / Split / Clarify / Advance review agreement needed, with material reasons; no default numerical gate.$
 - **Advance reviewer agreement:** $Not needed with basis, Pending, or evidence for the exact large/complex scope. Pending blocks affected implementation; agreement does not accept code.$
 

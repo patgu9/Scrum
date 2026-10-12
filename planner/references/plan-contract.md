@@ -19,7 +19,9 @@ Before dependent planning, inspect:
 
 Use the overall design's [planning readiness contract](../../technical-design/references/document-contract.md#overall-handoff-to-planner). Approval alone cannot resolve missing feasibility evidence. Do not treat an unresolved shared interface, storage guarantee, or security constraint as a harmless local choice.
 
-For missing, inaccessible, conflicting, or stale input, identify the affected scope, required evidence, supplier, and next action. Do not invent approved requirements, developer availability, branch existence, or completed dependencies. If the user explicitly requests provisional exploration, label it DRAFT and keep dependent assignment blocked. Otherwise return the blocker and continue only work with valid, unaffected inputs.
+For missing, inaccessible, conflicting, or stale input, identify the affected scope, required evidence, supplier, and next action. Do not invent approved requirements, developer availability, branch existence, or completed dependencies.
+
+If the user explicitly requests provisional exploration, label it `DRAFT` and keep dependent assignment blocked. Otherwise, return the blocker and continue only work with valid, unaffected inputs.
 
 Routine decomposition, local assignment, and corrections within approved baselines need no additional human approval. Product or shared-design changes return to their owning function and existing approval point. Assignment recorded in a plan is not proof of publication to an app, developer claim, or execution.
 
@@ -29,17 +31,27 @@ Follow the shared [change-directory layout](../../product-design/references/arti
 
 Use the [plan index template](../assets/task-plan-template.md) and [task template](../assets/task-template.md). A project format can change presentation but must retain a standalone Markdown file for each task, even for a one-task plan. Do not create empty task designs, branches, or downstream delivery artifacts.
 
-Version the plan and each task independently, starting at `v1`. Increment for substantive changes to the corresponding contract and preserve prior decision bases in its revision record. Operational updates, such as a confirmed claim, record their time and source without implying a new scope version. Keep stable task and feedback IDs; never reuse a retired ID. Qualify product rules, contracts, tests, and task IDs by their source document when they could collide. `T1` in a test inventory is not automatically task `T1`.
+### Version and identify artifacts
+
+Version the plan and each task independently, starting at `v1`. Increment the version when its contract changes substantively. Preserve the prior decision basis in its revision record. For operational updates, such as a confirmed claim, record the time and source without implying a new scope version.
+
+Keep task and feedback IDs stable; never reuse a retired ID. Qualify rule, contract, test, and task IDs by their source document when they could collide. For example, `T1` in a test inventory is not automatically task `T1`.
 
 Write concise English unless the user or project requires another language. Remove template prompts from completed output. Use `Unknown`, `Pending`, or `Not applicable` with a reason when supported; do not invent content to fill a field.
 
-The plan owns change-level scope, coverage, shared integration responsibilities, overall dependency order, cross-task issues, planning review, and handoff. Its task index links every task with the version summarized. Include accepted source exclusions rather than silently omitting rules.
+### Keep the plan and task records consistent
 
-Each task file owns its goal, acceptance conditions, direct dependencies, assignment, task-specific baselines, readiness, blockers, lineage, and observed execution links. The index may summarize these fields but must not repeat full task bodies. Update affected task files and the index together, then check their agreement. On a discrepancy, read the task file and referenced evidence, report the stale summary, and resolve it before the affected claim or handoff.
+The plan owns change-level scope, coverage, shared integration responsibilities, overall dependency order, cross-task issues, planning review, and handoff. Its task index links every task and names the version summarized. Include accepted source exclusions rather than silently omitting rules.
+
+Each task file owns its goal, acceptance, direct dependencies, assignment, baselines, readiness, blockers, lineage, and observed execution links. The index may summarize these fields but must not repeat full task bodies.
+
+Update affected task files and the index together, then check their agreement. If they differ, read the task file and referenced evidence. Report the stale summary and resolve it before the affected claim or handoff.
 
 Use `Active`, `Superseded`, or `Cancelled` to distinguish current task definitions from retired ones. Active does not mean available or completed: readiness, confirmed claim, and observed execution evidence remain separate. Superseded or cancelled tasks are not claimable; completed work is not reopened merely because its definition remains active.
 
-Pin exact product and overall-design versions in each task file, together with the source plan version and required code baseline. Link shared decisions without copying their prose. A later plan revision does not silently retarget tasks to newer inputs. A summary-only or unrelated-task change need not invalidate an unchanged task; assess actual impact and record the supported conclusion.
+Pin exact product and overall-design versions in each task file, together with the source plan version and required code baseline. Link shared decisions without copying their prose.
+
+A later plan revision does not silently retarget tasks to newer inputs. A change only to a summary or another task need not invalidate an unchanged task. Assess actual impact and record the supported conclusion.
 
 ## Development task record
 
@@ -82,15 +94,34 @@ These statuses describe the planning artifact, not task-app states:
 | `PARTIAL` | Plan review is complete; explicitly named tasks are ready, while others remain blocked, unassigned, or retired |
 | `BLOCKED` | No included active task is ready; record required inputs or decisions and their suppliers |
 
-A task is ready for assignment/claim only when its exact approved baselines remain valid, its boundary and acceptance are clear, and its required task fields are usable. It needs a named available developer, an actionable Git baseline, and no unresolved dependency or decision that gates claim or task design. Apply the [reviewability policy](planning-methods.md#estimate-work-and-review-scope). A required advance reviewer agreement can be pending during assignment or local design, but blocks implementation of that scope. Do not claim agreement without evidence or confuse it with acceptance of the resulting code.
+A task is ready for assignment/claim only when all of these conditions hold:
 
-Evaluate dependencies at the stage they actually gate. A task may be ready for local design while a declared dependency still blocks coding or merge. State that restriction and the evidence supporting independent design. Missing architectural feasibility or a shared contract blocks affected assignment, regardless of owner approval. Unknown impact is not evidence of independence.
+- Its exact approved baselines remain valid.
+- Its boundary and acceptance are clear, and its required task fields are usable.
+- It has a named available developer and an actionable Git baseline.
+- No unresolved dependency or decision gates claim or task design.
+
+Apply the [reviewability policy](planning-methods.md#estimate-work-and-review-scope). A required advance reviewer agreement can be pending during assignment or local design, but blocks implementation of that scope. Do not claim agreement without evidence or confuse it with acceptance of the resulting code.
+
+Evaluate each dependency at the stage it gates:
+
+| Condition | Readiness consequence |
+| --- | --- |
+| Missing architectural feasibility or shared contract | Block affected assignment, even if owner approval exists |
+| Dependency gates coding or merge, but independent local design is supported | Local design may proceed; state the restriction and evidence of independence |
+| New task has no branch yet | Expected before claim; not a planning blocker |
+| Git base is missing or invalid | Block affected assignment/claim |
+| App publication or a downstream Skill is unavailable | Record a delivery blocker separately from planning readiness |
+
+Unknown impact is not evidence of independence.
 
 Keep `Ready for assignment/claim` separate from `Ready for implementation`. The latter belongs to task-mode `technical-design` after claim and branch creation, including required architect review. Plan readiness also does not establish review acceptance, merge readiness, QA acceptance, or ship approval.
 
-Readiness applies only to the named scope, source versions, and observed conditions. Recheck before handoff and after material changes. A new task's pending branch creation is expected and is not itself a planning blocker; a missing or invalid base is. Missing app publication or a downstream Skill is a delivery blocker, not evidence that planning failed.
+Readiness applies only to the named scope, source versions, and observed conditions. Recheck before handoff and after material changes.
 
-For an already claimed task, assess readiness to resume the affected stage using its current execution state. Do not require a duplicate claim or treat completed stages as pending merely because the plan was revised. A plan with no remaining development scope records that conclusion and the next recipient; do not label finished work blocked because no new task is ready.
+For an already claimed task, assess readiness to resume the affected stage using its current execution state. Do not require a duplicate claim or treat completed stages as pending merely because the plan was revised.
+
+For a plan with no remaining development scope, record that conclusion and the next recipient. Do not label finished work blocked because no new task is ready.
 
 ## Replanning and feedback
 
@@ -119,7 +150,9 @@ Route behavior, scope, or acceptance changes to PM using `product-design`. Route
 
 Do not silently revise upstream decisions, weaken acceptance, or invent a cost/complexity threshold. Without a supplied limit, return an evidenced tradeoff or fact request. Preserve prior decisions and identify affected plans, task designs, interfaces, code, tests, and review conclusions. Independent work continues only with supported validity of its inputs, interfaces, dependencies, and approvals.
 
-Close feedback only with a supported specialist resolution or an explicit owner decision to defer or stop the affected scope. Approval alone does not prove feasibility; deferral is not delivery. If the same issue returns on the same baseline without new evidence or a viable alternative, stop repeating the handoff. Escalate through Delivery Lead with attempted options, consequences, and the missing fact or authority; keep affected work blocked.
+Close feedback only with a supported specialist resolution or an explicit owner decision to defer or stop the affected scope. Approval alone does not prove feasibility; deferral is not delivery.
+
+If the same issue returns on the same baseline without new evidence or a viable alternative, stop repeating the handoff. Escalate through Delivery Lead. Include attempted options, consequences, and the missing fact or authority. Keep affected work blocked.
 
 ## Common handoff
 

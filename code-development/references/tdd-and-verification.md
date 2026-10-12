@@ -17,7 +17,11 @@ Select the smallest reliable test boundary that proves the assigned claim. Use t
 3. **Refactor:** Improve structure where useful without changing the required behavior. Keep relevant tests green. If no refactor is warranted, record that judgment.
 4. Repeat for the next behavior. Keep code and tests together within the task. A scenario inventory does not require writing every executable test before the first implementation step.
 
-A runtime Red requires evidence that the intended test executed and failed for the expected reason. An intentional compile-time Red is valid when the new test exercises a missing API or type contract and the compiler diagnostic demonstrates that gap. Unrelated syntax errors, failed discovery, missing dependencies, or broken setup do not count. A test file that has not run supplies no Red evidence.
+### Recognize a valid Red
+
+A runtime Red requires evidence that the intended test executed and failed for the expected reason. An intentional compile-time Red is valid when the new test exercises a missing API or type contract. The compiler diagnostic must demonstrate that gap.
+
+Unrelated syntax errors, failed discovery, missing dependencies, or broken setup do not count. A test file that has not run supplies no Red evidence.
 
 If a new test passes immediately, investigate whether the behavior already exists or the test misses the defect. Strengthen a deficient test without inventing a failure. Do not break correct production code to manufacture Red. A legitimate discovery can reduce the implementation needed; report the evidence and route any task-scope change to planner.
 
@@ -45,7 +49,15 @@ A pass applies to its tested state and environment. After code or baseline chang
 
 ## Preserve execution evidence
 
-For each implemented behavior, record the source acceptance or contract, test identity and level, actual command and working directory, relevant environment, and code revision or identifiable working-tree state. Record expected and actual Red, subsequent Green, and refactor/regression results with concise output excerpts or durable log references. Record chronology as work happens; a final passing suite cannot reconstruct earlier execution.
+For each implemented behavior, record:
+
+- The source acceptance or contract, test identity, and test level.
+- The actual command, working directory, and relevant environment.
+- The code revision or identifiable working-tree state.
+- Expected and actual Red, subsequent Green, and refactor/regression results, as applicable.
+- Concise output excerpts or durable log references supporting those results.
+
+Record chronology as work happens. A final passing suite cannot reconstruct earlier execution. Use the [verification alternatives](#existing-code-and-alternative-verification) when the change does not need a new Red.
 
 Mark planned, unrun, failed, passed, baseline-only, retrospective, and inapplicable evidence accurately. Include the reason and affected conclusion for gaps. Keep claims no broader than their checks, especially when services were mocked or only a unit boundary ran.
 

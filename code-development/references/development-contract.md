@@ -17,7 +17,16 @@ Start from the standalone task entry defined by the shared [artifact layout](../
 
 Assignment alone does not prove a claim. Task-design readiness does not prove that inputs remain current. Recheck changed inputs and dependencies when starting or resuming. Do not silently replace pinned baselines with newer versions.
 
-Missing task design returns to [technical-design in task mode](../../technical-design/SKILL.md). Missing claim, task, or branch returns to the applicable coordination, planner, or Git workflow. Preserve existing work. Read-only investigation and unaffected work can continue with valid inputs; missing prerequisites cannot be replaced with invented approval or readiness.
+Route missing inputs to their owner:
+
+| Missing input | Receiving workflow |
+| --- | --- |
+| Task design | [Technical design in task mode](../../technical-design/SKILL.md) |
+| Confirmed claim | Applicable coordination workflow |
+| Task definition | Planner |
+| Task branch | Git workflow |
+
+Preserve existing work. Read-only investigation and unaffected work can continue with valid inputs. Do not invent approval or readiness to replace missing prerequisites.
 
 ## Scope and authority
 
@@ -25,9 +34,13 @@ Implement the assigned acceptance within the approved baselines. Routine local c
 
 Apply the supplied [reviewability policy](../../planner/references/planning-methods.md#estimate-work-and-review-scope). Report material scope growth before expanding the task. Return multiple independent goals to planner; obtain any required advance reviewer agreement for unusually large cohesive scope. Do not omit tests or necessary usage to reduce the diff.
 
-One development task retains one active branch and one PR. Git methods come from `git-workflow` when available, or the project's authorized Git procedure. Inspect and reuse existing state. Never reset another worker's branch, discard unrelated edits, or change another task's active checkout to obtain a convenient baseline. If isolation is missing, resolve it through the Git/runtime workflow before overlapping edits.
+### Preserve Git state and authorization
 
-Commit cadence follows project policy and existing authorization. This Skill requires traceable evidence, not a commit after every Red or Green step. Preserve evidence before any authorized squash or history change. PR publication uses the applicable authorized platform workflow. Missing tools do not authorize a substitute external action or prove that publication occurred.
+One development task retains one active branch and one PR. Use `git-workflow` when available, or the project's authorized Git procedure. Inspect and reuse existing state. Never reset another worker's branch, discard unrelated edits, or change another task's active checkout to obtain a convenient baseline. If isolation is missing, resolve it through the Git/runtime workflow before overlapping edits.
+
+Commit cadence follows project policy and existing authorization. Traceable evidence does not require a commit after every Red or Green step. Preserve evidence before any authorized squash or history change.
+
+Publish the PR through the applicable authorized platform workflow. Missing tools do not authorize a substitute external action or prove that publication occurred.
 
 ## Feedback and corrections
 
@@ -54,16 +67,24 @@ When interrupted, preserve code and record the current phase, completed checks, 
 
 ## Delivery conditions
 
-Report implementation verification and PR publication separately. Set `Implementation verified: Yes` only when:
+### Implementation verification
+
+Set `Implementation verified: Yes` only when:
 
 - Assigned behavior is implemented against valid inputs; required design updates and reviews are complete.
-- Each assigned acceptance condition has applicable passing developer verification, or a source-defined downstream verification obligation with its recipient and limits. Do not move a required developer check downstream merely because it could not run.
+- Each assigned acceptance condition has passing developer verification or a downstream verification obligation defined by its source. Record the downstream recipient and limits. Do not move a required developer check downstream merely because it could not run.
 - Required developer checks pass for the delivered code state. Failed, unrun, skipped, or unsupported required checks keep this conclusion false.
 - The complete task diff has been self-reviewed; known correctness, safety, and acceptance blockers are resolved. Retained nonblocking findings and scope are explicit.
 
-`PR publication: Published / Prepared locally / Blocked` records what actually happened. Only a published PR with current evidence and satisfied implementation conditions is ready for the ordinary independent-review handoff. A draft or incomplete package can request help, but must not claim that readiness. Developer verification does not imply review acceptance, merge, QA acceptance, or ship approval.
-
 Verify that the tested state corresponds to the submitted change. A pass that depends on excluded or uncommitted code cannot establish verification of the PR. Preserve unrelated work and validate the intended deliverable in a suitable isolated state when necessary.
+
+### Publication and review handoff
+
+Record `PR publication` separately as `Published`, `Prepared locally`, or `Blocked`, based on what actually happened. The ordinary independent-review handoff is ready only when the PR is published, its evidence is current, and the implementation conditions above are satisfied.
+
+A draft or incomplete package can request help, but must not claim that readiness. Developer verification does not imply review acceptance, merge, QA acceptance, or ship approval.
+
+### Delivery record
 
 The handoff includes:
 
@@ -74,4 +95,6 @@ The handoff includes:
 - Acceptance-to-test mapping, actual execution evidence, required final checks, and verification limits.
 - Open findings, implementation verification, publication state, next function, and responsible recipient.
 
-Use the [delivery template](../assets/development-report-template.md) in the project's existing delivery record. If a separate local record is needed, save `development.md` beside the task entry and link it from `task.md`. Follow the shared artifact layout; reuse an existing valid evidence location. Keep one authoritative execution record and reference it from the PR. Never insert planned or executed results into a source baseline as if that baseline had approved the implementation.
+Use the [delivery template](../assets/development-report-template.md) in the project's existing delivery record. If a separate local record is needed, save `development.md` beside the task entry and link it from `task.md`. Follow the shared artifact layout and reuse an existing valid evidence location.
+
+Keep one authoritative execution record and reference it from the PR. Never insert planned or executed results into a source baseline as if that baseline had approved the implementation.

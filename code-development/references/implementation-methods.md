@@ -2,7 +2,7 @@
 
 ## Read before changing
 
-Trace the assigned behavior through its real entry point, callers, state changes, dependencies, and result. Inspect nearby tests and reusable facilities. Check installed versions and project configuration before choosing APIs or commands; consult current official documentation when a relevant API is uncertain.
+Trace the assigned behavior through its real entry point, callers, state changes, dependencies, and result. Inspect nearby tests and reusable facilities. Check installed versions and project configuration before choosing APIs or commands. If a relevant API is uncertain, consult current official documentation.
 
 Turn the task design into a short working sequence of behavior increments and checks. Reuse acceptance examples and preserve their source IDs. Investigate factual questions in the repository first. If competing interpretations change acceptance or shared contracts, return the question to its owner. Make ordinary local choices within the ready design and explain material assumptions.
 
@@ -14,7 +14,7 @@ Choose the simplest implementation that satisfies the contract and relevant fail
 
 Keep changes tied to assigned behavior, tests, and necessary documentation. Remove code made unused by this change. Report pre-existing unrelated problems separately. Avoid adjacent formatting, broad cleanup, or a new framework merely because a reference demonstrates it.
 
-Follow the project's naming, types, formatting, and error conventions. Preserve domain terms and public contracts. Prefer explicit data shapes and validation at trust boundaries over type assertions that hide uncertainty. Use the language's ownership and mutation model; do not impose immutable copying where local mutation is safe and idiomatic.
+Follow the project's naming, types, formatting, and error conventions. Preserve domain terms and public contracts. Prefer explicit data shapes and validation at trust boundaries over type assertions that hide uncertainty. Use the language's ownership and mutation model. Do not impose immutable copying where local mutation is safe and idiomatic.
 
 Preserve useful failure causes while returning the contracted error. Do not turn dependency failures into empty success results unless the baseline explicitly defines that behavior. Protect secrets and sensitive values in logs and test output. Explain non-obvious constraints and tradeoffs in comments; keep changed usage documentation accurate.
 

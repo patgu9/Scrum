@@ -14,8 +14,11 @@
 ## Change and Acceptance
 
 - **Outcome:** $What changed and why, with a concrete observable result.$
+- **Exclusions:** $Assigned exclusions and work not included in this delivery.$
 - **Design refinements:** $Updated local design references, or None. Shared decisions remain in their owning source.$
-- **Scope:** $Actual authored additions/deletions, affected files/interfaces, generated artifacts separately, risks, and any advance review agreement.$
+- **Scope:** $Affected files/interfaces, behavioral risks, and any required advance review agreement for this scope.$
+- **Actual diff:** $Authored additions plus deletions against the declared base/head; generated changes separately; total diff, including binary/non-text changes.$
+- **Generated artifacts:** $Generation and validation commands/evidence, or None.$
 - **Dependencies:** $Current evidence and remaining review/merge restrictions.$
 
 | Acceptance / Contract | Implementation and Test Reference | Verified Claim | Limits / Downstream Recipient |
@@ -24,11 +27,16 @@
 
 ## Execution Evidence
 
-| Behavior / Test | Phase and Code State | Command / Procedure and Environment | Expected and Actual Result | Evidence |
+| Behavior / Test | Phase and Code State | Command / Procedure and Environment | Expected Result | Actual Result and Evidence |
 | --- | --- | --- | --- | --- |
-| $Test identity$ | $Red / Green / Refactor / Baseline / Retrospective / Alternative; revision or working-tree snapshot$ | $Actual command, working directory, relevant runtime/environment$ | $Expected failure reason or success; observed result; mark unrun explicitly$ | $Concise output excerpt or accessible durable log$ |
+| $Test identity and level$ | $Red / Green / Refactor / Baseline / Retrospective / Alternative; revision or working-tree snapshot$ | $Actual command, working directory, relevant runtime/environment$ | $Expected failure reason or success condition$ | $Observed result and output excerpt or durable log; mark unrun explicitly$ |
 
-- **Final checks:** $Required checks, relevant regression/integration, actual commands and results for the final code state; list unrun checks and their impact.$
+Record final checks for the delivered code state. Include required checks and relevant regression/integration checks, including those that did not run.
+
+| Check and Obligation | Delivered Code State | Command / Procedure and Environment | Actual Result and Evidence | Gap and Impact |
+| --- | --- | --- | --- | --- |
+| $Check name; required or risk-based, with source$ | $Revision or identifiable snapshot$ | $Command, working directory, relevant environment$ | $Passed / Failed / Unrun / Skipped / Unavailable; evidence reference$ | $None, or reason and effect on implementation verification$ |
+
 - **Coverage:** $Applicable project threshold, command, scope/result/exclusions; or not measured with reason.$
 - **TDD limits:** $Missing history, alternative verification, or None; no claim of test-first execution without evidence.$
 - **Self-review:** $Diff examined, issues fixed, and remaining limits; not independent review.$
