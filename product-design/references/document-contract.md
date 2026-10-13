@@ -25,13 +25,23 @@ Before saving:
 2. Reuse the change directory identified by the request, source document, or conversation. Read existing content. If continuation versus a new change remains unclear after inspection, ask the user.
 3. For a new change, use its start date and a short English capability name with lowercase words separated by hyphens. If the directory belongs to another change, append `-02`, `-03`, or the next unused suffix. Never overwrite unrelated files.
 
-Keep one current `product-design.md`. Revisions and reopened decisions stay in that file; retain earlier baselines under [version rules](#versions-and-approval-evidence). A separate follow-up change gets a new directory and a link to the earlier change. Create only the product artifact needed now; downstream stages use the same change directory for their own outputs.
+Keep these artifacts in the same task directory:
 
-Keep the glossary, decisions, and review findings in the same product document. Supply its path and task directory in the handoff summary.
+| File | Purpose | Template |
+|-----|-----|-----|
+| `product-design.md` | Current product intent, scope, behavior, and acceptance examples | [Design Doc](../assets/design-doc-template.md) |
+| `product-design-questions.md` | Q records, clarification dependencies, decision evidence, validation follow-up, and baseline history | [Questions and decisions](../assets/questions-template.md) |
+| `product-design-review.md` | Review attempts, findings, corrections, and verification history | [Review record](../assets/review-template.md) |
+
+Keep one current Design Doc. Retain earlier baselines under [version rules](#versions-and-approval-evidence). A separate follow-up change gets a new directory and a link to the earlier change. Create a supporting file when its first record is needed; do not create empty logs. Downstream stages use the same directory for their own outputs.
+
+Use relative links between these files. In the Design Doc's Supporting Records line, link existing files and mark unstarted records as `Not started`. Supporting files link back to the Design Doc and identify the versions to which their records apply. Supply all existing artifact paths in the handoff summary.
+
+When revising an existing combined document, move its Q records and review history without losing IDs, sources, states, dependencies, or attempt counts. Retain confirmed product conclusions in their assigned sections. Preserve the source baseline before changing a handed-off document; apply the version and approval rules below.
 
 ## Structure
 
-The [template](../assets/design-doc-template.md) defines heading spelling, order, and metadata fields. Repeat only the Feature block. Do not add a preface, appendix, extra headings, or metadata fields by default. Apply the user's replacement template when supplied.
+The [Design Doc template](../assets/design-doc-template.md) defines its heading spelling, order, and metadata fields. Within the Design Doc, repeat only the Feature block. Do not add a preface, appendix, extra headings, or metadata fields by default. Supporting files use their own templates from [Saving](#saving), with repeated question, history, attempt, and finding records as needed. Apply the user's replacement template when supplied.
 
 Use `Startup` or `Builder` for Mode, `YYYY-MM-DD` for Date, and `Think` for Stage. Follow [version and approval evidence rules](#versions-and-approval-evidence) for Version and Approval, and [status rules](#status-and-approval) for Status.
 
@@ -71,31 +81,37 @@ Use tables by default for comparable cases. If narrative examples are clearer, u
 | Selected approach, reason, and justification for retained complexity, or a choice marked as pending | Recommendation |
 | Goal → actor → behavioral impact → deliverable links. Trigger, handoffs between actors, outcome, how the product reaches users, and shared dependencies | How It Works, including diagrams |
 | Initial audience, smallest useful outcome, included Features, exclusions, and costs of future changes where relevant | Scope |
-| Premises, assumptions, Q records, dependencies, and unresolved review findings. Approval impact, validation plan, decisions to revisit, and follow-up | Premises and Open Questions |
-| Prior product baselines and approvals, reasons for revision, and downstream feedback dispositions | Premises and Open Questions, with links to retained evidence |
+| Current premises, material assumptions, product limits, and unresolved effects on scope or behavior | Design Doc: Assumptions and Limits; also mark affected rules or outcomes pending |
+| Q records, question dependencies, answers, decision sources, validation plans, and follow-up | `product-design-questions.md`: Questions and Decisions |
+| Prior product baselines and approvals, reasons for revision, and downstream feedback dispositions | `product-design-questions.md`: Baseline and Feedback History |
+| Review attempts, findings, remedies, corrections, resolution evidence, and incomplete coverage | `product-design-review.md` |
 | Outcome and verification method. For quantitative goals: baseline, target, units, population, and time window | Success Criteria |
 | Value → role → action, SC links, rules, and acceptance examples | Feature blocks |
 | One action and observable result. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome | Next Action |
 
-Record need hypotheses and uncertainty about causal links in Premises and Open Questions. Every row needs `Blocks approval: Yes / No` and a reason. Do not add separate sections for interview records, impact maps, or review findings to the Design Doc.
+The Design Doc must explain the current design without requiring readers to reconstruct discovery or review history. Keep concise rationale, source links, need hypotheses, uncertainty about causal links, and product dependencies that affect behavior. Put management dependencies, answer history, review discussion, and follow-up tracking in the supporting files.
+
+Use Assumptions and Limits for concise statements that affect how readers interpret the design. State the current impact and link the relevant Q or finding when one exists. Keep unresolved behavior visibly pending beside the affected content. Identify approval blockers and their impact in plain language; moving a record does not remove its blocker. Do not repeat resolved Q records or review findings in the Design Doc. Apply their confirmed conclusions to the relevant glossary, scope, rules, or examples.
 
 ### Question records
 
-Store records from the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) in the existing four columns. Keep the headers. Do not add sections to the Design Doc for question records.
+Store records from the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) in `product-design-questions.md`. Use the [questions template](../assets/questions-template.md). Give each question a `### Q<n>` heading so links such as `product-design-questions.md#q3` remain stable. Use labeled fields rather than dense table cells for long answers.
 
-- **Type:** Give the stable question ID, question type, and question state. Use `Exploration question`, `Fact to investigate`, or `User decision`. Example: `Q3 / Exploration question / OPEN`. Keep existing types for premises and assumptions that are not questions.
+- **Type and State:** Use `Exploration question`, `Fact to investigate`, or `User decision`, and a state from the clarification protocol.
+- **Applies to:** Identify the design version and affected sections or IDs. Link an originating review finding when applicable.
 - **Statement and Impact:** State the question, its impact, and affected IDs or fields. Give `Depends on: Q1, Q2` or `None`. Include any conditions on those dependencies. Add `Blocks approval: Yes / No` and the reason.
 - **Evidence / Validation Status:** Start with the answer or finding, its basis, and source. Use `Pending` or `Unknown` when the answer or evidence is missing. For user decisions, also record the main options, tradeoffs, recommendation, and reason. Exploration and fact investigations need no option comparison.
 
-  Cite the conversation turn or quote the user's answer. Support investigated facts with source evidence, including files or tool results when used. Distinguish reported experience, direct observation, stated intent, and agent inference. Mark hypothetical scenarios. For a reopened question, keep the prior answer and the reason for reopening. Agreement does not prove a factual assumption or target-user demand.
+  Cite the conversation turn or quote the user's answer. Support investigated facts with source evidence, including files or tool results when used. Distinguish reported experience, direct observation, stated intent, and agent inference. Mark hypothetical scenarios. Agreement does not prove a factual assumption or target-user demand.
 
 - **Follow-up:** Give the next investigation, clarification, or validation action. State the required evidence, affected content awaiting review, and an owner when needed. For `EXCLUDED`, record the user's agreement to exclude the scope. Use `None` only when no follow-up remains.
+- **History:** For a reopened question, retain prior answers, sources, applicable versions, and the reason for reopening. Otherwise use `None`.
 
-Keep resolved and excluded question rows, their IDs, and the basis for each state. Put Q IDs beside pending or disputed content so readers can trace dependencies. The clarification protocol governs question states and transitions. [Status and approval](#status-and-approval) governs the document Status.
+Keep resolved and excluded records, their IDs, and the basis for each state in the questions file. Link Q IDs beside pending or disputed design content. For a review-originated question, link its finding; the question owns clarification and the review record owns verification of the correction. Neither an answer nor an edit alone resolves a review finding. The clarification protocol governs question states and transitions. [Status and approval](#status-and-approval) governs the document Status.
 
 ### Assumption validation
 
-For each assumption that materially affects value, scope, or the chosen approach, use these existing fields:
+Keep each material assumption and its current product impact in Assumptions and Limits. Track outstanding validation as a linked `Fact to investigate` Q record in the questions file. Use these fields:
 
 1. **Evidence / Validation Status:** State what to observe, how to collect observations, and which result would not support the assumption. Use an agreed threshold or concrete qualitative counterexample. If the method or threshold is unresolved, record an open decision. Do not invent either.
 2. **Follow-up:** Name the decisions and affected IDs to reopen if that result occurs. Include the next validation action and an owner when needed.
@@ -107,7 +123,9 @@ Next Action identifies one concrete validation or trial step. It need not cover 
 
 Use `Version: v<n>`, starting at `v1`. Increment the version when substantive changes alter a product version already handed off for review, approval, or downstream use. Work in progress may retain its version until that handoff. Typographic changes alone preserve the version.
 
-Before changing a handed-off version, retain its exact content through an accessible repository revision or an immutable snapshot at `history/product-design/v<n>.md` within the task directory. Reuse an existing matching reference; never overwrite a different snapshot at that version. Historical snapshots are evidence, not competing current documents. Record the prior version, reference, approval evidence, and reason for revision in Premises and Open Questions. The current `product-design.md` remains authoritative.
+Before changing a handed-off version, retain its exact content through an accessible repository revision or an immutable snapshot at `history/product-design/v<n>.md` within the task directory. Reuse an existing matching reference; never overwrite a different snapshot at that version. Historical snapshots are evidence, not competing current documents. Record the prior version, reference, approval evidence, and reason for revision in the questions file's Baseline and Feedback History. Preserve supporting evidence referenced by that baseline through a repository revision or accompanying snapshots. The current `product-design.md` remains authoritative for product behavior.
+
+Updating a log alone does not increment the product version. If new evidence changes behavior or invalidates the basis for approval, apply the status rules below. Never apply an earlier review conclusion to a later version without checking its scope.
 
 Keep `Approval: Pending` for DRAFT and IN_REVIEW. For APPROVED, use `Approval: <version> | <YYYY-MM-DD> | <human approver> | <evidence reference>`. The version must equal the current Version. Cite the actual approving message or decision record; preserve its explicit scope. Approval relayed by Project Manager must identify the human decision, not the coordinator's own conclusion. An unavailable or ambiguous approval record blocks approved handoff.
 
@@ -119,9 +137,9 @@ When revising an older document without version fields, identify and retain the 
 - **IN_REVIEW:** The document is complete, the direction is agreed, and no approval blockers remain. Request confirmation through the [established route](#inputs-and-invocation-context).
 - **APPROVED:** The user explicitly approved this version. Blockers are resolved or the user agreed to exclude affected scope. Approval does not validate assumptions.
 
-Questions about core users, scope, or behavior block approval unless the user agrees to exclude the affected scope.
+Questions about core users, scope, or behavior block approval unless the user agrees to exclude the affected scope. Assess blockers across the Design Doc and existing supporting files, including unresolved review findings. A missing required or referenced record is an evidence gap, not proof that no blockers remain. A supporting file with no records to hold need not exist. An unanswered question or review issue cannot disappear through relocation or summary edits.
 
-If goals, scope, rules, or outcomes change materially:
+If goals, scope, rules, or outcomes change materially, or new evidence invalidates the basis for approval:
 
 1. Preserve the prior baseline, update Version as required above, set Status to DRAFT, and reset Approval to Pending.
 2. Obtain the user's product decision unless the change is already authorized. Authorization to revise is not approval of the resulting version.
@@ -143,7 +161,7 @@ Put the summary in the caller's delivery record or response, outside the product
 Include:
 
 - **Task and inputs:** Task identity and directory; input artifacts and exact versions, applicable approval references, and feedback identity. For a new goal, cite the supplied request rather than inventing an input version.
-- **Outputs:** Product document path and Version, or the feedback response and its affected baseline. Link supporting artifacts rather than copying them.
+- **Outputs:** Product document path and Version, or the feedback response and its affected baseline. Link existing questions and review files. Identify the reviewed version and exact revision or retained snapshot; do not copy logs into the Design Doc.
 - **Conclusion:** Discovery incomplete, awaiting approval, approved for technical design, or feedback/blocker. State the document Status and approval evidence separately; completing this invocation does not establish downstream acceptance.
 - **Evidence:** Document Review results for structure, content, and evidence, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../document-review/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
 - **Open items:** Stable question/finding IDs, dispositions, affected product rules, missing information, and who can supply it. Preserve feedback identity through revisions.
@@ -153,7 +171,7 @@ For a feedback response, include the content required by [revisit a product base
 
 ## Document language
 
-Write the Design Doc in English using [Technical Writing](../../technical-writing/SKILL.md). Follow [content placement](#content-placement). Include reader prerequisites in Problem Statement or Glossary when needed for understanding. Keep conversation progress updates outside the document.
+Write the Design Doc and its supporting records in English using [Technical Writing](../../technical-writing/SKILL.md). Follow [content placement](#content-placement). Include reader prerequisites in Problem Statement or Glossary when needed for understanding. Keep conversation progress updates outside the documents.
 
 ## Product review boundary
 
@@ -180,7 +198,7 @@ Use Document Review to apply these product-specific checks within the [product r
    For quantitative goals, check metric definitions and measurement context. Explain how to obtain missing baselines. Builder may use a qualitative demonstration.
 
    For each important assumption, check what to observe and how to collect observations. Check which result would not support the assumption and which decisions to reopen. Examples of intended behavior alone do not validate assumptions.
-4. **Decisions and approval:** Check question records, sources for resolved answers, dependencies, unanswered questions, and content awaiting review. An empty question queue does not prove that approval blockers are resolved. Apply [Status and approval](#status-and-approval) to the current version and its unresolved questions.
+4. **Decisions and approval:** Read the Design Doc and existing questions and review files. Check question records, sources for resolved answers, dependencies, unanswered questions, review findings, and content awaiting review. Check that confirmed conclusions reached the design and unresolved product effects remain visible there. An empty question queue does not prove that approval blockers are resolved. Apply [Status and approval](#status-and-approval) across these files.
 5. **Completion:** Check that Next Action is concrete, the handoff summary identifies valid inputs and the next recipient, and the work stays within the entrypoint's scope. For revisions, check retained baselines, current approval evidence, and feedback disposition.
 
 ## Structural validation
@@ -189,7 +207,7 @@ Use [Document Review](../../document-review/SKILL.md) and its shared [validation
 
 1. **Format:** Heading order, metadata values, required labels, table headers and complete rows, and populated sections. Remove template placeholders and instructional comments. Apply the user's replacement template when supplied.
 2. **Identifiers and coverage:** Unique, stable Success Criteria, Feature, Rule, and Example IDs. Each User Story links to defined Success Criteria. Each example links to valid rules and contains Given, When, and Then. Every defined rule has an example.
-3. **Questions and status:** Q IDs, question states, dependencies, TBD links, and explicit approval blockers. Check consistency with the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) and [status rules](#status-and-approval).
+3. **Supporting records and status:** Check relative file and anchor links, stable Q and finding IDs, question states, dependencies, TBD links, and explicit approval blockers. Check review attempts, reviewed revisions, finding history, and incomplete coverage. Ensure the Design Doc contains no full Q or review logs. Check consistency with the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) and [status rules](#status-and-approval).
 4. **Versions and handoff:** Current Version and Approval fields, retained baselines and accessible approval evidence, and required handoff-summary fields. Apply [versions and approval evidence](#versions-and-approval-evidence) and [handoff summary](#handoff-summary).
 
 Complete [final review](#final-review) to assess the content behind these fields and references. Correct structural defects without changing decisions.

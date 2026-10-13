@@ -135,7 +135,7 @@ Keep these links beside the decision or claim, so a reader can follow it to the 
 
 ## Questions and assumptions
 
-Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) and [question record format](../../product-design/references/document-contract.md#question-records):
+Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) and [question evidence requirements](../../product-design/references/document-contract.md#question-records). This contract owns technical record placement and format. Keep technical questions in the applicable technical document, using its template; do not create product question files for technical records. Map question IDs, types, states, evidence, and history to these columns:
 
 `Type | Statement and Impact | Evidence / Validation Status | Follow-up`
 

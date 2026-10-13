@@ -6,7 +6,8 @@ If an independent reviewer is available and authorized, use that reviewer before
 
 Give the reviewer:
 
-- The full current Design Doc.
+- The full current Design Doc and its exact version and revision or retained snapshot.
+- Existing `product-design-questions.md` and `product-design-review.md`, including unresolved items and their sources.
 - The template, contract, [Technical Writing Skill](../../technical-writing/SKILL.md), and [discovery methods](discovery-methods.md).
 - Relevant evidence and prior designs. For an initially vague idea, include [interview findings](discovery-methods.md#deep-discovery-interviews) and their sources.
 - Findings and remedies from earlier review attempts.
@@ -53,6 +54,10 @@ If attempts are exhausted with unresolved findings or incomplete coverage, repor
 
 ## Record and approval
 
-Record findings in the contract's [assigned location](document-contract.md#content-placement). Keep every unresolved finding and its remedy across revisions.
+Record review attempts and findings in `product-design-review.md` using the [review template](../assets/review-template.md). Give each new finding a stable `R<n>` ID and heading; preserve existing finding IDs during migration. Never renumber or reuse an ID. Retain resolved and excluded findings, prior corrections, and verification evidence across attempts; update the same finding when it recurs.
+
+Record each request's exact input version and revision or retained snapshot, reviewer, result, coverage, and findings. Keep failed requests and the total attempt count. For self-review, identify the author as reviewer and record its coverage separately. Self-review cannot be reported as independent review.
+
+When a finding needs clarification, link a Q record in the questions file and a finding link back from that Q. Keep the finding open until verified or the user explicitly excludes its scope. Put the resulting product correction in the Design Doc, with a brief linked caveat while it remains unresolved. Do not place attempt logs or finding histories in the design.
 
 Report whether review was independent or performed by you. Include the total attempts, completed reviews, unresolved findings, and areas not fully reviewed. Apply the contract's status and approval rules to the final document Status.

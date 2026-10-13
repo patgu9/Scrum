@@ -16,7 +16,7 @@ Skill 按职能划分，角色表示责任归属。一个角色可以使用多�
 
 | Skill | 负责角色 | 主要工作与输出 |
 | --- | --- | --- |
-| [product-design](product-design/SKILL.md) | Product Manager（PM，产品经理） | 澄清价值、范围和行为，产出含规则、验收示例及未决问题的产品设计文档 |
+| [product-design](product-design/SKILL.md) | Product Manager（PM，产品经理） | 澄清价值、范围和行为，产出含规则及验收示例的产品设计文档；问题、依赖与评审过程另存文档 |
 | [technical-design](technical-design/SKILL.md) | 架构负责人 / 开发者 | `overall` 模式确定总体架构与共享契约；`task` 模式细化单个已认领任务的实现与验证方案 |
 | [planner](planner/SKILL.md) | 工程负责人 | 将已批准的设计拆成可评审任务，明确验收、依赖、负责人和 Git 基线，输出计划索引及独立任务文件 |
 | [code-development](code-development/SKILL.md) | 开发者 | 根据就绪的任务设计实现、自测，交付聚焦的任务 PR 和实际验证证据 |
@@ -123,7 +123,9 @@ Project Manager 贯穿各阶段，检查输入版本与就绪条件，再将工�
 
 ```text
 doc/YYYY-MM-DD-change-slug/
-├── product-design.md          # 产品需求
+├── product-design.md          # 当前产品设计、行为与验收示例
+├── product-design-questions.md # 问题、决策、管理依赖与基线记录；按需创建
+├── product-design-review.md   # 多轮评审问题、修正与验证记录；评审时创建
 ├── technical-design.md        # 总体技术设计
 ├── task-plan.md               # 计划索引与依赖概览
 ├── tasks/

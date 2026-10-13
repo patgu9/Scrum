@@ -7,6 +7,8 @@
 - Date: $YYYY-MM-DD$
 - Stage: Think
 
+- **Supporting Records:** $Relative links to product-design-questions.md and product-design-review.md when they exist; otherwise mark each as Not started.$
+
 <!-- Follow the [document contract](../references/document-contract.md) for structure, content, and approval. Use the [Technical Writing Skill](../../technical-writing/SKILL.md) for wording. Replace placeholders and remove comments. Omit only optional fields. -->
 
 <!-- Follow this Skill's [saving rules](../references/document-contract.md#saving) for the change directory and product-design.md filename. -->
@@ -55,14 +57,11 @@ $Describe the value compared with the current approach. For Startup: concrete be
 
 **Scope:** $State the initial audience and smallest useful outcome. List included Feature IDs. State exclusions or deferrals and their reasons. Include the costs of future changes where relevant.$
 
-**Premises and Open Questions:**
+**Assumptions and Limits:**
 
-| Type | Statement and Impact | Evidence / Validation Status | Follow-up |
-|-----|-----|-----|-----|
-| $Accepted premise / Assumption to validate$ | $Statement, impact, affected IDs, and approval blocker with reason$ | $Evidence and SC links. Assumptions: observation, collection method, and disconfirming result$ | $Validation action, owner if needed, and decisions to reopen$ |
-| $Q<n> / question type / state$ | $Question, impact, affected content, conditional dependencies, and approval blocker with reason$ | $Answer, basis, and source or Pending / Unknown. Decision tradeoffs and reopening history where applicable$ | $Action, needed evidence, pending review, owner if needed, and exclusion agreement where applicable$ |
+$State only current premises, material assumptions, and limits needed to understand this design. State unresolved product effects and approval blockers briefly, with links to Q or finding records. Use None if there are no material assumptions or limits.$
 
-<!-- Use [question records](../references/document-contract.md#question-records) and [assumption validation](../references/document-contract.md#assumption-validation) for complete field requirements. Follow [status and approval](../references/document-contract.md#status-and-approval) for blockers and approval. -->
+<!-- Put full Q records, management dependencies, and validation follow-up in product-design-questions.md. Put review attempts and findings in product-design-review.md. Keep confirmed conclusions in the relevant design sections, and mark pending behavior beside the affected rule or outcome. Follow [content placement](../references/document-contract.md#content-placement). -->
 
 **Next Action:** $Give one concrete action and its observable result in one short sentence. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome. Recommend the action without implementing it.$
 

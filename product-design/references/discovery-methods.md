@@ -113,7 +113,7 @@ Follow this loop as evidence and decisions change:
 
 1. **Record questions and dependencies.** Give each material unresolved question a stable `Q<n>` ID. Never renumber or reuse a question ID. Use a question type from the table above. Keep follow-up on the same inquiry under its Q ID; create a new ID for a distinct unresolved question.
 
-   Use the contract's [question fields](document-contract.md#content-placement). List dependencies on other questions or unfinished investigations. State when a dependency applies only to a particular approach. Keep resolved and excluded records so readers can trace later changes.
+   Use the contract's [question fields](document-contract.md#question-records) in `product-design-questions.md`. List dependencies on other questions or unfinished investigations. State when a dependency applies only to a particular approach. Keep resolved and excluded records so readers can trace later changes.
 
 2. **Set the question state.** A recommendation, silence, or an unanswered option does not resolve a question. When you reopen a question, set its state to `OPEN`. Keep the previous answer and the reason for reopening.
 
@@ -137,7 +137,7 @@ Follow this loop as evidence and decisions change:
 
 6. **Record partial answers and uncertainty.** Set asked questions to `WAITING`. Resolve only answered questions with a sufficient basis. If an answer leaves material gaps, retain it and set the question to `OPEN` for follow-up. Keep unanswered questions in `WAITING`. Apply step 2 to unknown answers or unavailable evidence.
 
-7. **Apply answers and changes.** Save each answer with its basis and source. Update dependencies. Check affected terms, Success Criteria, Features, rules, and examples.
+7. **Apply answers and changes.** Save each answer with its basis and source in the questions file. Update dependencies. Apply confirmed conclusions to the Design Doc's terms, scope, Success Criteria, Features, rules, and examples. Keep unresolved product effects visible there with links to Q records; do not copy the answer history.
 
    If an earlier decision changes, mark content based on that decision for review. Reopen only affected dependent decisions. Keep a dependent decision resolved only after checking that its basis still holds. Preserve unaffected decisions. Add new questions to this loop.
 

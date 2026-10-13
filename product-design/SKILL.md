@@ -5,7 +5,7 @@ description: Explore vague product ideas through deep interviews. Define value, 
 
 # Product Design
 
-Help the user decide what is worth building and how the product should behave. Produce a Design Doc in the Think stage. Code, scaffolding, tickets, and implementation require a separate request.
+Help the user decide what is worth building and how the product should behave. Produce a concise Design Doc in the Think stage. Keep questions, dependencies between questions, and review history in separate supporting documents. Code, scaffolding, tickets, and implementation require a separate request.
 
 Read linked reference sections when the corresponding step applies. Reuse unchanged guidance already read. For a completed design, review the full document against all applicable criteria.
 
@@ -45,7 +45,7 @@ Use [Specification by Example](references/discovery-methods.md#specification-by-
 
 ## 5. Review and deliver
 
-Save the document using the contract's [saving rules](references/document-contract.md#saving). For revisions, apply [version and approval evidence rules](references/document-contract.md#versions-and-approval-evidence).
+Save the Design Doc and needed supporting records using the contract's [saving rules](references/document-contract.md#saving). Keep current product conclusions and material uncertainty visible in the design; link detailed question and review records. For revisions, apply [version and approval evidence rules](references/document-contract.md#versions-and-approval-evidence).
 
 Before delivery, use [Document Review](../document-review/SKILL.md) to validate the structure, content, and evidence of product documents, review reports, feedback responses, and handoff summaries. Keep the review within the [product review boundary](references/document-contract.md#product-review-boundary). Apply the contract's [structural requirements](references/document-contract.md#structural-validation) and [final review](references/document-contract.md#final-review) within that review.
 
