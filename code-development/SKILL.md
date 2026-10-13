@@ -17,6 +17,8 @@ Read the relevant code, tests, and repository instructions. Use the [implementat
 
 ## 2. Implement and verify each behavior
 
+For defect corrections, use [experiments to identify the cause](references/implementation-methods.md#identify-defect-causes-through-experiments) before choosing the fix.
+
 Follow [TDD and verification](references/tdd-and-verification.md). For new or corrected behavior, observe Red, implement the smallest sufficient change, confirm Green, then refactor as needed. For refactoring, inherited code, or changes that do not need a new behavior test, use the reference's [verification alternatives](references/tdd-and-verification.md#existing-code-and-alternative-verification). Record actual evidence as work proceeds.
 
 Read only the applicable implementation guidance:

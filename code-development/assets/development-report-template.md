@@ -27,6 +27,8 @@
 
 ## Execution Evidence
 
+- **Defect investigation, when applicable:** $Supported cause or unresolved hypotheses; key experiments and their predicted/observed results; correction and original reproduction before/after. Link existing evidence.$
+
 | Behavior / Test | Phase and Code State | Command / Procedure and Environment | Expected Result | Actual Result and Evidence |
 | --- | --- | --- | --- | --- |
 | $Test identity and level$ | $Red / Green / Refactor / Baseline / Retrospective / Alternative; revision or working-tree snapshot$ | $Actual command, working directory, relevant runtime/environment$ | $Expected failure reason or success condition$ | $Observed result and output excerpt or durable log; mark unrun explicitly$ |
