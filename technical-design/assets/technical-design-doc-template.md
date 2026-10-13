@@ -14,7 +14,7 @@
 
 <!-- Apply the contract's decision-depth and stopping conditions. Define architecture and shared agreements here; assign feature internals to task design. Explain any detail needed early by its effect on an architecture decision or consumer. -->
 
-<!-- Save as technical-design.md in the task directory defined by the shared task artifact layout at ../../product-design/references/artifact-layout.md. -->
+<!-- Save as technical-design.md beside the source product document. Follow this Skill's document scope and saving rules in ../references/document-contract.md. -->
 
 ## 1. Purpose and Scope
 

@@ -1,54 +1,39 @@
 # Design Doc contract
 
-This contract defines the Design Doc's structure, content, saving, structural validation, and approval. Use the [template](../assets/design-doc-template.md) for the output format. Follow the [skill entrypoint](../SKILL.md) for the workflow and the [Technical Writing Skill](../../technical-writing/SKILL.md) for writing methods.
+This contract defines the Design Doc's structure, content, saving, review requirements, and approval. Use the [template](../assets/design-doc-template.md) for the output format. Follow the [skill entrypoint](../SKILL.md) for the workflow, [Technical Writing](../../technical-writing/SKILL.md) for writing, and [Document Review](../../document-review/SKILL.md) for validation.
 
 ## Inputs and invocation context
 
-Accept a goal, available context and constraints, user answers, and any downstream feedback with its affected product baseline. Discovery can start with an incomplete goal. Investigate available facts and record missing product decisions through the clarification protocol.
+Accept a goal, available context and constraints, user answers, and any downstream feedback with its affected product baseline. Discovery can start with an incomplete goal. Investigate available facts and record unresolved questions through the clarification protocol.
 
 For a continuation or feedback request, read the referenced artifacts and check their versions and approval evidence against the requested scope. Missing, inaccessible, conflicting, or stale required input blocks dependent work. Report what is needed, who can supply it, and the affected work. Continue only work whose inputs remain valid; do not reconstruct an approved baseline from memory.
 
-Use the caller's established workflow. In a team workflow, PM owns product discovery and artifacts; Project Manager routes handoffs and submits approval requests to the human owner. In standalone work, deliver directly to the user. Ask about the route only when the supplied context is ambiguous and the answer affects the next handoff. This context is separate from Startup / Builder discovery mode. Platform commands and record transport belong to the caller's platform Skill.
+Use the caller's established workflow. This section defines the common route for handoffs, feedback, and approval requests:
+
+- **Team:** PM owns product discovery and artifacts. Address formal returns to Project Manager, identifying the intended specialist or human decision. Project Manager routes handoffs and submits approval requests to the human owner.
+- **Standalone:** Address the user directly.
+
+Ask about the route only when the supplied context is ambiguous and the answer affects the next handoff. This context is separate from Startup / Builder discovery mode. Platform commands and record transport belong to the caller's platform Skill.
 
 ## Saving
 
-Follow the shared [task artifact layout](artifact-layout.md) for directory selection, filenames, and revisions. Save the product document as `<project-root>/doc/YYYY-MM-DD-task-slug/product-design.md`.
+Save the product document as `<project-root>/doc/YYYY-MM-DD-task-slug/product-design.md`. One product change uses one stable directory, even when it spans several Features or conversations.
 
 Before saving:
 
-1. Resolve the project root if it is unclear.
-2. Select the task directory and read its existing product document, if present.
-3. Resolve conflicts with unrelated files before replacing content.
+1. Resolve the project root from project instructions and available context.
+2. Reuse the change directory identified by the request, source document, or conversation. Read existing content. If continuation versus a new change remains unclear after inspection, ask the user.
+3. For a new change, use its start date and a short English capability name with lowercase words separated by hyphens. If the directory belongs to another change, append `-02`, `-03`, or the next unused suffix. Never overwrite unrelated files.
+
+Keep one current `product-design.md`. Revisions and reopened decisions stay in that file; retain earlier baselines under [version rules](#versions-and-approval-evidence). A separate follow-up change gets a new directory and a link to the earlier change. Create only the product artifact needed now; downstream stages use the same change directory for their own outputs.
 
 Keep the glossary, decisions, and review findings in the same product document. Supply its path and task directory in the handoff summary.
 
 ## Structure
 
-Keep the heading order and spelling below. Repeat only the Feature block. Do not add a preface, appendix, extra headings, or metadata fields by default.
+The [template](../assets/design-doc-template.md) defines heading spelling, order, and metadata fields. Repeat only the Feature block. Do not add a preface, appendix, extra headings, or metadata fields by default. Apply the user's replacement template when supplied.
 
-```text
-## Design Doc : <title>
-- Status: DRAFT | IN_REVIEW | APPROVED
-- Version: v1
-- Approval: Pending
-- Mode: Startup | Builder
-- Date: YYYY-MM-DD
-- Stage: Think
-
-### Glossary
-### Background
-#### Problem Statement
-#### What Makes This Cool
-### Solution Design
-#### Approaches Considered
-#### Recommended Approach
-#### Success Criteria
-### Requirements
-#### Feature <stable number> — <capability>
-##### User Story
-##### Rules
-##### Key Examples
-```
+Use `Startup` or `Builder` for Mode, `YYYY-MM-DD` for Date, and `Think` for Stage. Follow [version and approval evidence rules](#versions-and-approval-evidence) for Version and Approval, and [status rules](#status-and-approval) for Status.
 
 Define each Feature as a useful capability, not a technical layer.
 
@@ -80,10 +65,10 @@ Use tables by default for comparable cases. If narrative examples are clearer, u
 
 | Content | Location |
 |-----|-----|
-| Problem, actors, workaround, demand, and sources | Problem Statement and Evidence |
+| Problem, actors, situation, current workflow, workaround, consequences, desired outcome, demand, and sources | Problem Statement and Evidence |
 | Defined terms and their boundaries | Glossary |
 | Ways to achieve the same goal. Benefits, drawbacks, effort (S/M/L/XL), risk (Low/Medium/High), reuse, and reasons for rejecting an approach | Approaches Considered |
-| Selected approach and reason, or a choice marked as pending | Recommendation |
+| Selected approach, reason, and justification for retained complexity, or a choice marked as pending | Recommendation |
 | Goal → actor → behavioral impact → deliverable links. Trigger, handoffs between actors, outcome, how the product reaches users, and shared dependencies | How It Works, including diagrams |
 | Initial audience, smallest useful outcome, included Features, exclusions, and costs of future changes where relevant | Scope |
 | Premises, assumptions, Q records, dependencies, and unresolved review findings. Approval impact, validation plan, decisions to revisit, and follow-up | Premises and Open Questions |
@@ -92,17 +77,17 @@ Use tables by default for comparable cases. If narrative examples are clearer, u
 | Value → role → action, SC links, rules, and acceptance examples | Feature blocks |
 | One action and observable result. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome | Next Action |
 
-Record uncertainty about causal links in Premises and Open Questions. Every row needs `Blocks approval: Yes / No` and a reason. Do not add separate sections for impact maps or review findings to the Design Doc.
+Record need hypotheses and uncertainty about causal links in Premises and Open Questions. Every row needs `Blocks approval: Yes / No` and a reason. Do not add separate sections for interview records, impact maps, or review findings to the Design Doc.
 
 ### Question records
 
 Store records from the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) in the existing four columns. Keep the headers. Do not add sections to the Design Doc for question records.
 
-- **Type:** Give the stable question ID, question type, and question state. Example: `Q3 / User decision / OPEN`. Keep existing types for premises and assumptions that are not questions.
+- **Type:** Give the stable question ID, question type, and question state. Use `Exploration question`, `Fact to investigate`, or `User decision`. Example: `Q3 / Exploration question / OPEN`. Keep existing types for premises and assumptions that are not questions.
 - **Statement and Impact:** State the question, its impact, and affected IDs or fields. Give `Depends on: Q1, Q2` or `None`. Include any conditions on those dependencies. Add `Blocks approval: Yes / No` and the reason.
-- **Evidence / Validation Status:** Start with the answer or finding, its basis, and source. Use `Pending` or `Unknown` when the answer or evidence is missing. For user decisions, also record the main options, tradeoffs, recommendation, and reason. Fact investigations need no option comparison.
+- **Evidence / Validation Status:** Start with the answer or finding, its basis, and source. Use `Pending` or `Unknown` when the answer or evidence is missing. For user decisions, also record the main options, tradeoffs, recommendation, and reason. Exploration and fact investigations need no option comparison.
 
-  Cite the conversation turn or quote the user's answer. Support investigated facts with file or tool evidence. For a reopened question, keep the prior answer and the reason for reopening. Agreement does not prove a factual assumption.
+  Cite the conversation turn or quote the user's answer. Support investigated facts with source evidence, including files or tool results when used. Distinguish reported experience, direct observation, stated intent, and agent inference. Mark hypothetical scenarios. For a reopened question, keep the prior answer and the reason for reopening. Agreement does not prove a factual assumption or target-user demand.
 
 - **Follow-up:** Give the next investigation, clarification, or validation action. State the required evidence, affected content awaiting review, and an owner when needed. For `EXCLUDED`, record the user's agreement to exclude the scope. Use `None` only when no follow-up remains.
 
@@ -131,7 +116,7 @@ When revising an older document without version fields, identify and retain the 
 ## Status and approval
 
 - **DRAFT:** Discovery is incomplete or issues still block approval. Record unknowns when the user skips questions. Proposals and silence do not establish decisions or approval.
-- **IN_REVIEW:** The document is complete, the direction is agreed, and no approval blockers remain. Deliver it for confirmation through the route below.
+- **IN_REVIEW:** The document is complete, the direction is agreed, and no approval blockers remain. Request confirmation through the [established route](#inputs-and-invocation-context).
 - **APPROVED:** The user explicitly approved this version. Blockers are resolved or the user agreed to exclude affected scope. Approval does not validate assumptions.
 
 Questions about core users, scope, or behavior block approval unless the user agrees to exclude the affected scope.
@@ -145,34 +130,50 @@ If goals, scope, rules, or outcomes change materially:
 
 Typographic edits alone preserve approval.
 
-In team work, send the approval request and exact product version to Project Manager for submission to the human owner. PM may clarify business decisions with the owner but does not take over cross-role approval routing. In standalone work, request approval directly from the user. Record explicit approval before handing the version to technical design. Approval neither proves feasibility nor authorizes implementation.
+Request human approval of the exact product version through the route in [inputs and invocation context](#inputs-and-invocation-context). Record explicit approval before handing the version to technical design. Clarifying a product decision does not approve the whole version. Approval neither proves feasibility nor authorizes implementation.
 
 ## Handoff summary
 
-Every invocation delivers a summary plus references to its professional artifacts, including when blocked or returning feedback. Put the summary in the caller's delivery record or response, outside the product document's fixed structure. Keep it platform-independent; transport is the caller's responsibility.
+Provide a handoff summary when delivering a product document, submitting it for approval, returning feedback, or ending work with a blocker. Include references to available artifacts; a blocker summary does not require a completed document.
+
+During ongoing discovery, reply with the relevant answer or finding and the next clarification step. Keep an ordinary wait for an answer within that loop. Update question records with sources, states, and dependencies under the clarification protocol. Use the full summary when a delivery condition above applies.
+
+Put the summary in the caller's delivery record or response, outside the product document's fixed structure. Keep it platform-independent; transport is the caller's responsibility.
 
 Include:
 
 - **Task and inputs:** Task identity and directory; input artifacts and exact versions, applicable approval references, and feedback identity. For a new goal, cite the supplied request rather than inventing an input version.
 - **Outputs:** Product document path and Version, or the feedback response and its affected baseline. Link supporting artifacts rather than copying them.
 - **Conclusion:** Discovery incomplete, awaiting approval, approved for technical design, or feedback/blocker. State the document Status and approval evidence separately; completing this invocation does not establish downstream acceptance.
-- **Evidence:** Structure and final-review results, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../document-review/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
+- **Evidence:** Document Review results for structure, content, and evidence, review coverage and attempt count, investigated evidence and its limits. Follow the shared [validation reporting rules](../../document-review/references/validation-guide.md#report-the-result). Include relevant environment, actual tool results when used, and required checks that were not run. Planned examples and checks are not execution evidence.
 - **Open items:** Stable question/finding IDs, dispositions, affected product rules, missing information, and who can supply it. Preserve feedback identity through revisions.
-- **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. In team work, address Project Manager and identify the intended specialist or human decision; in standalone work, address the user. An approved forward handoff names `technical-design` in overall mode and the recipient holding the Architect responsibility. Project Manager routes the team handoff. Engineering lead can hold this responsibility.
+- **Next handoff:** Next function, responsible recipient, requested action, and prerequisites. Use the route in [inputs and invocation context](#inputs-and-invocation-context) and identify the intended specialist or human decision. An approved forward handoff names `technical-design` in overall mode and the recipient holding the Architect responsibility. Engineering lead can hold this responsibility.
 
 For a feedback response, include the content required by [revisit a product baseline](discovery-methods.md#revisit-a-product-baseline). A blocker or a request for evidence is a valid delivery; it does not require a completed product revision.
 
 ## Document language
 
-Write the Design Doc in plain, concise English. Follow the [Technical Writing Skill](../../technical-writing/SKILL.md) for every section, table, rule, and example. Keep the required structure and content placement. Do not add conversation progress updates or text before the title.
+Write the Design Doc in English using [Technical Writing](../../technical-writing/SKILL.md). Follow [content placement](#content-placement). Include reader prerequisites in Problem Statement or Glossary when needed for understanding. Keep conversation progress updates outside the document.
 
-Put essential reader context in Problem Statement and Glossary. Put boundaries in Scope. State reader prerequisites in these locations only when they affect understanding. Keep the selected direction in Recommendation and diagrams in How It Works. Do not add audience metadata or new sections by default.
+## Product review boundary
 
-Within each assigned location, answer the reader's main question first. Then give the necessary reason or evidence. Explain concepts before using them in rules or examples. Use short labeled statements in dense table cells. Keep decisions, evidence, dependencies, and follow-up distinct. Preserve every required field and unresolved question.
+Review user goals, value, product behavior, and observable results. Walk through the user journey, including relevant failures and corrections. State each product finding's effect on those outcomes. Stop when the behavior and acceptance criteria are clear enough to assess; leave implementation choices open.
+
+Describe what users can choose, see, and rely on. For example, define whether merging events changes tracking and what users see after a failed delivery. Leave schemas, transactions, locks, epochs, storage, API protocols, and process isolation to the Architect using `technical-design`.
+
+Route implementation questions through the caller's established handoff. Retain their IDs, needed evidence, owner, and affected technical stage. Split mixed findings into the product consequence and technical follow-up. Missing implementation details alone do not block product approval.
+
+A technical constraint can block product approval when concrete evidence shows that the promised behavior cannot be supported within the stated product constraints. Identify the affected promise, evidence, and required product decision. An unverified mechanism alone does not establish that conflict. Keep feasibility assumptions visible for technical assessment; product approval does not close them.
 
 ## Final review
 
+Use Document Review to apply these product-specific checks within the [product review boundary](#product-review-boundary):
+
 1. **Value and scope:** Make sure a reader can understand the document without the conversation. Check the problem, evidence, actors, and intended change in behavior. Check the smallest useful outcome, alternatives for the same goal, uncertainty in estimates, and the user's chosen approach. Mark hypotheses. Distinguish current from desired behavior.
+
+   Check the basis and unresolved validation of need hypotheses from [deep discovery interviews](discovery-methods.md#deep-discovery-interviews). Include relevant contrasts or, for a new experience, related context and a proposed trial.
+
+   Check the approach and scope rationale against [Occam's Razor](discovery-methods.md#occams-razor), including the purpose of retained complexity and coverage of outcomes and constraints.
 2. **Journey and language:** Check terms, triggers, handoffs between actors, dependencies, how the product reaches users, and outcomes across Features. Complete the Technical Writing Skill's [editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
 3. **Verifiable behavior:** Link each User Story to valid Success Criteria. Link every defined rule to concrete examples. Check units, boundaries, exceptions, and what stays unchanged.
 
@@ -184,7 +185,7 @@ Within each assigned location, answer the reader's main question first. Then giv
 
 ## Structural validation
 
-Use the shared [document validation method](../../document-review/references/validation-guide.md). Check the document directly against this contract and the applicable template:
+Use [Document Review](../../document-review/SKILL.md) and its shared [validation method](../../document-review/references/validation-guide.md) for structural validation. Review the document directly against this contract and the applicable template:
 
 1. **Format:** Heading order, metadata values, required labels, table headers and complete rows, and populated sections. Remove template placeholders and instructional comments. Apply the user's replacement template when supplied.
 2. **Identifiers and coverage:** Unique, stable Success Criteria, Feature, Rule, and Example IDs. Each User Story links to defined Success Criteria. Each example links to valid rules and contains Given, When, and Then. Every defined rule has an example.
@@ -194,13 +195,3 @@ Use the shared [document validation method](../../document-review/references/val
 Complete [final review](#final-review) to assess the content behind these fields and references. Correct structural defects without changing decisions.
 
 A structurally valid DRAFT may contain pending behavior or TBDs linked to questions. If even a provisional Feature would require invented content, save an incomplete DRAFT. Report the structural requirements that remain unmet. Never invent content to pass validation.
-
-### Optional script assistance
-
-For mechanical assistance, use `python3 <skill-dir>/scripts/validate_design.py <document-path>`. For a compatible replacement template, add `--template <path>`. This script is optional unless the user or project requires it.
-
-- **Checks:** Headings, metadata, version and approval field format and consistency, labels, tables, placeholders, Success Criteria/Feature/Rule/Example IDs, example coverage, and explicit approval blockers.
-- **Omits:** Q IDs, question states, dependencies, baseline accessibility, external handoff summaries, and dialogue behavior.
-- **Does not establish:** English quality, factual truth, causal reasoning, user consent, or discovery completeness.
-
-Report its actual result and limits under the shared validation method. A script pass does not replace structural or final review.

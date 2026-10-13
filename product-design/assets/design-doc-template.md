@@ -9,7 +9,7 @@
 
 <!-- Follow the [document contract](../references/document-contract.md) for structure, content, and approval. Use the [Technical Writing Skill](../../technical-writing/SKILL.md) for wording. Replace placeholders and remove comments. Omit only optional fields. -->
 
-<!-- Save as product-design.md in the task directory defined by the [task artifact layout](../references/artifact-layout.md). -->
+<!-- Follow this Skill's [saving rules](../references/document-contract.md#saving) for the change directory and product-design.md filename. -->
 
 <!-- Follow [versions and approval evidence](../references/document-contract.md#versions-and-approval-evidence) when revising. Approval stays Pending until the human approves this version. Deliver the [handoff summary](../references/document-contract.md#handoff-summary) outside this document. -->
 
@@ -25,9 +25,9 @@
 
 #### Problem Statement
 
-$State the actor, situation, and problem first. Explain the current workaround and impact. Include the context readers need to assess the design.$
+$State the actor, situation, and problem or aspiration first. Explain the desired outcome and any relevant workflow, workaround, and consequences. Include the context readers need to assess the design.$
 
-- **Evidence:** $Describe observed behavior, interviews, or data. Link sources. State missing evidence.$
+- **Evidence:** $Describe reported experience, observations, or data. Link sources. Distinguish stated intent and agent inference. Mark hypothetical cases and missing evidence.$
 - **Constraints (optional):** $State time, resource, platform, or business limits that affect the decision.$
 
 #### What Makes This Cool
@@ -49,7 +49,7 @@ $Describe the value compared with the current approach. For Startup: concrete be
 
 #### Recommended Approach
 
-**Recommendation:** $Name the chosen approach. Explain why it serves the goal. If the decision is unresolved, mark it as pending.$
+**Recommendation:** $Name the chosen approach. Explain why it serves the goal and justify retained complexity. If the decision is unresolved, mark it as pending.$
 
 **How It Works:** $Number the workflow steps. For each step, name the actor, action, and result. Include the trigger, handoffs between actors, how the product reaches users, and shared dependencies where relevant. Link SC and Feature IDs to show how the workflow serves the goal.$
 
@@ -59,10 +59,10 @@ $Describe the value compared with the current approach. For Startup: concrete be
 
 | Type | Statement and Impact | Evidence / Validation Status | Follow-up |
 |-----|-----|-----|-----|
-| $Accepted premise / Assumption to validate$ | $Statement and impact. Affected IDs. Blocks approval: Yes / No, with reason$ | $Evidence or reason. Related SCs. For important assumptions: what to observe, how to collect observations, and which result would not support the assumption$ | $Next action. Owner if needed. If the assumption is unsupported: decisions and IDs to reopen. None only when no follow-up remains$ |
-| $Q<n> / Fact to investigate or User decision / protocol state$ | $Question and impact. Affected content: IDs or fields. Depends on: Q IDs or None, with conditions. Blocks approval: Yes / No, with reason$ | $Answer or finding, basis, and source first, or Pending / Unknown. For user decisions: options, tradeoffs, recommendation, and reason. If reopened: prior answer and reason$ | $Next action, required evidence, and content awaiting review. Owner if needed. If EXCLUDED: user's exclusion agreement. None only when no follow-up remains$ |
+| $Accepted premise / Assumption to validate$ | $Statement, impact, affected IDs, and approval blocker with reason$ | $Evidence and SC links. Assumptions: observation, collection method, and disconfirming result$ | $Validation action, owner if needed, and decisions to reopen$ |
+| $Q<n> / question type / state$ | $Question, impact, affected content, conditional dependencies, and approval blocker with reason$ | $Answer, basis, and source or Pending / Unknown. Decision tradeoffs and reopening history where applicable$ | $Action, needed evidence, pending review, owner if needed, and exclusion agreement where applicable$ |
 
-<!-- Keep each cell readable with short labeled statements. Follow [content placement](../references/document-contract.md#content-placement) for complete record and assumption-validation rules. Follow [status and approval](../references/document-contract.md#status-and-approval) for blockers and approval. -->
+<!-- Use [question records](../references/document-contract.md#question-records) and [assumption validation](../references/document-contract.md#assumption-validation) for complete field requirements. Follow [status and approval](../references/document-contract.md#status-and-approval) for blockers and approval. -->
 
 **Next Action:** $Give one concrete action and its observable result in one short sentence. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome. Recommend the action without implementing it.$
 

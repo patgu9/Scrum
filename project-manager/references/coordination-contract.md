@@ -54,7 +54,9 @@ Ship approval covers the candidate, target environment, and retained issue set t
 
 ## Coordination record
 
-Reuse the existing delivery record and professional artifact locations. For a new local record, use `delivery.md` in the existing change directory under the shared [artifact layout](../../product-design/references/artifact-layout.md). Create it when there is substantive coordination content; do not create downstream placeholders. This record links professional outputs rather than becoming another task definition, test report, or design baseline.
+Reuse the existing delivery record and change directory identified by the request or source artifacts. For a new local record, save `delivery.md` beside `product-design.md`, normally under `<project-root>/doc/YYYY-MM-DD-task-slug/`. If no change directory exists, use the start date and a short lowercase English slug separated by hyphens. Inspect ambiguous candidates before asking; for a new change with a name collision, append `-02`, `-03`, or the next unused suffix. Keep the selected path stable and pass it to receiving functions.
+
+Each function defines its own output filenames and paths. Create the coordination record only when there is substantive content; do not create downstream placeholders. This record links professional outputs rather than becoming another task definition, test report, or design baseline.
 
 Use the [delivery record template](../assets/delivery-record-template.md). Keep one current record with an update time and accessible decision history. Preserve earlier evidence and approvals before replacing their references. Record exact input versions; a live path alone cannot preserve an earlier approved version.
 

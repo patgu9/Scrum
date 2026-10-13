@@ -4,7 +4,7 @@ This reference owns entry conditions, scope, evidence delivery, and handoffs. [I
 
 ## Required inputs
 
-Start from the standalone task entry defined by the shared [artifact layout](../../product-design/references/artifact-layout.md). Read linked sources rather than asking the user to repeat available context.
+Start from the supplied standalone task path and version, normally `<change-directory>/tasks/<task-key>/task.md`. Reuse that entry and its directory. Read linked sources rather than asking the user to repeat available context.
 
 | Input | Check before dependent implementation |
 | --- | --- |
@@ -95,6 +95,6 @@ The handoff includes:
 - Acceptance-to-test mapping, actual execution evidence, required final checks, and verification limits.
 - Open findings, implementation verification, publication state, next function, and responsible recipient.
 
-Use the [delivery template](../assets/development-report-template.md) in the project's existing delivery record. If a separate local record is needed, save `development.md` beside the task entry and link it from `task.md`. Follow the shared artifact layout and reuse an existing valid evidence location.
+Use the [delivery template](../assets/development-report-template.md) in the project's existing delivery record. If a separate local record is needed, save `development.md` beside the task entry and link it from `task.md`. Reuse an existing valid evidence location. Retain earlier execution evidence through accessible history or immutable references before updating the current record.
 
 Keep one authoritative execution record and reference it from the PR. Never insert planned or executed results into a source baseline as if that baseline had approved the implementation.

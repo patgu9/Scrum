@@ -11,7 +11,7 @@
 - Developer availability: $Known identities, capabilities, capacity, and source; or missing facts and supplier$
 - Review policy: $Applicable reviewability policy and reference; record unresolved conflicts. No default numerical gate.$
 
-<!-- Follow ../references/plan-contract.md and the shared artifact layout. Save as task-plan.md in the source change directory. Create each standalone task from task-template.md. This file contains links and summaries, never full task definitions. Remove prompts/comments from completed output. A blocked plan can record missing inputs without inventing assignments. -->
+<!-- Follow this Skill's artifact rules in ../references/plan-contract.md. Save as task-plan.md in the source change directory. Create each standalone task from task-template.md. This file contains links and summaries, never full task definitions. Remove prompts/comments from completed output. A blocked plan can record missing inputs without inventing assignments. -->
 
 ## Scope and Coverage
 

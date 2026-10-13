@@ -27,13 +27,19 @@ Routine decomposition, local assignment, and corrections within approved baselin
 
 ## Artifact and versions
 
-Follow the shared [change-directory layout](../../product-design/references/artifact-layout.md), which owns all path, naming, and migration rules. The output is a plan index plus one standalone task file per development task. Keep `task-plan.md` in the source change directory; use `tasks/<task-key>/task.md` for new task entry points. Reuse current artifacts rather than creating competing copies.
+Save `task-plan.md` beside the source product and overall technical documents in the existing change directory. Create one standalone entry point per development task at `tasks/<task-key>/task.md` within that directory. Planning does not create another product change directory.
+
+Use the stable task ID in lowercase for `<task-key>`: task `T1` uses `tasks/t1/task.md`. Check for ID and path collisions before creating files. Never renumber existing tasks or overwrite another task. Keep titles, owners, dates, and status in the records, not directory names. Paths stay stable when these values change; do not move tasks between status directories. Qualify cross-change task references with the source change directory.
+
+Reuse valid existing task paths unless migration is requested or needed to resolve ambiguity. When converting a plan with inline task bodies, extract them while preserving IDs, scope, baselines, claims, and branch/PR links. Replace each body with an index link after verifying the extracted content and affected references. Keep one current definition per task.
+
+Use relative links and exact source versions. Each task links back to the plan; in the default directory, use `../../task-plan.md`. Link dependencies to their task files, such as `../t2/task.md`. Add supporting evidence beside its task and link it from `task.md`. A file's presence or location does not establish readiness or approval.
 
 Use the [plan index template](../assets/task-plan-template.md) and [task template](../assets/task-template.md). A project format can change presentation but must retain a standalone Markdown file for each task, even for a one-task plan. Do not create empty task designs, branches, or downstream delivery artifacts.
 
 ### Version and identify artifacts
 
-Version the plan and each task independently, starting at `v1`. Increment the version when its contract changes substantively. Preserve the prior decision basis in its revision record. For operational updates, such as a confirmed claim, record the time and source without implying a new scope version.
+Version the plan and each task independently, starting at `v1`. Increment the version when its contract changes substantively. Revise current files in place and preserve prior content through accessible history or linked immutable snapshots. Do not create competing current files such as `task-v2.md` or `task-final.md`. Preserve the prior decision basis in its revision record. For operational updates, such as a confirmed claim, record the time and source without implying a new scope version.
 
 Keep task and feedback IDs stable; never reuse a retired ID. Qualify rule, contract, test, and task IDs by their source document when they could collide. For example, `T1` in a test inventory is not automatically task `T1`.
 

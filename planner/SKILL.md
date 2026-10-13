@@ -21,7 +21,7 @@ Follow the [five-step planning method](references/planning-methods.md): understa
 
 Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for plans, task instructions, review reports, feedback responses, and handoff summaries.
 
-Use the [plan index template](assets/task-plan-template.md) and [task template](assets/task-template.md). Follow the shared [artifact layout](../product-design/references/artifact-layout.md): save `task-plan.md` in the source change directory and new tasks at `tasks/<task-key>/task.md`. Project formats may change presentation but must retain one entry file per task. The [plan contract](references/plan-contract.md#development-task-record) defines the required task content.
+Use the [plan index template](assets/task-plan-template.md) and [task template](assets/task-template.md). Follow this Skill's [artifact rules](references/plan-contract.md#artifact-and-versions) for paths, naming, and migration. The [task record contract](references/plan-contract.md#development-task-record) defines required content.
 
 For resumed work, scope growth, or defect returns, follow the contract's [replanning rules](references/plan-contract.md#replanning-and-feedback). Preserve stable identities, acceptance coverage, and existing branch/PR references.
 

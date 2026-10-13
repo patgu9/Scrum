@@ -53,7 +53,7 @@ Include the following in the handoff:
 
 A branch name alone is not a candidate identity. If a build artifact is used, include its immutable identifier and source revision.
 
-Use the [report template](../assets/integration-report-template.md), adapted to existing project records. For a new local record, use `integration.md` in the existing change directory under the [artifact layout](../../product-design/references/artifact-layout.md) and link it from affected task entries. Preserve earlier candidate evidence in version history or immutable references. Do not overwrite old results as if they tested a newer candidate.
+Use the [report template](../assets/integration-report-template.md), adapted to existing project records. For a new local record, save `integration.md` beside the source `task-plan.md` in the existing change directory. Link it from affected task entries. Preserve earlier candidate evidence in version history or immutable references. Do not overwrite old results as if they tested a newer candidate.
 
 Integration verification does not establish QA acceptance, ship approval, or deployment. An incomplete candidate can be shared for investigation, but its normal QA handoff remains blocked.
 

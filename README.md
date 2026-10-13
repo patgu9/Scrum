@@ -130,13 +130,15 @@ doc/YYYY-MM-DD-change-slug/
 │   └── t1/
 │       ├── task.md            # 任务定义与 Agent 入口
 │       └── technical-design.md # 认领、建立分支后产出的任务设计
-├── qa.md                      # QA 计划、结果与缺陷
+├── qa.md                      # 规划中的 QA 产物；对应 Skill 尚未加入
 └── history/
     └── product-design/
         └── v1.md              # 修订前保留的历史版本
 ```
 
-文件随阶段产出，不预先创建空文档。任务路径保持稳定；任务文件记录认领证据，实际的独占认领由运行环境或平台保障。详细规则见 [产物目录约定](product-design/references/artifact-layout.md)。
+各 Skill 在自己的契约中规定输出位置和命名，入口和模板引用本 Skill 的规则。上图仅为目录示例；文件随阶段产出，不预先创建空文档。任务路径保持稳定；任务文件记录认领证据，实际的独占认领由运行环境或平台保障。
+
+产品变更目录见 [产品设计保存规则](product-design/references/document-contract.md#saving)，总体与任务设计见 [技术设计保存规则](technical-design/references/document-contract.md#document-scope-and-saving)，任务命名和迁移见 [规划产物规则](planner/references/plan-contract.md#artifact-and-versions)。各阶段报告沿用所在阶段的契约。
 
 每次职能交接都包含：
 

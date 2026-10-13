@@ -4,7 +4,7 @@ This reference owns Git inputs, task identity, authority, and operation records.
 
 ## Required context
 
-Establish the requested operation, its scope, and existing authorization. For task operations, start from the standalone task entry under the [artifact layout](../../product-design/references/artifact-layout.md). Inspect:
+Establish the requested operation, its scope, and existing authorization. For task operations, use the standalone task path and version supplied by the caller. Reuse its recorded location. Inspect:
 
 | Input | Needed evidence |
 | --- | --- |
