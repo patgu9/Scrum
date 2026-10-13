@@ -1,10 +1,10 @@
 # UML modeling
 
-Use Unified Modeling Language (UML) to expose missing decisions about structure and behavior. Select the smallest set of views that answers the design questions below. A simple change can omit diagrams with a brief reason. Do not produce every diagram type or model every implementation class.
+Use models to resolve material questions about structure and behavior. First inspect existing diagrams, tables, or textual flows. Add a view only when it makes unresolved relationships, ordering, or state easier to inspect. Do not produce every diagram type or model every implementation class.
 
 ## Select views by design question
 
-When a characteristic materially affects the selected scope, include the corresponding view or reference an existing model that covers it. Explain any alternative notation and preserve the required meaning.
+Use the table to select a view when existing expression is insufficient. A clear table or textual flow can be sufficient; no diagram is required solely because a characteristic exists. Record material coverage gaps and their effect on the design. Explain alternative notation and preserve the required meaning.
 
 | Design question or characteristic | UML view | Meaning to show |
 | --- | --- | --- |
@@ -29,9 +29,7 @@ Use multiple small views when one becomes difficult to follow. Reuse names and s
 
 ## Keep each mode at its decision depth
 
-Overall models show shared structure, interactions, ownership, and guarantees needed for planning. Include domain relationships or deployment details only when an architecture decision or consumer agreement depends on them. Assign remaining modeling work to the responsible feature or module.
-
-Task models reference the approved overall views and refine only the assigned behavior. Show local calls, state changes, writes, and recovery where needed to start implementation. A conceptual class model does not require a matching implementation class for every concept. Route changed shared decisions through the document contract's feedback process.
+Apply the contract's [decision-depth rules](document-contract.md#decision-depth-and-deferred-work) to models. Overall views show shared agreements needed for planning; task views reference them and refine assigned behavior. A conceptual class does not require a matching implementation class. Use the contract's feedback process for changed shared decisions.
 
 Give each view a title, purpose, and scope. Identify whether it describes current or proposed behavior and link its baseline or evidence. In the caption or adjacent explanation, connect relevant elements and paths to document-qualified product rules, `C<n>` contracts, or `T<n>` scenarios. Explain key constraints that the notation cannot express clearly.
 

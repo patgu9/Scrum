@@ -5,7 +5,7 @@ description: Create or revise technical designs in two modes. Use overall mode t
 
 # Technical Design
 
-Use one design method at two scopes. Overall design supports coherent task planning; task design supports implementation and verification of one assignment. Engineering lead can hold the architect responsibility. Design continues as implementation exposes new evidence.
+Use one design method at two scopes: overall design supports task planning; task design supports implementation of one assignment. Keep detailed questions, investigation, and review history in linked supporting records; retain current decisions and material limits in the design.
 
 This Skill produces design artifacts and handoffs. Planning, assignment, Git operations, code, executable feature tests, and deployment belong to their respective workflows. Reuse existing authorization for follow-on work; design readiness alone does not grant it.
 
@@ -13,29 +13,32 @@ Use [Technical Writing](../technical-writing/SKILL.md) as the writing method for
 
 ## 1. Select the mode and baseline
 
-Read the [document contract](references/document-contract.md) for mode selection, required inputs, approval, and readiness. Infer the mode from the request and artifacts; ask only when the intended scope remains ambiguous. Declare the mode in the output.
+Start with the contract's [mode and input rules](references/document-contract.md#modes-and-required-inputs). Declare the mode; ask only when the requested scope remains ambiguous.
 
 - **Overall:** Use approved product behavior and system evidence to establish architecture and shared decisions before `planner` decomposes work.
 - **Task:** Use a claimed task, branch reference, and approved product and overall-design baselines to refine implementation before `code-development` starts.
 
-Read relevant project instructions and exact source versions. Use [current-fact investigation](references/design-methods.md#establish-current-facts). Keep missing or stale inputs explicit; continue only independent design work.
+Read the contract's common sections from [document scope and saving](references/document-contract.md#document-scope-and-saving) through [status and approval](references/document-contract.md#status-and-approval). Then read only the selected mode's handoff conditions: [overall](references/document-contract.md#overall-handoff-to-planner) or [task](references/document-contract.md#task-handoff-to-code-development). Use [feedback and revisions](references/document-contract.md#feedback-and-revisions) when a constraint or baseline change needs an upstream decision.
+
+Read project instructions and exact source versions. Use [current-fact investigation](references/design-methods.md#establish-current-facts) to establish the evidence for this scope.
 
 ## 2. Design at the selected scope
 
-Read the [design methods](references/design-methods.md). Establish quality priorities, compare approaches and their tradeoffs, and connect decisions to scenarios, risks, and verification. Select UML views using the [modeling guide](references/uml-modeling.md) when structure, interaction, or lifecycle needs clarification.
+Use the [overall template](assets/technical-design-doc-template.md) or [task template](assets/task-design-template.md). A routine task can use a short note with the contract's [required content](references/document-contract.md#structure-and-content-placement).
 
-Use the [overall template](assets/technical-design-doc-template.md) for overall mode. Use the [task template](assets/task-design-template.md) for task mode; a simple task can use a compact note with the same required information.
+Read these methods as needed:
 
-Apply the contract's [concise design rules](references/document-contract.md#keep-the-current-design-concise). Prefer diagrams and decision tables where they clarify the design; replace the corresponding prose instead of repeating it.
+- **Every design:** [behavior and interfaces](references/design-methods.md#design-behavior-and-interfaces) and [verification planning](references/design-methods.md#plan-test-driven-development).
+- **Competing quality goals or consequential tradeoffs:** [quality priorities](references/design-methods.md#prioritize-quality-goals-and-resolve-tradeoffs). Routine tasks can reference approved priorities.
+- **Relevant failure or operational risks:** [failure and operational methods](references/design-methods.md#define-failures-and-operational-behavior). Assess applicability before omitting an area.
+- **Relationships, ordering, or states remain unclear:** [modeling guide](references/uml-modeling.md). Reuse a sufficient view, table, or textual flow.
 
-Apply the contract's [decision depth and stopping conditions](references/document-contract.md#decision-depth-and-deferred-work). Leave feature internals to task mode unless they determine an architecture decision or shared contract. In overall mode, define verification obligations; in task mode, plan concrete Red → Green → Refactor steps. Return baseline changes through the [feedback loop](references/document-contract.md#feedback-and-revisions).
+Stop at the contract's selected decision depth. Use the contract's [content placement](references/document-contract.md#keep-the-current-design-concise) and supporting templates for [questions](assets/questions-template.md) and [reviews](assets/review-template.md). Create records only when needed; templates do not create additional design obligations.
 
 ## 3. Review and hand off
 
-Follow the [engineering review](references/engineering-review.md), including walkthroughs of selected critical scenarios, scaled to the mode and risk. Complete the writing passes and document checks. Record actual review coverage and unresolved findings.
+Use [Document Review](../document-review/SKILL.md) with the [engineering review criteria](references/engineering-review.md) for one review of the design. Include the applicable scenario walkthroughs and document checks in that review. Preserve required reviewer roles and record actual coverage, findings, and limits.
 
-Before delivery, use [Document Review](../document-review/SKILL.md) to review design documents, review reports, feedback responses, and handoff summaries in both modes.
+Also use Document Review for review reports, feedback, and handoff summaries. Follow its reporting and forwarding rules; do not repeat the full design review merely to check a summary.
 
-Apply the contract's [status and readiness rules](references/document-contract.md#status-and-approval). Overall mode hands approved architecture to `planner`; task mode hands a ready task design to `code-development`. Neither substitutes for independent code review or ship approval.
-
-Return the mode, artifact and baseline references, status, readiness by scope, evidence limits, and next function with its responsible recipient. Identify the stage and work affected by each blocker. If a required follow-on Skill is unavailable, preserve the handoff and report the missing capability.
+Apply the selected handoff conditions. Return mode, design and supporting-record references, exact baselines, status, readiness by scope, evidence limits, blockers, and the next function and recipient. Report unavailable follow-on capabilities as delivery blockers.

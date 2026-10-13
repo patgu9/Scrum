@@ -5,55 +5,42 @@
 - Version: v1
 - Date: $YYYY-MM-DD$
 - Owner: $Assigned developer$
-- Task: $Link to task.md beside this file, exact task version, confirmed claim/assignment, and scope$
-- Product baseline: $For the default layout: ../../product-design.md, exact version, and approval evidence$
-- Overall baseline: $For the default layout: ../../technical-design.md, exact version, and approval evidence; this is the change-level design, not this task file$
-- Branch and code baseline: $Existing task branch reference, declared base, current revision and relevant local changes$
+- Task: $task.md link, exact version, confirmed claim, and scope$
+- Product baseline: $../../product-design.md in the default layout; exact version and approval evidence$
+- Overall baseline: $../../technical-design.md in the default layout; exact version and approval evidence$
+- Branch and code baseline: $Existing branch, declared base, revision, and relevant local changes$
+- Supporting Records: $Relative links to this task's technical-design-questions.md and technical-design-review.md, or authoritative external records; mark each unstarted record as Not started.$
 
-<!-- Follow ../references/document-contract.md, including concise design rules. Save beside task.md, normally tasks/<task-key>/technical-design.md. Use a shorter versioned note for simple tasks. Reference shared decisions and existing records; omit unused detail. Remove placeholders and comments. -->
+<!-- Follow ../references/document-contract.md. Save beside task.md. A short note can carry the same required information. Expand only applicable fields; reference approved decisions and authoritative records. Remove instructions and placeholders. -->
 
 ## Scope and Inputs
 
-- **Goal and acceptance:** $One verifiable goal, assigned product rules, shared contracts, and acceptance conditions.$
-- **Quality priorities:** $Applicable overall goal/scenario references, mandatory constraints and ranked preferences; flag missing targets or priority conflicts.$
-- **Exclusions:** $Task boundaries and unrelated work.$
-- **Current evidence:** $Relevant code, tests, conventions, and limits of inspection.$
-- **Dependencies:** $Required interfaces or tasks, their state, and effect on design or coding readiness.$
-- **Design work assigned here:** $Feature internals and deferred choices from the overall design, shared constraints, required evidence, and resolution points.$
+$One verifiable goal, acceptance/rule/contract references, exclusions, applicable quality priorities, current code/test evidence, and inspection limits. Identify dependencies and assigned deferred design, with constraints, evidence needs, and resolution points.$
 
 ## Implementation Approach
 
-- **Approach and tradeoffs:** $Local choice, alternatives and baseline compliance; priority basis, accepted costs/limits, and conditions to reopen, or no new tradeoff.$
-- **Decision basis:** $Goal/contract and scenario references; rationale and evidence limits; risk/finding and self-test links. Pending evidence retains owner, required stage, and dependent conclusion in its record.$
-- **Feature internals:** $Required local schemas, algorithms, protocols, or configuration. Use diagrams or decision tables for relationships and behavior; explain only what they do not convey.$
-- **Affected code:** $Likely modules or paths and their responsibilities; avoid prescribing every helper.$
-- **Models and behavior:** $Embed/link local views with purpose, scope, baseline and contract/test references; show essential guards and failures. Reference shared models; explain omissions and constraints not visible in the views.$
-- **Notation and rendering:** $Simplifications and actual rendering result or Not run; omit if no model is needed. Semantic checks belong in the review record.$
-- **Review scope:** $One complete goal, affected files/interfaces, required context, behavioral risk, tests, and estimated authored additions plus deletions; generated artifacts separately. State reviewability, split needs, and any required advance reviewer agreement under the supplied policy. Counts alone do not decide.$
+$Local approach and affected code, baseline compliance, relevant error handling, and acceptance/self-test links. Explain why the approach is sufficient; reference approved tradeoffs. For consequential new choices, include alternatives, evidence, accepted costs/limits, risks, and conditions to reopen.$
+
+<!-- Expand only where needed to begin implementation: local interfaces, schemas, algorithms, protocols, configuration, state changes, and recovery. Use models when existing text/tables leave material ambiguity. For models, retain sources, scope/baseline, contract/test references, notation limits, and rendering result. -->
+
+- **Review scope:** $One complete goal and scope assessment under the supplied reviewability policy; reference an existing assessment and record any change.$
 
 ## Self-Test and TDD Plan
 
 | Test | Acceptance or Contract | Given and When | Expected Result and Incorrect Behavior Detected | Boundary and Dependencies |
 | --- | --- | --- | --- | --- |
-| T1 | $Document-qualified reference$ | $Concrete setup and action$ | $Independent expected outcome and failure detected$ | $Test level, real dependencies, replacements, and limits$ |
+| T1 | $Document-qualified reference$ | $Concrete setup and action$ | $Independent expected outcome and failure detected$ | $Level, real/replaced dependencies, limits, and required live check$ |
 
-- **First Red step:** $Test and expected failure from missing behavior; do not invent execution.$
-- **Green and Refactor:** $Small behavior steps, relevant checks, and refactor intent; alternative verification and reason if TDD is inapplicable.$
-- **Regression and integration:** $Affected checks and overall verification references.$
-- **Execution evidence:** $Planned, or actual test identity, command, code state, results, refactor outcome, and limits. Distinguish characterization tests from Red evidence.$
+- **First Red step:** $First failing behavior test, intended failure reason, and prerequisites.$
+- **Behavior steps:** $Small Green/Refactor increments and relevant regression/integration checks. Explain alternative verification if TDD is inapplicable.$
+- **Evidence:** $Planned, or link to authoritative execution results with design implications and limits. Keep characterization evidence distinct from Red; do not copy the execution log.$
 
 ## Review, Questions, and Readiness
 
-| Type | Statement and Impact | Evidence / Validation Status | Follow-up |
-| --- | --- | --- | --- |
-| $Q ID, assumption, finding, or None$ | $Affected decision, blocked stage and scope or None, and dependency reason$ | $Facts, estimates, missing evidence, and review disposition$ | $Owner/supplier, required evidence, resolution point, and next action$ |
+- **Current assumptions and open items:** $Material premises, uncertainty, and effects on the approach or readiness. Link Q/finding records and state blocked stages/scopes with reasons; or None.$
+- **Current review:** $Exact version/scope, reviewer and independence, conclusion and source, material coverage limits, and pending findings. Include required architect review evidence, or the basis for routine self-review.$
+- **Review arrangements:** $When advance reviewer agreement is required, link evidence or record Pending with its affected implementation scope. Otherwise retain the basis in Review scope.$
+- **Ready for implementation:** $Yes / No for named scope and baselines under the contract. Identify separately blocked proposals and evidence that ready work is independent. READY grants no new approval or execution authority.$
+- **Next action and recipient:** $code-development within existing authorization, required review, or upstream function. Reference task/baselines, design/tests, supporting records, and current readiness. Link feedback with its requested decision when needed.$
 
-- **Review:** $Reviewed task version, reviewer identity, self-review or independent coverage, and remaining limits; use exact external result references where applicable and identify superseded summaries.$
-- **Scenario walkthroughs:** $Scenario and selection reason, expected versus traced outcome, findings, inspected model path/trace reference, and evidence limits. Explain material omissions; expand steps only when needed for a finding.$
-- **Architect review:** $Required with result and evidence, Pending, or Not required with the basis for routine local refinement.$
-- **Advance reviewer agreement:** $Not needed with basis, Pending, or agreement evidence for unusually large/complex scope. Pending blocks affected implementation; agreement does not replace independent review of the actual diff.$
-- **Baseline compliance:** $Within approved decisions, or the exact product/shared decision needing upstream revision.$
-- **Ready for implementation:** $Yes / No for the named scope and reasons under the task readiness contract; identify any separately blocked proposal. Use READY only when all conditions hold; this is not new human approval or execution authorization.$
-- **Handoff references:** $Task/baselines above, design/self-tests, current review/readiness and remaining issues; reference these records in the delivery message.$
-- **Feedback:** $None, or issue identity, affected versions/contracts, constraint, observations versus estimates, alternatives and tradeoffs, requested decision, and affected downstream work.$
-- **Next action:** $code-development within existing authorization, required review, or the appropriate upstream function.$
+<!-- Store full questions, validation, and baseline/feedback history in this task's technical-design-questions.md. Store attempts, walkthroughs, findings, and rechecks in its technical-design-review.md or authoritative external records. Keep current consequences visible above and beside affected design content. -->

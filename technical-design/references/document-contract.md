@@ -22,38 +22,50 @@ Reuse the source product document's change directory, normally `<project-root>/d
 - **Overall:** Save `technical-design.md` beside `product-design.md` as the authoritative overall document. It owns shared contracts, source coverage, and integration verification across Features. Use the [overall template](../assets/technical-design-doc-template.md).
 - **Task:** Start from the claimed task's standalone entry file and exact version. Save `technical-design.md` beside that entry point, normally `tasks/<task-key>/technical-design.md`. Use the [task template](../assets/task-design-template.md); a simple task can use a short versioned file with the same required information. Link back to `task.md` and to the change-level product and overall technical documents. Once saved, link it from the task and eventual PR through the applicable workflow. An index link changes no shared decision or approval.
 
+Keep supporting records beside the design they belong to. Overall records stay at the change level; task records stay beside that task's design.
+
+| File | Purpose | Template |
+| --- | --- | --- |
+| `technical-design.md` | Current solution, rationale, contracts, verification obligations, material limits, and readiness | Mode-specific template above |
+| `technical-design-questions.md` | Questions, answers, investigation evidence, assumption validation, and baseline/feedback history | [Questions and decisions](../assets/questions-template.md) |
+| `technical-design-review.md` | Review attempts, scenario walkthroughs, findings, corrections, and verification history | [Review record](../assets/review-template.md) |
+
+Create a supporting file when its first record is needed; do not create empty logs. Reuse an accessible authoritative external record instead of copying it. In the design's Supporting Records line, link existing files or external records; mark unstarted records as `Not started`. Supporting files link back to their design and identify mode, scope, and applicable versions. Use relative local links and document-qualified IDs across overall, task, and product records. Include all existing supporting references in handoffs.
+
 Reuse a valid existing design location unless migration is requested or needed to resolve ambiguity. Keep one current file per design; do not create `technical-design-final.md` or version-suffixed copies. After an authorized move, verify affected links. Use relative references and exact source versions. In the default task directory, `../../technical-design.md` identifies the overall baseline; `technical-design.md` identifies the local design.
 
-Keep one authoritative location per decision. Task designs link shared decisions rather than copying competing versions. Split supporting designs only for substantial independent complexity or a clear boundary. Keep shared supporting designs at the change level and local evidence beside the task; link each from its owning design. Read before editing; preserve unrelated content and stable IDs. Do not create empty downstream artifacts.
+Keep one authoritative location per decision. Task designs link shared decisions rather than copying competing versions. Split additional solution designs only for substantial independent complexity or a clear boundary. Keep shared solution details at the change level and local evidence beside the task; link each from its owning design. Read before editing; preserve unrelated content and stable IDs. Do not create empty downstream artifacts.
 
 Record exact product, overall-design (task mode), and code baselines. Include relevant uncommitted changes or state `Greenfield`. If the source has no explicit version, use a stable snapshot or revision. Requirements confirmed only in conversation need stable source references and explicit approval evidence. Do not invent rules to fill a template.
 
-Use explicit artifact versions, starting at `v1`; increment for substantive changes. Retain earlier decision bases when invalidated. Revisions stay in the same file. Separate approval evidence from document and code versions.
+Use explicit artifact versions, starting at `v1`; increment for substantive changes. Revisions stay in the same file. Separate approval evidence from document and code versions.
+
+Before revising or splitting a handed-off document, preserve the exact baseline and its supporting evidence through an accessible repository revision or immutable snapshot. If a snapshot is needed, use `history/technical-design/v<n>.md` relative to that design's directory, with supporting snapshots as needed. Reuse a matching reference; never overwrite different content at the same version. Record the prior baseline, approval evidence, reason, and resulting version in the questions file's Baseline and Feedback History.
+
+When splitting an existing document, preserve record IDs, sources, states, dependencies, review attempt counts, and approval references. Verify moved content and links; retain forwarding anchors where existing references need them. Relocation changes no decision by itself. Carry forward review and approval only under the [record-only update rules](#review-and-approval-records); substantive changes still need affected review and applicable approval.
 
 ## Structure and content placement
 
 Overall mode retains the ten sections of the overall template unless the user supplies another format. They are navigation anchors, not equal-length writing assignments. A section can point to its authoritative content elsewhere; omit unused subheadings and group inapplicable areas with a brief reason.
 
-| Section                                       | Content                                                                                                                |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| 1. Purpose and Scope                          | Outcome, included Feature IDs, exclusions, source constraints, and Success Criteria                                    |
-| 2. Current System and Constraints             | Verified behavior, evidence limits, terminology, applicable architecture decisions, and relevant technical debt        |
-| 3. Behavioral Contracts                       | Shared observable behavior, product-rule coverage, and responsibility for downstream design and verification           |
-| 4. Approaches and Decisions                   | Alternatives, tradeoffs, selected approach, evidence, and rejected options                                             |
-| 5. Technical Solution                         | Module boundaries, shared interfaces, data ownership, invariants, critical flows, and downstream task design           |
-| 6. Failure Modes and Operational Requirements | Relevant security, consistency, capacity, availability, recovery, migration, and rollout constraints                   |
-| 7. Validation and TDD Strategy                | Test boundaries, critical scenarios, integration verification, candidate behavior increments, and evidence obligations |
-| 8. Premises and Open Questions                | Unknowns, assumptions, dependency and approval impact, and decisions to reopen                                         |
-| 9. Review and Approval                        | Reviewed version, findings, dispositions, coverage limits, and owner approval evidence                                 |
-| 10. Handoff to Task Breakdown                 | Baselines, ownership, dependencies, deferred decisions, and readiness for `planner`                                    |
+Both modes answer six questions at their selected depth. Use the template sections as locations, not separate copies of the same information.
 
-Task mode records task identity, versions, branch/code baseline, scope and acceptance references, implementation approach, affected code, local error handling, planned self-tests, dependencies, open decisions, review disposition, and implementation readiness. Use only the detail needed for the task. A short note can carry this information without all template headings. Do not repeat the full architecture template for routine tasks.
+| Required information | Overall location | Task location |
+| --- | --- | --- |
+| Scope, exact baselines, ownership, constraints, and acceptance references | Header; Sections 1–2 | Header; Scope and Inputs |
+| Selected approach, rationale, and consequential tradeoffs | Section 4 | Implementation Approach |
+| Boundaries, interfaces, data ownership, invariants, and critical failures | Sections 3, 5–6 | Implementation Approach |
+| Requirement coverage and meaningful verification | Sections 3, 7 | Self-Test and TDD Plan |
+| Dependencies and material uncertainty, with current impact and record links | Sections 5, 8 | Scope and Inputs; readiness summary |
+| Current review, applicable approval, readiness, and next responsibility | Sections 9–10 | Review, Questions, and Readiness |
 
-Both modes record applicable UML views or a brief omission reason under the [modeling guide](uml-modeling.md). Place overall models in Section 5, with operational views beside Section 6 when clearer; task models belong with the implementation approach. Keep sources and baseline references with the design.
+Task designs also identify affected code and local error handling. A short note can contain this information without all template headings. Reference shared decisions and priorities rather than repeating overall design.
 
-Record shared quality priorities in Section 1, tradeoffs with their decisions in Section 4, and linked acceptance scenarios in Section 7. Keep detailed operational requirements in Section 6. Task notes reference applicable priorities in their inputs and local tradeoffs with their approach. Apply the [quality goal method](design-methods.md#prioritize-quality-goals-and-resolve-tradeoffs); cross-reference existing records instead of copying their content.
+Expand only applicable fields. Add interface detail when callers need an agreement, migration and restoration detail when state changes require it, and models when existing expression leaves a material ambiguity. Assess applicable risks before omitting fields; group material omissions with a reason. Do not require a separate “Not applicable” entry for every optional field.
 
-Write plain, concise English unless the user requests another language. Follow [technical-writing](../../technical-writing/SKILL.md). Remove placeholders and instructional comments from completed artifacts. For an inapplicable area, give a short reason rather than inventing work.
+Use the [modeling guide](uml-modeling.md) when selecting or revising models. Overall views belong in Section 5 or beside operational requirements in Section 6; task views belong with the approach. Keep quality priorities in Section 1, their tradeoffs in Section 4, and scenarios in Section 7. Apply the [quality goal method](design-methods.md#prioritize-quality-goals-and-resolve-tradeoffs) when these decisions are needed.
+
+Write concise English unless the user requests another language. Follow [technical-writing](../../technical-writing/SKILL.md). Remove placeholders and instructional comments from completed artifacts.
 
 ### Keep the current design concise
 
@@ -62,12 +74,15 @@ Keep the main document focused on the decisions its reader must understand or ac
 | Content | Placement |
 | --- | --- |
 | Current decisions, shared guarantees, key models, risks, and acceptance obligations | Main design at the selected scope |
-| Investigation commands, raw responses, and probe chronology | Existing evidence record; summarize the current conclusion, impact, and limits in the design |
-| Complete reviews, walkthrough traces, and superseded decisions | Versioned review/history references; retain current disposition and material limits in the design |
+| Q records, answers, dependencies between questions, investigation detail, and validation follow-up | `technical-design-questions.md`; link existing evidence rather than copying logs |
+| Prior baselines, approval evidence, superseded decisions, and feedback dispositions | Questions file: Baseline and Feedback History; link retained revisions or snapshots |
+| Review attempts, walkthrough traces, findings, corrections, and recheck evidence | `technical-design-review.md`, or the authoritative external review record |
 | Local schemas, command syntax, parameter defaults, and detailed test cases | Responsible task design; retain early detail in overall mode only under the decision-depth rule |
 | Dispatch IDs, issue-status instructions, Git delivery steps, and one-time replies | Handoff message or delivery record; keep only durable dependencies and next responsibility in the design |
 
-Before shortening an existing document, preserve a retrievable snapshot and verify the destinations of moved content. Retain stable IDs, baseline/approval references, and links from old locations when needed. If no task exists, retain useful local sketches as clearly provisional supporting material with a downstream owner; do not create task files or imply assignment. Do not hide unresolved risks in an appendix or discard their evidence.
+Keep current assumptions, unresolved design effects, critical risks, and blocked stages/scopes visible in the main design. Link their Q or finding records beside affected content. Sections 8–9 and the task readiness summary state current impact; they do not repeat answers, review traces, or resolved findings. Apply confirmed conclusions to the solution, contracts, and verification obligations.
+
+Use the saving rules above when moving records. If no task exists, keep useful local sketches as provisional supporting material with a downstream owner; do not imply assignment. Moving a record does not remove its blocker or evidence obligation.
 
 State each rule or decision once. Elsewhere, link it and explain only the new implication. Prefer diagrams for relationships, flows, and states, and decision tables for condition/outcome combinations under the [modeling guide](uml-modeling.md). Keep rationale, constraints, and exceptions that those views cannot express clearly. Full product-rule restatements and repeated caveats add no coverage.
 
@@ -93,19 +108,13 @@ Investigate a task-level detail early only when it can change feasibility, an ar
 
 Record downstream design by feature or module, with its accountable role, constraints, required evidence, and resolution point. Group related local choices instead of listing every future parameter. Planner assigns the developer. A choice that could overturn the architecture remains an explicit risk, not a routine deferral. Apply the [stage and scope rules](#questions-and-assumptions) to missing evidence; reuse existing authorization for any required investigation.
 
-Task mode resolves its local approach against actual code and dependencies. High-risk or cross-task choices receive architect review before affected coding. Routine decisions within approved constraints need no new human gate. Architect review checks consistency; it cannot approve changes to an owner-approved baseline. Keep review identity and any self-review explicit.
+Task mode resolves its local approach against actual code and dependencies. Apply the [task readiness conditions](#task-handoff-to-code-development) for required architect review and the [status rules](#status-and-approval) for baseline changes.
 
 ### Stop overall design at planning depth
 
-Move the named scope to review and owner approval when:
+Move the named scope to review when its boundaries, interactions, shared contracts, dependencies, and integration acceptance support coherent planning. Resolve blocking architecture risks and assign remaining feature design with owners, constraints, evidence obligations, and resolution points.
 
-- Module responsibilities, main interactions, and data ownership are clear.
-- Shared contracts and dependencies support coherent task boundaries.
-- No unresolved architecture risk blocks that scope; any other blocked scope and its dependencies are explicit.
-- Remaining feature design has owners, constraints, evidence obligations, and resolution points.
-- Integration acceptance can assess the combined result against the product baseline.
-
-Do not keep the scope in `DRAFT` merely because downstream commands, schemas, algorithms, or test cases are unfinished. Review and approval are still required before planning readiness. A bounded review scope does not remove the remaining product scope or waive its acceptance conditions.
+Unfinished task internals do not keep that scope in `DRAFT`. Review and owner approval still precede [planning readiness](#overall-handoff-to-planner). Keep other blocked scope and dependencies explicit; a bounded review does not waive remaining product acceptance.
 
 ## Traceability and evidence
 
@@ -135,13 +144,15 @@ Keep these links beside the decision or claim, so a reader can follow it to the 
 
 ## Questions and assumptions
 
-Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) and [question evidence requirements](../../product-design/references/document-contract.md#question-records). This contract owns technical record placement and format. Keep technical questions in the applicable technical document, using its template; do not create product question files for technical records. Map question IDs, types, states, evidence, and history to these columns:
+Reuse the product-design [clarification protocol](../../product-design/references/discovery-methods.md#clarify-decisions-and-terms) for question types and states, and its [evidence requirements](../../product-design/references/document-contract.md#question-records). This contract owns technical placement and impact assessment; a product-level approval field does not replace technical stage/scope analysis.
 
-`Type | Statement and Impact | Evidence / Validation Status | Follow-up`
+Store full technical Q records in `technical-design-questions.md` using the [questions template](../assets/questions-template.md). Give new records stable `### Q<n>` headings; preserve existing IDs and qualify cross-document references. Link existing product or overall questions rather than copying them into a task record.
 
-Use this contract's stage and scope assessment for technical impact. A product-level approval field does not replace that assessment.
+Each record identifies its applicable version and affected decisions, statement, dependencies, answer/evidence or missing fact, blocked stage and scope with reasons, supplier/owner, required evidence, and resolution point. Keep options, tradeoffs, and recommendation for user decisions. Preserve resolved/excluded records and reopening history. Use labeled fields for detailed answers rather than dense table cells.
 
-Link existing questions to their authoritative records. Allocate new `Q<n>` IDs without collisions or qualify them by document. For each question or finding, record the missing evidence or decision and the affected rules and decisions. State the blocked stage and scope, dependency reason, supplier, and resolution point. Distinguish architecture approval, task breakdown, task design, coding, acceptance, and activation.
+For review-originated questions, link the finding in both directions. Questions own clarification; the review record owns verification of the correction. An answer or edit alone does not resolve a finding. Keep a concise impact statement and link in the main design while uncertainty affects its interpretation or readiness.
+
+Distinguish architecture approval, task breakdown, task design, coding, acceptance, and activation when assessing impact:
 
 | Unresolved item | Stage and scope to assess |
 | --- | --- |
@@ -154,7 +165,7 @@ For example, if product behavior permits missing metrics, an unknown provider fi
 
 Assess other scopes before declaring the whole change blocked. Independent work requires evidence that its inputs, interfaces, dependencies, and approvals remain valid. If independence is unknown, investigate that dependency rather than assume either global readiness or global blockage. Preserve the full product scope and all eventual acceptance obligations.
 
-Use the product contract's [assumption validation rules](../../product-design/references/document-contract.md#assumption-validation). Specify the observation, how to collect evidence, the disconfirming result, affected decisions, and owner. Keep resolved questions and reopening history. Routine authorized technical choices need no new permission; material tradeoffs beyond that authority require a decision.
+Use the product contract's [assumption validation method](../../product-design/references/document-contract.md#assumption-validation). Keep each material assumption and its current impact in the main design. Track outstanding validation as a linked fact-investigation Q in the technical questions file, with observation, collection method, disconfirming result, affected decisions, and owner. Routine authorized technical choices need no new permission; material tradeoffs beyond that authority require a decision.
 
 ## Status and approval
 
@@ -164,6 +175,8 @@ Use the product contract's [assumption validation rules](../../product-design/re
 | Both    | `IN_REVIEW` | Design content is ready for review; required review or approval is pending               |
 | Overall | `APPROVED`  | The human owner explicitly approved this exact version and named scope; cite the source and date |
 | Task    | `READY`     | Task readiness conditions below are satisfied; no new human approval is implied          |
+
+Assess blockers across the design and all applicable supporting records before stating readiness. A missing required or referenced record is an evidence gap; an unstarted file with no records to hold need not exist. Relocation or summary edits cannot close a question or finding.
 
 Record readiness separately from status. An approved overall design can still have an evidence gap that blocks affected task breakdown. For mixed scopes, name the status and approval coverage of each; never imply whole-document approval from approval of a subset. Routine downstream design does not prevent overall review or approval under the stopping conditions above.
 
@@ -177,11 +190,11 @@ If approved product behavior or shared technical decisions must change, reopen t
 
 The author owns design content. The reviewer owns the version-bound review report and finding dispositions. The human owner supplies approval; Project Manager links those records and assesses the next coordination step. A review report or approval record may be an accessible external artifact or workflow message with a stable reference, exact design revision, scope, author, and time. Preserve the evidence used if that source is revised.
 
-Section 9 and the task review record default to a compact current assessment with links to those sources. Include review scope/version, reviewer and independence, conclusion, open findings, material limits, and approval state; keep full review history in its authoritative record. Section 10 references this assessment instead of repeating it. An approval request can use the reviewed design revision plus its applicable review report; copying the report into the design is not an additional gate. Synchronize summaries during the next authorized maintenance or planning invocation without a separate record-only run.
+Section 9 and the task readiness summary contain a compact current assessment. Store review attempts, walkthrough traces, findings, and rechecks in `technical-design-review.md` using the [review template](../assets/review-template.md), or link their authoritative external records. Include review scope/version, reviewer and independence, conclusion, open findings, material limits, and approval state; keep full review history in its authoritative record. Section 10 references this assessment instead of repeating it. An approval request can use the reviewed design revision plus its applicable review report; copying the report into the design is not an additional gate. Synchronize summaries during the next authorized maintenance or planning invocation without a separate record-only run.
 
 Treat status and finding summaries in the file as a snapshot. When a later authoritative record changes them for the same revision, identify the stale summary, cite the superseding evidence, and state current readiness by scope in the handoff. Do not silently ignore contradictions. Missing, ambiguous, or inapplicable evidence blocks the dependent conclusion; a newer timestamp alone does not resolve it. Project Manager cannot close a specialist finding or grant approval.
 
-Record-only updates do not change the design's substantive version. If their Git revision changes, retain the reviewed and approved revision and verify that only records changed before carrying evidence forward. Substantive edits still require affected review and applicable approval. Reuse the existing reviewed revision when no record update is needed; never relabel old evidence as a review of new content.
+Record-only updates do not change the design's substantive version. If their Git revision changes, retain the reviewed and approved revision. Before carrying evidence forward, verify that only records or their placement changed and that the linked artifact set preserves the reviewed meaning, scope, and evidence. This includes a verified split into supporting files; relocation alone is not a new approval gate. Substantive edits still require affected review and applicable approval. Reuse the existing reviewed revision when no record update is needed; never relabel old evidence as a review of new content.
 
 ## Overall handoff to planner
 
@@ -213,13 +226,13 @@ Set `Ready for implementation: Yes` and task status `READY` only when:
 
 Output the task design and common handoff to the assigned developer using `code-development`. Include the task branch, source versions, planned verification, review disposition, and remaining nonblocking issues. Missing follow-on capability does not invalidate a ready design; report it as a delivery blocker rather than claiming implementation occurred.
 
-Apply the task's supplied reviewability policy during design. The team's [planning methods](../../planner/references/planning-methods.md#estimate-work-and-review-scope) own the Google-based scope assessment and advance-review agreement rules. Judge goal, context, footprint, behavioral risk, verification, and simplicity; line counts are descriptive. Keep related tests and necessary usage together, and separate substantial refactoring from behavior changes when feasible. Return unmanageable scope or missing review arrangements to `planner` before affected implementation; do not assign replacement tasks from this Skill.
+Apply the supplied reviewability policy using the team's [planning methods](../../planner/references/planning-methods.md#estimate-work-and-review-scope). That reference owns scope assessment and advance-review agreement. Return unmanageable scope or missing review arrangements to `planner` before affected implementation; do not assign replacement tasks here.
 
 During implementation, update task decisions when new evidence changes the approach, before dependent coding continues. Reassess affected self-tests and review. Independent code review, integration, QA, and ship approval remain downstream obligations.
 
 ## Feedback and revisions
 
-A constraint or decision request is a valid design output before a forward deliverable is complete. Every handoff contains scope/task and input versions, output references, conclusion and evidence, unresolved issues, and next function with its accountable recipient. Supply unchanged information through the [handoff reference method](../../project-manager/references/coordination-contract.md#handoff-by-reference) when applicable. State mode and readiness; do not equate completion of design work with downstream acceptance.
+A constraint or decision request is a valid design output before a forward deliverable is complete. Every handoff contains scope/task and input versions, design and existing supporting-record references, conclusion and evidence, unresolved issues, and next function with its accountable recipient. Supply unchanged information through the [handoff reference method](../../project-manager/references/coordination-contract.md#handoff-by-reference) when applicable. State mode and readiness; do not equate completion of design work with downstream acceptance.
 
 For feedback, also record a stable issue identity, affected requirements/contracts, the constraint, observations versus estimates and uncertainty, impact, alternatives and tradeoffs, and the requested decision or missing fact. Say when no alternative is known. Without a supplied cost or complexity limit, request a tradeoff decision instead of inventing a threshold or declaring impossibility.
 
