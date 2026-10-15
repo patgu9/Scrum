@@ -1,54 +1,41 @@
 ---
 name: product-design
-description: Explore vague product ideas through deep interviews. Define value, scope, and behavior through evidence, decisions, and concrete examples. Create or revise an English Design Doc in the Think stage before implementation. Use for product discovery and requirements, not visual styling or implementation planning.
+description: Explore product needs, choose opportunities and scope, define success, and specify behavior with examples. Create or revise an English Design Doc in the Think stage. Use for product discovery and requirements, not visual styling or implementation planning.
 ---
 
 # Product Design
 
-Help the user decide what is worth building and how the product should behave. Produce a concise Design Doc in the Think stage. Keep questions, dependencies between questions, and review history in separate supporting documents. Code, scaffolding, tickets, and implementation require a separate request.
+Help the user decide what is worth building and how it should behave. Stop at product discovery and design unless downstream work is separately requested.
 
-Read linked reference sections when the corresponding step applies. Reuse unchanged guidance already read. For a completed design, review the full document against all applicable criteria.
+## Working references
+
+Read only the sections needed for the current step. Each reference has one responsibility:
+
+| Reference | Use for |
+| --- | --- |
+| [Discovery and decisions](references/discovery-methods.md) | Interviews, clarification, opportunity selection, tradeoffs, validation, and feedback |
+| [Document contract](references/document-contract.md) | Output placement, evidence records, versions, approval, and handoffs |
+| [Product review](references/adversarial-review.md) | Review scope, checks, findings, and the bounded review loop |
+| [Design](assets/design-doc-template.md), [questions](assets/questions-template.md), [review record](assets/review-template.md) | Output layouts; create supporting files only when needed |
 
 ## 1. Establish context
 
-Read project instructions, terminology, and evidence of current behavior. A repository is optional. Reuse the user's answers and investigate available facts. Keep current behavior, user intent, and evidence of demand distinct.
+Read project instructions, terminology, current behavior, and relevant designs. A repository is optional. Check the contract's [inputs and route](references/document-contract.md#inputs-and-invocation-context); distinguish approved baselines, superseded proposals, and unresolved drafts.
 
-For existing work, find the current task and related designs under `doc/`. Separate approved decisions, superseded proposals, and unresolved drafts. Report conflicts that affect scope. Approval applies to the version the user approved.
+Choose [Startup](references/discovery-methods.md#startup) for customer or adoption goals, or [Builder](references/discovery-methods.md#builder) for personal, learning, or creative goals. Ask only if the distinction remains material and unclear. For feedback on existing work, use [baseline revision](references/discovery-methods.md#revisit-a-product-baseline).
 
-Choose [Startup](references/discovery-methods.md#startup) for customer or adoption goals, or [Builder](references/discovery-methods.md#builder) for personal, learning, or creative goals. Read the applicable guidance. Ask only if the mode affects the work and remains unclear.
+## 2. Discover and decide
 
-For a vague idea, use [deep discovery interviews](references/discovery-methods.md#deep-discovery-interviews) before offering approaches or defining scope. Reuse established context and answers.
+Use [interviews](references/discovery-methods.md#deep-discovery-interviews) when the need is unclear and the [clarification protocol](references/discovery-methods.md#clarify-decisions-and-terms) for unresolved facts and decisions. Reuse established answers and draft as discovery progresses.
 
-Check the contract's [inputs and invocation context](references/document-contract.md#inputs-and-invocation-context). For downstream feedback, follow [revisit a product baseline](references/discovery-methods.md#revisit-a-product-baseline) before revising the design.
+Connect the [selected opportunity and behavioral impact](references/discovery-methods.md#opportunity-selection-and-impact-mapping) to the goal. Define [observable success](references/discovery-methods.md#outcomes-and-metrics), then [compare approaches](references/discovery-methods.md#compare-approaches) and refine scope with Occam's Razor. Use strategy, prioritization, adoption, or validation guidance only when it can affect the decision.
 
-Apply [Technical Writing](../technical-writing/SKILL.md) to product documents, review reports, feedback responses, and handoff summaries.
+## 3. Specify and save
 
-## 2. Track decisions and dependencies
+Use [Specification by Example](references/discovery-methods.md#specification-by-example) to establish rules and distinguishing cases. Follow the document contract and selected templates. Keep current conclusions and material uncertainty in the design; put question and review history in supporting records.
 
-Follow the [clarification protocol](references/discovery-methods.md#clarify-decisions-and-terms) to distinguish exploration questions, fact investigations, and user decisions. Use [content placement](references/document-contract.md#content-placement) to record findings. Read [question fields](references/document-contract.md#question-records) when tracking questions and [assumption validation](references/document-contract.md#assumption-validation) when recording material assumptions.
+Apply [Technical Writing](../technical-writing/SKILL.md). For revisions, preserve the baseline and approval evidence under the contract before changing handed-off content.
 
-Draft as discovery progresses. New findings can change the problem, value, scope, approaches, or examples. In steps 3–5, use the clarification protocol for new questions before continuing work that depends on the answers.
+## 4. Review and deliver
 
-## 3. Connect value to scope
-
-Use [Impact Mapping](references/discovery-methods.md#impact-mapping) to establish the goal, actors, and intended change in behavior before choosing deliverables.
-
-Follow [approach comparison](references/discovery-methods.md#compare-approaches) to compare ways to achieve that goal. Apply [Occam's Razor](references/discovery-methods.md#occams-razor) when recommending a direction and refining the smallest useful scope. Obtain or reuse the user's direction under the clarification protocol.
-
-Trace each retained Feature to the impact map. Record scope, the user journey, and costs of future changes in the contract's [assigned locations](references/document-contract.md#content-placement).
-
-## 4. Specify Features
-
-Read [the template](assets/design-doc-template.md) and [structure rules](references/document-contract.md#structure) before defining Features. Use the user's replacement template when requested.
-
-Use [Specification by Example](references/discovery-methods.md#specification-by-example) to clarify behavior with the user. Record rules and examples under the contract's [Feature rules](references/document-contract.md#feature-rules).
-
-## 5. Review and deliver
-
-Save the Design Doc and needed supporting records using the contract's [saving rules](references/document-contract.md#saving). Keep current product conclusions and material uncertainty visible in the design; link detailed question and review records. For revisions, apply [version and approval evidence rules](references/document-contract.md#versions-and-approval-evidence).
-
-Before delivery, use [Document Review](../document-review/SKILL.md) to validate the structure, content, and evidence of product documents, review reports, feedback responses, and handoff summaries. Keep the review within the [product review boundary](references/document-contract.md#product-review-boundary). Apply the contract's [structural requirements](references/document-contract.md#structural-validation) and [final review](references/document-contract.md#final-review) within that review.
-
-Follow [adversarial review](references/adversarial-review.md). Then apply the contract's [status and approval rules](references/document-contract.md#status-and-approval).
-
-Use the contract's [handoff summary](references/document-contract.md#handoff-summary) for delivery, approval requests, feedback, and blocked work. During ongoing discovery, follow its clarification-reply rules.
+Follow [Product review](references/adversarial-review.md), then the contract's [status and approval rules](references/document-contract.md#status-and-approval). Deliver its [handoff summary](references/document-contract.md#handoff-summary). During discovery, continue the clarification loop instead of issuing a full handoff after each answer.

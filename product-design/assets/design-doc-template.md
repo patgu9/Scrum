@@ -27,14 +27,14 @@
 
 #### Problem Statement
 
-$State the actor, situation, and problem or aspiration first. Explain the desired outcome and any relevant workflow, workaround, and consequences. Include the context readers need to assess the design.$
+$State the actor, target segment, situation, and selected unmet need or aspiration. Explain the desired outcome and any relevant workflow, workaround, and consequences. Include the context readers need to assess this choice.$
 
 - **Evidence:** $Describe reported experience, observations, or data. Link sources. Distinguish stated intent and agent inference. Mark hypothetical cases and missing evidence.$
 - **Constraints (optional):** $State time, resource, platform, or business limits that affect the decision.$
 
 #### What Makes This Cool
 
-$Describe the value compared with the current approach. For Startup: concrete benefits. For Builder: an experience worth trying.$
+$Describe the value compared with actual alternatives, including the current approach. For Startup: concrete benefits and relevant differentiation. For Builder: an experience worth trying. Mark untested claims.$
 
 ### Solution Design
 
@@ -51,7 +51,7 @@ $Describe the value compared with the current approach. For Startup: concrete be
 
 #### Recommended Approach
 
-**Recommendation:** $Name the chosen approach. Explain why it serves the goal and justify retained complexity. If the decision is unresolved, mark it as pending.$
+**Recommendation:** $Name the chosen approach. Explain why it serves the goal, the relevant strategic tradeoff, and retained complexity. If the decision is unresolved, mark it as pending.$
 
 **How It Works:** $Number the workflow steps. For each step, name the actor, action, and result. Include the trigger, handoffs between actors, how the product reaches users, and shared dependencies where relevant. Link SC and Feature IDs to show how the workflow serves the goal.$
 
@@ -72,6 +72,8 @@ $State only current premises, material assumptions, and limits needed to underst
 | SC1 | $State the outcome and pass condition. For quantitative goals: metric definition, baseline, target, and units. Link TBDs to open questions$ | $State the observed population, time window, and verification method. Explain how to obtain missing baselines$ |
 
 <!-- Builder may use an observable task or demonstration instead of numerical targets. -->
+
+<!-- Apply the contract's Success Criteria rules. Define rate denominators, measurement units, and relevant cohorts. Add SC rows for material guardrails. Distinguish value from proxies and correlation from causal evidence. Do not invent baselines or targets. -->
 
 ### Requirements
 

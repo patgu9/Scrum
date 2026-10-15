@@ -1,216 +1,160 @@
-# Discovery methods
+# Discovery and decision methods
 
-Choose Startup or Builder from the user's goal. Ask the user to choose only if the distinction affects the work and remains unclear. Use the mode and unresolved questions to guide discovery. The questions below are prompts, not a required questionnaire. Follow the [Technical Writing Skill](../../technical-writing/SKILL.md) for wording and presentation.
-
-## Conversation rules
-
-Use the [clarification protocol](#clarify-decisions-and-terms) to select questions, pace each round, and retain unanswered questions.
+Use the sections needed for the current decision. Methods do not add required stages or documents. The [document contract](document-contract.md) owns output fields, evidence records, and approval.
 
 ## Startup
 
-Use Startup for products seeking customers or internal projects that need adoption and support.
+Use Startup for products seeking customers or internal projects needing adoption. Establish the actor, task, desired outcome, current workaround, and consequences. Separate the idea owner's expectations from target-user evidence.
 
-| Area | Establish |
-|-----|-----|
-| Demand and actor | Identify the role and task. Look for observed behavior, commitments, or costs. Interest and signups do not prove willingness to pay. Demand is unknown without customer evidence. |
-| Workaround | Describe the current workflow, its cost, failures, and people who influence adoption. Include manual work and doing nothing. |
-| Smallest scope | Define one valuable outcome. For internal projects, concrete adoption or resource commitments may replace payment evidence. |
-| Observation | Observe use without coaching. Look for results that contradict the assumptions. Distinguish observation from demos and surveys. |
-| Future relevance | Identify changes that could increase or reduce value. Consider the organization's ability to adapt and continue operating when relevant. Mark uncertainty. |
+- **No users:** Investigate the need, current alternatives, and access to the intended audience.
+- **Users:** Investigate first value, repeated use, and barriers to adoption.
+- **Paying customers:** Investigate scope, retention, viability, and changes that could affect future value.
+- **Infrastructure:** Start with the workflow and one narrow improvement. Internal adoption or resource commitments can replace payment evidence.
 
-Choose the discovery focus from the available evidence:
-
-- **No users:** Prioritize demand, workaround, and actor.
-- **Users:** Prioritize workaround, scope, and observation.
-- **Paying customers:** Prioritize scope, observation, and future relevance.
-- **Infrastructure:** Start with the workflow and a narrow improvement.
-
-Avoid unnecessary personal information.
+Use [strategy and positioning](#strategy-and-positioning) when the audience or advantage is unclear. Use [adoption and viability](#adoption-and-viability) when usage or payment falls short.
 
 ## Builder
 
-Use Builder for personal tools, learning, research, open-source exploration, demos, and creative work. Completion, enjoyment, and learning are valid goals.
+Use Builder for personal tools, learning, research, open-source exploration, demos, and creative work. Completion, enjoyment, and learning are valid outcomes.
 
-- What would be exciting to use or show?
-- Who would try it, and what would they do?
-- What is the fastest route to a usable result?
-- Which existing tool is closest, and what difference matters?
-- What unexpected use could the capability enable?
-
-Explore an unexpected use without adding it to scope by default. Do not require revenue metrics or customer interviews for a personal tool.
+Establish who would try it, what would be useful or exciting, the closest existing alternative, and the smallest usable result. Explore unexpected uses without adding them to scope by default. Do not require customer interviews, market positioning, revenue, or product-market fit surveys for personal work.
 
 ## Deep discovery interviews
 
-Use this path when the user's situation, desired outcome, or reason for an idea remains unclear. Explore the problem or aspiration before asking the user to choose a solution. Reuse specific answers already supplied.
+Use this when the situation, desired outcome, or reason for an idea is unclear. Reuse supplied answers before asking more questions.
 
-### Start with a specific story
+Start with a recent event: “What happened that led you to this idea?” Follow its trigger, goal, actions, difficulty, workaround, and result. Ask what happened next. Return broad claims such as “often” to a concrete case. Explore a contrasting case when useful.
 
-Use [story-based interviews](https://www.producttalk.org/customer-interviews/) to discover needs from a concrete experience. Ask: “What happened recently that led you to this idea?” Follow the event from its trigger to its result.
+Ask what completing the task would enable. Explore functional, emotional, or social needs only where relevant. When switching approaches matters, investigate what pushed the change, what attracted the user, what caused concern, and what favored staying. More functionality can add anxiety; a simpler transition may solve the problem.
 
-| Explore | Example prompt |
-|-----|-----|
-| Situation and goal | What were you trying to accomplish then? |
-| Actions | Walk me through what you did next. |
-| Difficulty | What, if anything, got in the way? |
-| Workaround | How did you handle it? |
-| Consequence | What effect did that have on the result or the people involved? |
-| Contrast | Tell me about a similar time when it went well. |
+Keep questions neutral. Ask about past actions, costs, and commitments before presenting an idea. Praise, predicted use, and stated interest do not establish demand. Where access permits, observe a real task without coaching when accounts conflict or the workflow is hard to describe. Otherwise reconstruct it and retain that limit. Avoid unnecessary personal information.
 
-After each answer, follow the most useful gap, contradiction, workaround, or unexpected detail. Return broad claims such as “often” or “frustrating” to a specific event. For a Feature request, ask about the situation that prompted it.
+If no relevant event exists, explore the inspiration, related experience, and intended trial. Mark future scenarios as hypothetical; do not invent a pain point for creative work.
 
-If no relevant event exists, explore the inspiration, a related experience, and the result the user wants to try. Learning and creative work need no invented pain point. Mark future scenarios as hypothetical and identify a trial that could supply evidence.
-
-### Understand the progress sought
-
-Use [Jobs to Be Done](https://www.christenseninstitute.org/theory/jobs-to-be-done/) to connect circumstances to desired progress. Ask what completing the task would enable. Explore functional, emotional, or social needs when they affect the outcome. Do not require all three.
-
-If the user sought or adopted a new approach, reconstruct that change. Explore what made the old approach inadequate, what attracted the user, what caused concern, and what favored staying. Keep the user's account separate from your explanation of it.
-
-### Keep questions neutral
-
-Apply [The Mom Test](https://www.momtestbook.com/) throughout exploration to reduce biased feedback. Ask about specific actions, attempts, costs, and commitments before presenting your idea. For example, ask “How did you find the material last time?” before discussing automatic tags.
-
-Explore aspirations, but distinguish them from past behavior. Praise, stated interest, and predicted use do not establish demand. Do not embed your preferred answer in an exploration question.
-
-### Observe when words are insufficient
-
-Use [contextual inquiry](https://www.nngroup.com/articles/contextual-inquiry/) when the user cannot explain a workflow or accounts conflict. Where access permits, ask the user to demonstrate a real task with current tools or materials. Follow observed actions with neutral questions. If direct observation is unavailable, reconstruct the task and retain that evidence limit.
-
-### Form and challenge a need hypothesis
-
-Summarize the situation, current approach, obstacle or aspiration, consequence, and desired outcome. Cite the supporting account or observation. Ask the user to correct your interpretation. Seek a contrasting case where relevant and revise the hypothesis if it does not explain that case.
-
-Before comparing approaches, clarify the situation and desired outcome. Record remaining hypotheses and validation actions. Pause comparisons that depend on missing answers; continue independent work through the clarification protocol. For a new experience, use the related context and proposed trial. Do not impose an interview quota.
-
-User confirmation establishes shared understanding, not validated demand. For products serving others, distinguish the idea owner's expectations from target-user evidence. Record findings and hypotheses in the contract's [assigned locations](document-contract.md#content-placement).
+Summarize the circumstances, current approach, obstacle or aspiration, consequence, and desired outcome. Separate the user's account from your interpretation and ask for corrections. Clarify these before comparing solutions that depend on them. Record remaining hypotheses and validation actions. User confirmation establishes shared understanding, not demand. Do not impose an interview quota.
 
 ## Clarify decisions and terms
 
-Use this protocol during discovery, specification, and review. New findings may require revisiting the problem definition. The document contract defines [where to record questions](document-contract.md#content-placement) and [when the document can be approved](document-contract.md#status-and-approval).
+Use this protocol throughout discovery, specification, and review. Read existing domain guidance such as `CONTEXT.md` or `CONTEXT-MAP.md`. Verify current behavior from available files or code and distinguish it from desired behavior. Report conflicting meanings.
 
-Read existing domain guidance, including `CONTEXT.md` or `CONTEXT-MAP.md` when present. Report conflicting meanings instead of replacing established terms. Use code to verify current behavior when available. Record current and desired behavior separately.
-
-Distinguish these question types:
-
-| Type | Purpose and response |
-|-----|-----|
-| `Exploration question` | Discover experiences, motives, and needs through open, neutral follow-up. |
-| `Fact to investigate` | Verify a specific claim with source evidence. Request user-held evidence when needed. |
-| `User decision` | Obtain a choice or authorization after explaining the tradeoffs. |
-
-Use these question states. Question states describe individual questions; document Status describes the Design Doc as a whole.
+| Question type | Purpose |
+| --- | --- |
+| `Exploration question` | Understand experiences, motives, and needs through neutral follow-up |
+| `Fact to investigate` | Verify a claim with available evidence or request missing evidence |
+| `User decision` | Obtain a choice or authorization after explaining tradeoffs |
 
 | State | Meaning |
-|-----|-----|
-| `OPEN` | The question is unresolved. |
-| `INVESTIGATING` | You are gathering facts. |
-| `WAITING` | You asked the question and are waiting for the user's answer. |
-| `RESOLVED` | The user's account answers an exploration question, evidence supports an investigated fact, or the user authorized a decision. |
-| `UNKNOWN` | Evidence is unavailable, or the user answered “I don't know” or “skip.” |
-| `EXCLUDED` | The user agreed to remove the affected scope. |
+| --- | --- |
+| `OPEN` | Unresolved |
+| `INVESTIGATING` | Gathering facts |
+| `WAITING` | Asked and awaiting the user's answer |
+| `RESOLVED` | Answered by the user's account, supported evidence, or an authorized decision, as applicable |
+| `UNKNOWN` | Evidence unavailable, or the user answered “I don't know” or “skip” |
+| `EXCLUDED` | The user agreed to remove the affected scope |
 
-Follow this loop as evidence and decisions change:
+1. **Record:** Give each material unresolved inquiry a stable `Q<n>` ID using the contract's [question fields](document-contract.md#question-records). Keep follow-up on that inquiry under its ID. Create a new ID for a distinct question. Never renumber or reuse IDs; retain resolved and excluded records.
+2. **Investigate:** Gather available facts before requesting decisions. Track unfinished investigations as prerequisites. Pause dependent work and continue independent work. Use interviews for experiences that files cannot establish.
+3. **Select:** Update conditional dependencies after new evidence or scope changes. Ask only questions with resolved prerequisites that are not already `WAITING`. Ask one by default, at most three mutually independent questions per round. Wait for answers before another round. If a waiting question becomes irrelevant, record why without marking it answered.
+4. **Ask:** Use open, neutral prompts for exploration and request specific evidence for facts. For decisions, explain the choice, impact, options, tradeoffs, recommendation, and reason. Reuse explicit authorization within its scope; otherwise wait for the user's choice. Mark asked questions `WAITING`.
+5. **Resolve:** Record the answer, basis, and evidence. Resolve only sufficiently answered questions. Retain partial answers and reopen their remaining gaps; leave unanswered questions `WAITING`. Set reopened questions to `OPEN`. Recommendations, silence, and unanswered options are not decisions.
+6. **Handle unknowns:** Use `UNKNOWN` when evidence is unavailable or the user skips. Record the needed evidence and propose validation or scope exclusion. Keep dependent content pending. Skipping does not exclude scope or accept a recommendation; `EXCLUDED` requires the user's agreement.
+7. **Apply:** Update affected terms, scope, Success Criteria, Features, rules, and examples. Keep pending effects visible with Q links. When a decision changes, preserve its prior answer and reason, reopen affected decisions, and retain others only after checking their basis.
+8. **Finish:** Check waiting answers, unknowns, unfinished investigations, and dependency cycles. An empty queue does not establish readiness. Break cycles through the governing decision or missing fact. Apply the contract's [status rules](document-contract.md#status-and-approval).
 
-1. **Record questions and dependencies.** Give each material unresolved question a stable `Q<n>` ID. Never renumber or reuse a question ID. Use a question type from the table above. Keep follow-up on the same inquiry under its Q ID; create a new ID for a distinct unresolved question.
+Use counterexamples to clarify ambiguous terms. For “sharing,” establish the audience before deciding link expiry. Investigating existing membership can proceed independently. Editing separate domain documents or architecture decision records requires a separate request.
 
-   Use the contract's [question fields](document-contract.md#question-records) in `product-design-questions.md`. List dependencies on other questions or unfinished investigations. State when a dependency applies only to a particular approach. Keep resolved and excluded records so readers can trace later changes.
+## Opportunity selection and impact mapping
 
-2. **Set the question state.** A recommendation, silence, or an unanswered option does not resolve a question. When you reopen a question, set its state to `OPEN`. Keep the previous answer and the reason for reopening.
+Compare unmet needs before selecting solutions. Consider the affected segment, consequence, frequency when known, workaround, and relation to the goal. Retain contrary cases and sampling limits. “I cannot tell which request needs attention” is a need; “add a dashboard” is a solution.
 
-   If evidence is unavailable or the user answers “I don't know” or “skip,” use `UNKNOWN`. Record the needed evidence and propose a validation step or ask whether to exclude the affected scope. Skipping does not exclude scope or accept a recommendation. Keep dependent content pending and link its Q ID.
+For each retained Feature, connect **goal → actor → behavioral impact → deliverable**. Use the selected need to explain why that behavior should change. Compare alternative deliverables and identify their assumptions. Mark unsupported causal links as hypotheses and justify dependencies. Include actors who help or hinder the outcome, even without User Stories.
 
-3. **Investigate facts before asking for a decision.** Inspect available project files and code. Use available tools to gather facts. Record unfinished investigations as unresolved prerequisites. Pause work that depends on those investigations. Continue independent decisions and drafting.
+Example hypothesis: `SC1: shorten approval turnaround → approver → reviews pending requests daily → F1: pending-request digest`. A change in team practice could be another solution. One compact map is enough; do not create separate diagrams for equivalent relationships.
 
-   Use interviews for experiences and needs that project files cannot establish. Follow [deep discovery interviews](#deep-discovery-interviews) when the problem remains unclear.
+## Strategy and positioning
 
-4. **Choose the next questions.** Update conditional dependencies after new evidence, an answer, or a scope change. Consider unresolved exploration, evidence needs, and decisions relevant to the current inquiry or scope. Ask a question only when its prerequisites are resolved and its state is not `WAITING`. Prioritize what would clarify the need or allow dependent work.
+Use this for a new product, segment, or material change in direction. Reuse an established strategy when it still applies.
 
-   Ask one question by default. Ask at most three mutually independent questions in one round. Keep the other questions for later. Do not start another round while answers are pending. Continue independent investigation and drafting.
+Explain **who benefits, which need matters, what the alternatives are, and why this approach should produce the outcome**. Include manual work and no purchase among relevant alternatives. Translate distinctive capabilities into value, then identify who values those differences most. Choose a market category only when it helps that audience understand the value.
 
-   If a new direction or scope change makes a waiting question irrelevant, record the reason. Do not mark that question as answered.
-
-5. **Ask according to the question type.** For exploration, ask an open question tied to the user's account. For a fact investigation, request the missing evidence without inventing options. Briefly explain the purpose when needed.
-
-   For a user decision, state what needs a choice, why it matters now, and which content it affects. Present the main options and tradeoffs. Give your recommendation and reason. Exploration and fact investigations need no option comparison or recommendation.
-
-   For decisions, reuse a prior explicit choice or authorization within its scope. Otherwise wait for the user's choice. Never record your recommendation as a confirmed rule.
-
-6. **Record partial answers and uncertainty.** Set asked questions to `WAITING`. Resolve only answered questions with a sufficient basis. If an answer leaves material gaps, retain it and set the question to `OPEN` for follow-up. Keep unanswered questions in `WAITING`. Apply step 2 to unknown answers or unavailable evidence.
-
-7. **Apply answers and changes.** Save each answer with its basis and source in the questions file. Update dependencies. Apply confirmed conclusions to the Design Doc's terms, scope, Success Criteria, Features, rules, and examples. Keep unresolved product effects visible there with links to Q records; do not copy the answer history.
-
-   If an earlier decision changes, mark content based on that decision for review. Reopen only affected dependent decisions. Keep a dependent decision resolved only after checking that its basis still holds. Preserve unaffected decisions. Add new questions to this loop.
-
-8. **Check blockers and finish discovery.** An empty question queue does not prove that clarification is complete. Check unfinished investigations, waiting answers, unknowns, and cycles in question dependencies. Report the blocker and next action. Break a cycle by clarifying the decision that governs the dependent questions or investigating the unknown fact. Do not resolve a question without a basis.
-
-   When discovery is complete, apply the contract's [status and approval rules](document-contract.md#status-and-approval). Set `APPROVED` only from explicit human approval of the current version.
-
-Use concrete counterexamples to clarify ambiguous claims and terms. For example, “sharing” may mean a public link or a workspace invitation. Decide the audience and access rules before invitation expiry. Independent questions can proceed.
-
-Once the sharing need is understood, a hypothetical research-sharing design might have these dependencies:
-
-| Question | Purpose | Dependency |
-|-----|-----|-----|
-| Q1 | Choose the audience. | None. |
-| Q2 | Investigate existing organization membership. | None. |
-| Q3 | Decide who can change access. | Q1. Also Q2 if access is limited to organization members. |
-| Q4 | Decide link expiry. | Relevant only if the selected approach uses links. |
-
-Ask Q1 while investigating Q2. After the audience decision, reassess the remaining questions.
-
-Record conclusions using the contract's [content placement](document-contract.md#content-placement). Editing separate domain documents or architecture decision records (ADRs) requires a separate request.
-
-## Revisit a product baseline
-
-Use this path when engineering, planning, development, review, QA, or Ops returns evidence that challenges product value, scope, behavior, or acceptance criteria.
-
-1. **Check the return.** Apply the contract's [input checks](document-contract.md#inputs-and-invocation-context). Retain the feedback identity, originating function, affected baseline and rules, constraint, evidence, estimates and uncertainty, impact, alternatives, and requested decision or missing fact. State when alternatives are unknown. Request missing evidence through the established handoff route.
-2. **Reconsider the product decision.** Investigate facts through the clarification loop. Apply [approach comparison](#compare-approaches) to reassess ways to preserve the user goal within the discovered constraints. Keep proven limits separate from estimates and unknowns; do not invent a budget or threshold. Return non-product corrections to their owner through the caller's route.
-3. **Deliver a response.** Provide a revised proposal, a request for evidence, or reasons why the current decision still applies. Include alternatives, tradeoffs, changed rules and examples where applicable, and affected downstream references. Apply the contract's [version rules](document-contract.md#versions-and-approval-evidence) and [handoff summary](document-contract.md#handoff-summary), even when no revision is ready.
-4. **Keep the loop explicit.** Use the contract's [established route](document-contract.md#inputs-and-invocation-context). For team feedback, supply product evidence under [feedback and resumption](../../project-manager/references/feedback-and-resumption.md), which owns tracking, reassessment, resumption, and closure. For standalone feedback, request a decision when the same baseline recurs without new evidence or a viable alternative. State attempts, options, consequences, and missing facts. Keep the issue open until supported resolution or an explicit decision to defer or stop; report deferred or stopped scope as undelivered.
-
-An unchanged decision or revised product approval does not establish feasibility or resolve the originating constraint. Preserve prior decisions and unaffected scope through the clarification protocol and input checks.
+State what will not receive resources and why. For commercial products, consider customer benefit, durable advantage, and economic viability. Make conflicts between growth, experience quality, and monetization explicit. A feature list or target alone does not explain strategy. Keep company-wide strategy and roadmap work outside the change unless requested.
 
 ## Compare approaches
 
-For an initial direction, compare at least two meaningful ways to achieve the same user goal. Start with differences in the user journey, trigger, or how users receive value. For example, a trend-monitoring tool might offer active search, a periodic digest, or alerts triggered by events. Choose alternatives relevant to the actual goal.
+For an initial direction, compare at least two meaningful ways to achieve the same goal. Start with differences in the journey, trigger, or delivery of value. Include doing nothing, manual work, and existing solutions where relevant. Compare technical options only when they materially affect product behavior, constraints, or feasibility.
 
-For a revision, read the existing comparison and decision basis. Reuse them when they still apply, and retain the comparison in Approaches Considered. Reopen only the affected comparison when changes to goals, scope, constraints, or evidence could change the choice. A wording correction or detail within the agreed direction does not require new alternatives. If no usable comparison exists, complete the initial comparison; do not reconstruct it from the chosen direction alone.
+For revisions, reuse the existing comparison and basis while they remain valid. Reopen only choices affected by changes to goals, scope, constraints, or evidence. A wording correction or detail within the agreed direction needs no new alternatives. If no usable comparison exists, complete one; do not reconstruct it from the selected direction alone.
 
-Consider doing nothing, manual workflows, and existing solutions when they could meet the goal. Apply [Occam's Razor](#occams-razor) to the alternatives before recommending an approach. Record the comparison in the contract's [assigned location](document-contract.md#content-placement). State uncertainty in estimates. Resolve the direction through the clarification protocol, reusing prior choices within their scope.
+Apply [Occam's Razor](#occams-razor), state estimate uncertainty, and resolve the choice through the clarification protocol. Then refine the smallest useful scope and explain relevant future change costs.
 
-After choosing a direction, use the same principle to refine the smallest useful scope. Explain the cost and complexity of future changes. Compare technical alternatives only when they materially affect product behavior, constraints, or feasibility. Include only the detail needed for that decision.
+### Prioritization
+
+When opportunities or Features compete for resources, compare outcome contribution, reach, evidence, effort, dependencies, and displaced work. Keep impact separate from confidence. Executive conviction and competitor behavior are not strong customer evidence.
+
+Prefer qualitative comparison unless scores improve the decision. For scores, use compatible units and time windows, show the basis and uncertainty, and respect required constraints. Investigate shortlisted choices more deeply when evidence could change the ranking. Check whether plausible input changes reverse it. Request effort or feasibility evidence from its owner; do not invent precision or write an engineering specification to support a score. Delivery task prioritization remains downstream work.
 
 ## Occam's Razor
 
-Apply the [principle of parsimony](https://plato.stanford.edu/entries/simplicity/) during approach comparison and scope refinement. First assess coverage of the agreed user outcomes and constraints. When coverage, evidence, and risk are comparable, prefer fewer assumptions and less product complexity. Otherwise explain the tradeoff.
+First assess coverage of agreed outcomes and constraints. When coverage, evidence, and risk are comparable, prefer fewer assumptions, concepts, steps, exceptions, and dependencies. For each addition, identify the outcome or constraint it supports. Propose removing or deferring unsupported additions through the clarification protocol.
 
-- For each added Feature, concept, workflow step, exception, or dependency, ask: “Which user outcome or constraint does this support?” Propose removing or deferring additions without a supported purpose.
-- Preserve necessary behavior, failure handling, and correction paths. Fewer Features or steps do not help if the user outcome suffers.
-- Do not add scope solely for speculative future needs. State the benefit, cost, and reason when recommending a more complex approach.
-- Keep untested causal links as hypotheses with validation actions. Neither simplicity nor missing evidence establishes their truth or lack of value. Investigate conflicting evidence.
+Preserve necessary behavior, failure handling, and correction paths. Do not add scope solely for speculative future needs. Explain any retained complexity. Missing evidence does not prove a need has no value; investigate conflicting evidence and retain untested causal links as hypotheses.
 
-Record rationale and agreed exclusions in the contract's [assigned locations](document-contract.md#content-placement). Resolve scope changes through the clarification protocol.
+## Risk and validation
 
-## Impact Mapping
+Distinguish value, usability, feasibility, and organizational viability. Choose the assumption whose failure would most change the decision, considering uncertainty, consequence, and cost to learn. Match the method to the uncertainty:
 
-Start with **goal → actor → behavioral impact**, then [compare possible deliverables](#compare-approaches). Behavioral impact means the intended change in what an actor does. For each proposed Feature, complete **goal → actor → behavioral impact → deliverable**. Mark unsupported causal links as hypotheses. Justify dependencies. Example hypothesis:
+| Uncertainty | Candidate method | Evidence limit |
+| --- | --- | --- |
+| Need or switching motive | Recent-event interview or workflow observation | Does not establish prevalence, purchase, or causal impact |
+| Comprehension or usability | Observed task with a prototype | Does not establish sustained adoption or production feasibility |
+| Value or buyer commitment | Manual trial, pilot, or purchase discussion | Does not establish repeatable market demand |
+| Behavioral impact at sufficient scale | Controlled experiment | Applies to the measured population and window |
+| Sparse usage or new experience | Trial with explicit success and failure cases | Does not establish a precise causal effect |
+| Feasibility or operating constraint | Evidence request to the responsible specialist | Does not establish product approval or implementation authority |
 
-`SC1: shorten approval turnaround → approver → reviews pending requests daily → F1: pending-request digest`
+Use the [assumption validation fields](document-contract.md#assumption-validation). Choose an observation that can challenge the assumption and distinguish relevant alternative explanations. Define what supports continuation, revision, or stopping. Keep inconclusive results unresolved.
 
-A dashboard is a deliverable. Noticing stalled requests is a behavioral impact. A change in team practice may achieve the same result. Record the links and hypotheses in the contract's assigned locations. Include actors who help or hinder the outcome, even if they have no User Stories.
+For a proposed A/B test, establish the decision, eligible population, comparison, outcome, guardrails, and time to useful evidence. Request statistical design and instrumentation checks from the responsible specialist. Do not claim a win from repeated significance checks or unresolved allocation problems. If traffic, time, or a suitable comparison is missing, propose another method and state its limits.
+
+Research effort should match risk. Planning a trial does not authorize building, launching, charging, or contacting participants.
+
+## Outcomes and metrics
+
+Select measures that represent delivered value. Distinguish user outcomes, business results, leading indicators, and guardrails. A guardrail is an outcome that must not worsen beyond an agreed limit. Add one when improving the main measure could materially harm another outcome or constraint. A single North Star metric is optional. Use the contract's [Success Criteria fields](document-contract.md#success-criteria).
+
+For activation, identify first meaningful value rather than setup alone. Separate individual and team adoption. A milestone correlated with retention does not establish that increasing it causes retention.
+
+For retention, define the qualifying action, cohort, measurement unit, return interval, and observation window. Separate users from paying accounts and distinguish exact-period from return-on-or-after measures. Check cohort maturity. Match the cadence to the real task; a monthly need does not imply daily use.
+
+Check whether short-term improvement hides later harm or differences between segments. Choose metrics from the value and business mechanism, not another company's benchmarks. Use an observable trial for Builder goals.
+
+## Adoption and viability
+
+When adoption, growth, retention, or payment matters, describe how users discover the product, reach first value, and return when the need recurs. Identify the buyer, purchase decision, and support or operating burden where relevant. Distinguish sales-assisted and self-service paths. Locate the constraint before adding acquisition or engagement Features.
+
+For products with meaningful usage, a product-market fit (PMF) survey can identify users who depend on the main benefit. Compare feedback by benefit and context. Investigate barriers for users who value that benefit but struggle to obtain it. Do not discard safety, accessibility, or contractual needs from other users.
+
+Treat surveys as leading signals, with respondent eligibility, sample size, and selection bias. Compare them with repeat use, retention, and payment. Do not infer PMF from people who have never used the product or from a universal survey cutoff.
+
+For early B2B work, distinguish one successful account, willingness to pay, actual payment, repeat use, and success across independent accounts. Keep pricing and packaging as hypotheses where they affect adoption. A paid pilot does not prove a repeatable market. Campaign execution and sales operations remain outside this Skill.
 
 ## Specification by Example
 
-Use concrete cases to discover and refine rules with the user. Keep cases that distinguish one behavior from another.
+Use concrete cases to discover rules. For an agreed limit of 10 entries, compare adding an entry when the count is 9 and when it is 10. Record the resulting count and what stays unchanged on rejection. Do not choose the limit yourself.
 
-For a confirmed limit of 10 entries, examine these cases:
+For “prevent duplicates,” compare `https://example.com/a` with `https://example.com/a/`. Establish equality before choosing normalization. Keep cases that distinguish behavior; use repeated examples to find shared rules before adding exceptions. Return need or scope conflicts to clarification. The contract owns [Feature rules and example format](document-contract.md#feature-rules).
 
-- Add an entry when the count is 9.
-- Add an entry when the count is 10.
+### AI product behavior
 
-Record the final count in each case. If the action is rejected, record what stays unchanged. Do not choose the limit yourself.
+When model variability affects outcomes, define representative tasks, input variation, unacceptable results, and observable recovery or user control. Request evaluation evidence before making quality promises; a successful demo is insufficient. Reassess when the model, context, or task population changes. Leave evaluation infrastructure and model implementation to their owners.
 
-For “prevent duplicates,” compare `https://example.com/a` with `https://example.com/a/`. Ask what makes two entries equal before defining how to normalize them.
+## Revisit a product baseline
 
-Use repeated examples to examine shared rules before adding concepts or exceptions. Apply [Occam's Razor](#occams-razor) while preserving cases that distinguish outcomes. If a case challenges the need or scope, return to the clarification protocol. Record rules and examples under the contract's [Feature rules](document-contract.md#feature-rules). Examples alone do not prove agreement or validate a need hypothesis.
+Use this when downstream feedback or observed results challenge value, scope, behavior, or acceptance. Product intuition may not transfer when the audience changes.
+
+1. **Check inputs:** Apply the contract's [input rules](document-contract.md#inputs-and-invocation-context). Retain feedback identity, origin, baseline and affected IDs, evidence, constraint, impact, estimates and uncertainty, alternatives, and requested decision. State missing facts and unknown alternatives.
+2. **Reassess:** Compare observed results with intended outcomes, guardrails, and disconfirming results. Examine segment differences and alternative explanations. Use clarification and approach comparison for affected choices; preserve unaffected decisions after checking their basis. Return non-product corrections to their owner.
+3. **Respond:** Provide a revised proposal, an evidence request, or reasons the current choice still applies. Include tradeoffs, affected rules, examples, and downstream references. Apply the contract's version and handoff rules, even when no revision is ready.
+4. **Route:** Use the caller's established route. In team work, [Project Manager](../../project-manager/references/feedback-and-resumption.md) owns tracking, reassessment, resumption, and closure. In standalone work, request a decision if the same baseline recurs without new evidence or a viable alternative. State attempts, options, consequences, and missing facts. Keep the issue open until supported resolution or explicit deferral or stop; deferred or stopped scope remains undelivered.
+
+An unchanged decision or revised product approval does not establish feasibility or resolve the originating constraint. Ongoing learning does not authorize experiments, scheduled research, or process changes.

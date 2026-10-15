@@ -1,6 +1,6 @@
 # Design Doc contract
 
-This contract defines the Design Doc's structure, content, saving, review requirements, and approval. Use the [template](../assets/design-doc-template.md) for the output format. Follow the [skill entrypoint](../SKILL.md) for the workflow, [Technical Writing](../../technical-writing/SKILL.md) for writing, and [Document Review](../../document-review/SKILL.md) for validation.
+This contract owns output placement, records, versions, approval, and handoffs. The [template](../assets/design-doc-template.md) owns document layout; [discovery methods](discovery-methods.md) own product decisions; [review guidance](adversarial-review.md) owns validation.
 
 ## Inputs and invocation context
 
@@ -75,17 +75,18 @@ Use tables by default for comparable cases. If narrative examples are clearer, u
 
 | Content | Location |
 |-----|-----|
-| Problem, actors, situation, current workflow, workaround, consequences, desired outcome, demand, and sources | Problem Statement and Evidence |
+| Problem, actors, target segment, selected unmet need, current workflow, workaround, consequences, desired outcome, demand, and sources | Problem Statement and Evidence |
+| Value relative to actual alternatives, including the status quo; relevant differentiation and its evidence limits | What Makes This Cool |
 | Defined terms and their boundaries | Glossary |
 | Ways to achieve the same goal. Benefits, drawbacks, effort (S/M/L/XL), risk (Low/Medium/High), reuse, and reasons for rejecting an approach | Approaches Considered |
-| Selected approach, reason, and justification for retained complexity, or a choice marked as pending | Recommendation |
+| Selected approach, strategic tradeoff, reason, and justification for retained complexity, or a choice marked as pending | Recommendation |
 | Goal → actor → behavioral impact → deliverable links. Trigger, handoffs between actors, outcome, how the product reaches users, and shared dependencies | How It Works, including diagrams |
 | Initial audience, smallest useful outcome, included Features, exclusions, and costs of future changes where relevant | Scope |
 | Current premises, material assumptions, product limits, and unresolved effects on scope or behavior | Design Doc: Assumptions and Limits; also mark affected rules or outcomes pending |
 | Q records, question dependencies, answers, decision sources, validation plans, and follow-up | `product-design-questions.md`: Questions and Decisions |
 | Prior product baselines and approvals, reasons for revision, and downstream feedback dispositions | `product-design-questions.md`: Baseline and Feedback History |
 | Review attempts, findings, remedies, corrections, resolution evidence, and incomplete coverage | `product-design-review.md` |
-| Outcome and verification method. For quantitative goals: baseline, target, units, population, and time window | Success Criteria |
+| Outcome, material guardrails, and verification method. For quantitative goals: baseline, target, units, population, and time window | Success Criteria |
 | Value → role → action, SC links, rules, and acceptance examples | Feature blocks |
 | One action and observable result. For Startup: validate demand or a critical assumption. For Builder: try a usable outcome | Next Action |
 
@@ -95,19 +96,11 @@ Use Assumptions and Limits for concise statements that affect how readers interp
 
 ### Question records
 
-Store records from the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) in `product-design-questions.md`. Use the [questions template](../assets/questions-template.md). Give each question a `### Q<n>` heading so links such as `product-design-questions.md#q3` remain stable. Use labeled fields rather than dense table cells for long answers.
+Use the [questions template](../assets/questions-template.md) for record fields and the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) for types, states, and transitions. Give each question a stable `### Q<n>` heading. Identify the applicable version, affected IDs, conditional dependencies, and approval impact.
 
-- **Type and State:** Use `Exploration question`, `Fact to investigate`, or `User decision`, and a state from the clarification protocol.
-- **Applies to:** Identify the design version and affected sections or IDs. Link an originating review finding when applicable.
-- **Statement and Impact:** State the question, its impact, and affected IDs or fields. Give `Depends on: Q1, Q2` or `None`. Include any conditions on those dependencies. Add `Blocks approval: Yes / No` and the reason.
-- **Evidence / Validation Status:** Start with the answer or finding, its basis, and source. Use `Pending` or `Unknown` when the answer or evidence is missing. For user decisions, also record the main options, tradeoffs, recommendation, and reason. Exploration and fact investigations need no option comparison.
+Record the answer or finding before its basis and evidence. Cite the user turn, file, or tool result. Distinguish reported experience, observation, stated intent, inference, and hypothetical cases. Agreement does not establish demand or validate a factual assumption. Decisions also retain options, tradeoffs, recommendation, and reason.
 
-  Cite the conversation turn or quote the user's answer. Support investigated facts with source evidence, including files or tool results when used. Distinguish reported experience, direct observation, stated intent, and agent inference. Mark hypothetical scenarios. Agreement does not prove a factual assumption or target-user demand.
-
-- **Follow-up:** Give the next investigation, clarification, or validation action. State the required evidence, affected content awaiting review, and an owner when needed. For `EXCLUDED`, record the user's agreement to exclude the scope. Use `None` only when no follow-up remains.
-- **History:** For a reopened question, retain prior answers, sources, applicable versions, and the reason for reopening. Otherwise use `None`.
-
-Keep resolved and excluded records, their IDs, and the basis for each state in the questions file. Link Q IDs beside pending or disputed design content. For a review-originated question, link its finding; the question owns clarification and the review record owns verification of the correction. Neither an answer nor an edit alone resolves a review finding. The clarification protocol governs question states and transitions. [Status and approval](#status-and-approval) governs the document Status.
+Keep resolved and excluded records. Retain prior answers and reasons when reopening a question. For a review-originated question, link the finding in both directions. Apply confirmed conclusions to the design; link Q IDs beside pending content. An answer does not resolve a review finding without verification under the [review rules](adversarial-review.md#record-and-approval).
 
 ### Assumption validation
 
@@ -118,6 +111,16 @@ Keep each material assumption and its current product impact in Assumptions and 
 3. Link relevant Success Criteria for measurement context. Do not repeat that context in these fields.
 
 Next Action identifies one concrete validation or trial step. It need not cover every assumption. Approval does not remove outstanding validation work.
+
+Use [risk and validation](discovery-methods.md#risk-and-validation) to select the observation method and interpret its limits.
+
+### Success Criteria
+
+Each criterion records an outcome, pass condition, and measurement context in the template's SC table. Use separate rows for material guardrails.
+
+For each quantitative criterion, define the metric, baseline, target, units, population, time window, and verification method. Define the numerator and denominator for rates. Identify the measurement unit, such as user or account, and relevant cohort or segment. Keep comparison definitions consistent. Link unknown values to Q records and state how to obtain them; never copy a benchmark into a target without an applicable basis and decision.
+
+Use [outcomes and metrics](discovery-methods.md#outcomes-and-metrics) to select measures and assess their limits. Builder may use a concrete task or demonstration instead of a business metric. Acceptance examples specify behavior; they do not prove an outcome improved.
 
 ## Versions and approval evidence
 
@@ -172,44 +175,3 @@ For a feedback response, include the content required by [revisit a product base
 ## Document language
 
 Write the Design Doc and its supporting records in English using [Technical Writing](../../technical-writing/SKILL.md). Follow [content placement](#content-placement). Include reader prerequisites in Problem Statement or Glossary when needed for understanding. Keep conversation progress updates outside the documents.
-
-## Product review boundary
-
-Review user goals, value, product behavior, and observable results. Walk through the user journey, including relevant failures and corrections. State each product finding's effect on those outcomes. Stop when the behavior and acceptance criteria are clear enough to assess; leave implementation choices open.
-
-Describe what users can choose, see, and rely on. For example, define whether merging events changes tracking and what users see after a failed delivery. Leave schemas, transactions, locks, epochs, storage, API protocols, and process isolation to the Architect using `technical-design`.
-
-Route implementation questions through the caller's established handoff. Retain their IDs, needed evidence, owner, and affected technical stage. Split mixed findings into the product consequence and technical follow-up. Missing implementation details alone do not block product approval.
-
-A technical constraint can block product approval when concrete evidence shows that the promised behavior cannot be supported within the stated product constraints. Identify the affected promise, evidence, and required product decision. An unverified mechanism alone does not establish that conflict. Keep feasibility assumptions visible for technical assessment; product approval does not close them.
-
-## Final review
-
-Use Document Review to apply these product-specific checks within the [product review boundary](#product-review-boundary):
-
-1. **Value and scope:** Make sure a reader can understand the document without the conversation. Check the problem, evidence, actors, and intended change in behavior. Check the smallest useful outcome, alternatives for the same goal, uncertainty in estimates, and the user's chosen approach. Mark hypotheses. Distinguish current from desired behavior.
-
-   Check the basis and unresolved validation of need hypotheses from [deep discovery interviews](discovery-methods.md#deep-discovery-interviews). Include relevant contrasts or, for a new experience, related context and a proposed trial.
-
-   Check the approach and scope rationale against [Occam's Razor](discovery-methods.md#occams-razor), including the purpose of retained complexity and coverage of outcomes and constraints.
-2. **Journey and language:** Check terms, triggers, handoffs between actors, dependencies, how the product reaches users, and outcomes across Features. Complete the Technical Writing Skill's [editing passes](../../technical-writing/references/writing-guide.md#edit-in-separate-passes).
-3. **Verifiable behavior:** Link each User Story to valid Success Criteria. Link every defined rule to concrete examples. Check units, boundaries, exceptions, and what stays unchanged.
-
-   For quantitative goals, check metric definitions and measurement context. Explain how to obtain missing baselines. Builder may use a qualitative demonstration.
-
-   For each important assumption, check what to observe and how to collect observations. Check which result would not support the assumption and which decisions to reopen. Examples of intended behavior alone do not validate assumptions.
-4. **Decisions and approval:** Read the Design Doc and existing questions and review files. Check question records, sources for resolved answers, dependencies, unanswered questions, review findings, and content awaiting review. Check that confirmed conclusions reached the design and unresolved product effects remain visible there. An empty question queue does not prove that approval blockers are resolved. Apply [Status and approval](#status-and-approval) across these files.
-5. **Completion:** Check that Next Action is concrete, the handoff summary identifies valid inputs and the next recipient, and the work stays within the entrypoint's scope. For revisions, check retained baselines, current approval evidence, and feedback disposition.
-
-## Structural validation
-
-Use [Document Review](../../document-review/SKILL.md) and its shared [validation method](../../document-review/references/validation-guide.md) for structural validation. Review the document directly against this contract and the applicable template:
-
-1. **Format:** Heading order, metadata values, required labels, table headers and complete rows, and populated sections. Remove template placeholders and instructional comments. Apply the user's replacement template when supplied.
-2. **Identifiers and coverage:** Unique, stable Success Criteria, Feature, Rule, and Example IDs. Each User Story links to defined Success Criteria. Each example links to valid rules and contains Given, When, and Then. Every defined rule has an example.
-3. **Supporting records and status:** Check relative file and anchor links, stable Q and finding IDs, question states, dependencies, TBD links, and explicit approval blockers. Check review attempts, reviewed revisions, finding history, and incomplete coverage. Ensure the Design Doc contains no full Q or review logs. Check consistency with the [clarification protocol](discovery-methods.md#clarify-decisions-and-terms) and [status rules](#status-and-approval).
-4. **Versions and handoff:** Current Version and Approval fields, retained baselines and accessible approval evidence, and required handoff-summary fields. Apply [versions and approval evidence](#versions-and-approval-evidence) and [handoff summary](#handoff-summary).
-
-Complete [final review](#final-review) to assess the content behind these fields and references. Correct structural defects without changing decisions.
-
-A structurally valid DRAFT may contain pending behavior or TBDs linked to questions. If even a provisional Feature would require invented content, save an incomplete DRAFT. Report the structural requirements that remain unmet. Never invent content to pass validation.
